@@ -16,7 +16,7 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 			viewport: "width=device-width, initial-scale=1.0"
 		})
 		+openGraph({
-			type: "website",
+			type: "website", 
 			siteName: info.siteName,
 			title: info.title,
 			description: info.description,
@@ -90,27 +90,27 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 									}, {
 										name: "Магазины",
 										href: "/shops.html",
-										linkClass: "link link-black icon-shop",
+										linkClass: "link link-black link-red-bottom icon-shop",
 									}, {
 										name: "Развлечения",
 										href: "/education.html",
-										linkClass: "link link-black",
+										linkClass: "link link-black link-red-bottom",
 									}, {
 										name: "Сервис",
 										href: "#",
-										linkClass: "link link-black",
+										linkClass: "link link-black link-red-bottom",
 									}, {
 										name: "Схема комплекса",
 										href: "/scheme.html",
-										linkClass: "link link-black",
+										linkClass: "link link-black link-red-bottom",
 									}, {
 										name: "Акции",
 										href: "/shares.html",
-										linkClass: "link link-gray",
+										linkClass: "link link-gray link-blue-bottom",
 									}, {
 										name: "Журнал",
 										href: "/journal.html",
-										linkClass: "link link-gray",
+										linkClass: "link link-gray link-blue-bottom",
 									}
 								]
 							})
@@ -127,6 +127,8 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 					
 				div(class="header-row header-row--bottom")
 					div(class="page-inner")
+						a(href="/home.html", class="header-logo")
+							img(src="../dummy/logo.png", class="header-logo-img")
 				
 				
 				
@@ -138,8 +140,17 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 
 
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
-
-
+			div(class="page-inner")
+				div(class="footer-row")
+					div(class="footer-infomation")
+						span(class="footer-development") Дизайн и разработка сайта - 
+						a(href="#", class="link link-black link-bold link-black-bottom") Ruformat.ru
+						span(class="footer-organization") Идеология и контент - ЗАО "ТК Горизонт"
+					div(class="footer-social")
+						span(class="footer-social-text") Мы с социальных сетях:
+						a(href="#", class="icon-facebook")
+						a(href="#", class="icon-facebook")
+						a(href="#", class="icon-facebook")
 		+addJS([
 			{
 				src: "http://code.jquery.com/jquery-1.11.3.min.js"

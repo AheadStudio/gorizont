@@ -12,9 +12,16 @@ em
 	font-style normal
 	font-weight normal
 
+
 /*-- variables --*/
+
+cubic-transition = cubic-bezier(0.25, 0.46, 0.45, 0.94)
 color-gray = #969aa3
+
+color-black-hover =  rgba(#000000, 0.6)
 /*-- //variables --*/
+
+
 /*** //Settings ***/
 
 
@@ -43,24 +50,24 @@ body
 	width 100%
 	height 250px
 
-	padding 30px 0
+	padding 20px 0 30px 0
 	box-sizing border-box
 
 	.header-row--top
-		margin-bottom 20px
+		margin-bottom 15px
 
 	.header-row
 		.header-col
 			float left
 			box-sizing border-box
 			&--1
-				width 30%
+				width 28%
 			&--2
-				width 70%
+				width 72%
 
 		.header-contacts
 			display flex
-			padding 5px 0
+			padding 15px 0
 
 			.header-contacts-phone,
 			.header-contacts-location
@@ -80,9 +87,16 @@ body
 						color color-gray
 
 			.header-contacts-location
+				text-align right
 				.header-location-link
 					.header-location-link-text
 						font-weight bold
+
+		.header-logo
+			display flex
+
+			.header-logo-img
+				margin 0 auto
 
 
 /** main menu**/
@@ -92,15 +106,16 @@ body
 	display block
 
 	.header-menu-inner
-		padding 5px 0
 		.header-menu-item-holder
 			display inline-block
 
-			&:first-child
-				padding-left: 0
+			padding 15px 10px
+
+			border 1px solid transparent
+			box-sizing border-box
 
 			.header-menu-item
-				padding 15px 10px
+				padding 5px 0
 
 				.header-menu-item-name
 					font-weight bold
@@ -108,11 +123,10 @@ body
 
 
 		.hovered
-			.header-menu-item
-				box-sizing border-box
+			box-sizing border-box
 
-				border 1px solid color-gray
-				border-bottom-color transparent
+			border 1px solid color-gray
+			border-bottom-color transparent
 
 			.header-menu-level1
 				box-sizing border-box
@@ -133,27 +147,75 @@ body
 	box-sizing border-box
 	width 118px
 
-	transition background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+	transition background-color 0.5s cubic-transition
 
 	.header-menu-level1-inner
-		padding 10px
 		position relative
+
+		padding 10px
 		overflow hidden
 		opacity 0
+
 		transform translateY(20px)
-		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+		transition transform 0.5s cubic-transition, opacity 0.5s cubic-transition
 
 
 	&-item-holder
 		padding 10px 0
+
 		a
 			text-decoration none
 			color #000
 
-			transition all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+			transition all 0.5s cubic-transition
 			&:hover
 				opacity 0.5
+
+/** //main menu **/
+
 /*** //HEADER STYLES ***/
+
+/*** FOOTER STYLES ***/
+.page-footer
+	width 100%
+	height 80px
+
+	background #fff
+
+	.page-inner
+		height 100%
+
+	.footer-row
+		display flex
+		align-items center
+
+		height 100%
+		padding 0 10px
+
+		.footer-infomation
+			width 60%
+			margin-right 4%
+
+			.footer-development
+				font-size 14px
+
+			a
+				font-weight 600
+				font-size 14px
+
+				text-transform uppercase
+				margin-right 35px
+
+			.footer-organization
+				font-size 14px
+
+		.footer-social
+			width 40%
+			text-align right
+
+			.footer-social-text
+				font-size 14px
+/*** //FOOTER STYLES ***/
 
 
 
@@ -168,17 +230,66 @@ body
 /*** COMMON STYLES***/
 .link
 	text-decoration none
+
 .link-black
 	color #000
+
+.link-black-bottom
+	border-bottom 2px solid transparent
+	transition border-bottom-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+	&:hover
+		border-bottom-color #000
+
+.link-black-inverse
+	border-bottom 2px solid #000
+	transition border-bottom-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+	&:hover
+		border-bottom-color transparent
+
 .link-gray
 	color color-gray
 
+.link-bold
+	font-weight bold
+
+.link-red
+	color #ee4784
+
+.link-red-bottom
+	border-bottom 2px solid transparent
+	transition border-bottom-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+	&:hover
+		border-bottom-color #ee4784
+
+.link-red-inverse
+	border-bottom 2px solid #ee4784
+	transition border-bottom-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+	&:hover
+		border-bottom-color transparent
+
+.link-blue
+	color #a23f97
+
+.link-blue-bottom
+	border-bottom 2px solid transparent
+	transition border-bottom-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+	&:hover
+		border-bottom-color #a23f97
+
+.link-blue-inverse
+	border-bottom 2px solid #a23f97
+	transition border-bottom-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+	&:hover
+		border-bottom-color transparent
+
 .page-inner
 	clearfix()
+	width 100%
+
+	max-width 1100px
+
 	margin 0 auto
 	box-sizing border-box
-	width 100%
-	max-width 1200px
 
 
 /*** //COMMON STYLES***/
@@ -188,9 +299,3 @@ body
 /*** MAIN STYLES***/
 
 /*** //MAIN STYLES***/
-
-
-
-/*** FOOTER STYLES ***/
-
-/*** //FOOTER STYLES ***/
