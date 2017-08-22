@@ -1,0 +1,196 @@
+/*** Settings ***/
+@import "nib"
+@import "../lib/css/css"
+
+global-reset();
+reset-html5();
+form-reset();
+b
+strong
+i
+em
+	font-style normal
+	font-weight normal
+
+/*-- variables --*/
+color-gray = #969aa3
+/*-- //variables --*/
+/*** //Settings ***/
+
+
+/*** Fonts ***/
+@font-face
+	font-family "GothaProMed"
+	src url("../fonts/GothaProMed.otf") format("otf")
+/*** //Fonts ***/
+
+html
+
+body
+	min-height 100%
+
+	line-height 1
+
+	color #000
+	cursor default
+
+	font-family "GothaProMed", sans-serif
+
+
+
+/*** HEADER STYLES ***/
+.page-header
+	width 100%
+	height 250px
+
+	padding 30px 0
+	box-sizing border-box
+
+	.header-row--top
+		margin-bottom 20px
+
+	.header-row
+		.header-col
+			float left
+			box-sizing border-box
+			&--1
+				width 30%
+			&--2
+				width 70%
+
+		.header-contacts
+			display flex
+			padding 5px 0
+
+			.header-contacts-phone,
+			.header-contacts-location
+				width 50%
+
+			.header-contacts-phone
+				.header-phone-link
+					font-weight bold
+
+					.header-phone-note
+						margin-top 4px
+
+						font-size 12px
+						font-weight normal
+
+						text-transform lowercase
+						color color-gray
+
+			.header-contacts-location
+				.header-location-link
+					.header-location-link-text
+						font-weight bold
+
+
+/** main menu**/
+.header-menu
+	position relative
+	width 100%
+	display block
+
+	.header-menu-inner
+		padding 5px 0
+		.header-menu-item-holder
+			display inline-block
+
+			&:first-child
+				padding-left: 0
+
+			.header-menu-item
+				padding 15px 10px
+
+				.header-menu-item-name
+					font-weight bold
+					font-size 16px
+
+
+		.hovered
+			.header-menu-item
+				box-sizing border-box
+
+				border 1px solid color-gray
+				border-bottom-color transparent
+
+			.header-menu-level1
+				box-sizing border-box
+
+				border 1px solid color-gray
+				border-top-color transparent
+
+
+				.header-menu-level1-inner
+					opacity 1
+					filter none
+					transform translateY(0)
+
+.header-menu-level1
+	position absolute
+	left 0
+	display none
+	box-sizing border-box
+	width 118px
+
+	transition background-color 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+	.header-menu-level1-inner
+		padding 10px
+		position relative
+		overflow hidden
+		opacity 0
+		transform translateY(20px)
+		transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+
+	&-item-holder
+		padding 10px 0
+		a
+			text-decoration none
+			color #000
+
+			transition all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+			&:hover
+				opacity 0.5
+/*** //HEADER STYLES ***/
+
+
+
+
+
+
+
+
+
+
+
+/*** COMMON STYLES***/
+.link
+	text-decoration none
+.link-black
+	color #000
+.link-gray
+	color color-gray
+
+.page-inner
+	clearfix()
+	margin 0 auto
+	box-sizing border-box
+	width 100%
+	max-width 1200px
+
+
+/*** //COMMON STYLES***/
+
+
+
+/*** MAIN STYLES***/
+
+/*** //MAIN STYLES***/
+
+
+
+/*** FOOTER STYLES ***/
+
+/*** //FOOTER STYLES ***/

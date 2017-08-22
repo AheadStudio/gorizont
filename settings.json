@@ -1,0 +1,131 @@
+{
+	"info": {
+		"name": "Горизонт",
+		"code": "gorizont",
+		"year": "2017",
+		"notes": "Сайт ТРК Горизонт",
+		"productionUrl": "http://wemakesites.ru/projects/gorizont/",
+		"siteName": "gorizont",
+		"title": "Сайт ТРК Горизонт",
+		"description": "",
+		"keywords": "",
+		"image": "/i/og.jpg"
+	},
+	"customer": {
+        "name": "Александр",
+        "company": "GoodCode",
+        "email": "akiricovich@gmail.com",
+        "removeCopyrights": true
+	},
+	"ftp": {
+		"host": "wemakesites.ru",
+		"login": "wemakesites",
+		"password": "wemakesites-root"
+	},
+	"pages": {
+		"home": {
+			"name": "Главная",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"shops": {
+			"name": "Магазины",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"shops_detail": {
+			"name": "Карточка магазина",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"shares": {
+			"name": "Акции",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"shares_detail": {
+			"name": "Страница акции",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"gallery": {
+			"name": "Галерея",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"contacts": {
+			"name": "Контакты",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"concept": {
+			"name": "Концепция",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"scheme": {
+			"name": "Схема комплекса",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"about": {
+			"name": "О горизонте",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"journal": {
+			"name": "Журнал",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"search_result": {
+			"name": "Результаты поиска",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
+		"page404": {
+			"name": "404",
+			"progress": {
+				"desktop": "0",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		}
+	}
+}
