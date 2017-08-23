@@ -27,8 +27,24 @@ color-black-hover =  rgba(#000000, 0.6)
 
 /*** Fonts ***/
 @font-face
-	font-family "GothaProMed"
-	src url("../fonts/GothaProMed.otf") format("otf")
+	font-family "GothamProBlack"
+	src url("../fonts/GothamProBlack.woff") format("woff")
+
+@font-face
+	font-family "GothamProBold"
+	src url("../fonts/GothamProBold.woff") format("woff")
+
+@font-face
+	font-family "GothamProLight"
+	src url("../fonts/GothamProLight.woff") format("woff")
+
+@font-face
+	font-family "GothamProMedium"
+	src url("../fonts/GothamProMedium.woff") format("woff")
+
+@font-face
+	font-family "GothamProRegular"
+	src url("../fonts/GothamProRegular.woff") format("woff")
 /*** //Fonts ***/
 
 html
@@ -38,10 +54,10 @@ body
 
 	line-height 1
 
-	color #000
+	color #333333
 	cursor default
 
-	font-family "GothaProMed", sans-serif
+	font-family "GothamProLight", sans-serif
 
 
 
@@ -114,11 +130,12 @@ body
 			border 1px solid transparent
 			box-sizing border-box
 
+			font-family GothamProMedium
+
 			.header-menu-item
 				padding 5px 0
 
 				.header-menu-item-name
-					font-weight bold
 					font-size 16px
 
 
@@ -145,7 +162,7 @@ body
 	left 0
 	display none
 	box-sizing border-box
-	width 118px
+	width 125px
 
 	transition background-color 0.5s cubic-transition
 
@@ -162,6 +179,8 @@ body
 
 	&-item-holder
 		padding 10px 0
+
+		font-family GothamProRegular
 
 		a
 			text-decoration none
@@ -192,8 +211,10 @@ body
 		height 100%
 		padding 0 10px
 
+		font-family GothamProRegular
+
 		.footer-infomation
-			width 60%
+			width 70%
 			margin-right 4%
 
 			.footer-development
@@ -217,16 +238,6 @@ body
 				font-size 14px
 /*** //FOOTER STYLES ***/
 
-
-
-
-
-
-
-
-
-
-
 /*** COMMON STYLES***/
 .link
 	text-decoration none
@@ -249,6 +260,8 @@ body
 .link-gray
 	color color-gray
 
+.link-dark-gray
+	color #333333
 .link-bold
 	font-weight bold
 
@@ -286,7 +299,7 @@ body
 	clearfix()
 	width 100%
 
-	max-width 1100px
+	max-width 1150px
 
 	margin 0 auto
 	box-sizing border-box
@@ -295,6 +308,11 @@ body
 		padding 0 10px
 		margin-bottom 55px
 
+.page-text
+	p
+		font-size 16px
+		margin-bottom 60px
+		line-height 2
 /*** //COMMON STYLES***/
 
 
@@ -307,26 +325,165 @@ body
 
 	text-transform uppercase
 
-.news
+	font-family GothamProMedium
+
+	&--big
+		font-size 70px
+
+		letter-spacing inherit
+
+		text-transform inherit
+
+
+/*** shares ***/
+.shares
 	width 100%
 
-	.news-list-row
-		clearfix()
+	margin-top 60px
 
-		.news-item
+	.shares-load-more
+		width 100%
+
+		.shares-load-more-btn
+			display block
+
+			width 300px
+			margin 0 auto
+
+			padding 20px 0
+
+			background #e83b7d
+
+			text-align center
+
+			color #fff
+	.shares-list-row
+		clearfix()
+		margin-bottom 70px
+
+		.shares-item
 			display inline-block
 			float left
 
-			width 25%
+			width 28%
 
-			margin-right 5%
+			margin-right 8%
 
 			&:last-child
 				margin-right 0%
 
+			.shares-item-heading
+				margin-bottom 25px
+
+			.shares-item-content
+				width 100%
+				.shares-item-content-title
+					position relative
+
+					width 100%
+
+					margin-bottom 25px
+
+
+					&--bold
+						span
+							font-size 34px
+							font-weight 600
+
+							font-family GothamProBold
+
+					&--light
+						span
+							font-size 24px
+
+					&:after
+						content ""
+
+						position absolute
+						left 50%
+						top 0
+
+						width 50%
+						height 110%
+
+						background #fecc00
+
+						opacity 0
+
+						transition opacity 0.5s cubic-transition, transform 0.5s cubic-transition
+
+						z-index -10
+
+					&:before
+						content ""
+						position absolute
+
+						opacity 0
+						right 0
+						top 0
+
+						transition opacity 0.5s cubic-transition, transform 0.5s cubic-transition
+
+
+				.shares-item-content-text
+					width 100%
+					margin-bottom 20px
+
+				.shares-item-content-shop
+					width 100%
+					margin-bottom 20px
+
+					font-family GothamProMedium
+					font-weight bold
+
+				.shares-item-content-tag
+					display inline-block
+					padding 8px
+
+					background #a24098
+					color #fff
+
+					text-transform lowercase
+
+					font-weight 100
+
+			&:hover
+				.shares-item-content-title:after,.shares-item-content-title:before
+					opacity 1
+					transform translateX(10%)
+/*** //shares ***/
+
+
+/*** shares-detail ***/
+
+.shares-detail
+	display block
+	width 82%
+
+	.shares-detail-info
+		margin-top 15px
+
+		font-size 16px
+
+	.shares-detail-shop
+		margin-top 15px
+
+		font-weight bold
+		font-size 16px
+		font-family GothamProMedium
+	.shares-detail-social
+		margin-top 35px
+		.shares-detail-social-text
+			font-size 16px
+
+	.shares-detail-img
+		margin-top 60px
+		margin-bottom 100px
 
 
 
 
+
+/*** //shares-detail ***/
 
 /*** //MAIN STYLES***/
