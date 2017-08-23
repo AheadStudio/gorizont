@@ -110,6 +110,7 @@ body
 
 		.header-logo
 			display flex
+			justify-content center
 
 			.header-logo-img
 				margin 0 auto
@@ -305,7 +306,7 @@ body
 	box-sizing border-box
 
 	&--indents
-		padding 0 10px
+		padding-left 10px
 		margin-bottom 55px
 
 .page-text
@@ -313,6 +314,28 @@ body
 		font-size 16px
 		margin-bottom 60px
 		line-height 2
+
+.load-more
+	width 100%
+
+	.load-more-btn
+		display block
+
+		width 300px
+		margin 0 auto
+
+		padding 20px 0
+
+		background #e83b7d
+
+		text-align center
+
+		color #fff
+		transition opacity 0.5s cubic-transition
+
+		&:hover
+			opacity 0.8
+
 /*** //COMMON STYLES***/
 
 
@@ -341,22 +364,6 @@ body
 
 	margin-top 60px
 
-	.shares-load-more
-		width 100%
-
-		.shares-load-more-btn
-			display block
-
-			width 300px
-			margin 0 auto
-
-			padding 20px 0
-
-			background #e83b7d
-
-			text-align center
-
-			color #fff
 	.shares-list-row
 		clearfix()
 		margin-bottom 70px
@@ -481,9 +488,127 @@ body
 		margin-bottom 100px
 
 
+.simular-shares
+	display block
+	width 100%
 
+	margin-top 150px
+
+	h2
+		margin-bottom 80px
+		font-size 20px
+		font-family GothamProRegular
+
+	.simular-shares-items
+		display block
+		clearfix()
+
+		.simular-shares-item
+			float left
+			width 30%
+
+			margin-right 5%
+
+			&:last-child
+				margin-right 0
+
+			.simular-shares-item-heading
+				margin-bottom 20px
+
+			.simular-shares-item-content
+				&-title
+					font-size 34px
+					margin-bottom 25px
+				&-text
+					margin-bottom 15px
+				&-shop
+					font-family GothamProMedium
 
 
 /*** //shares-detail ***/
+
+/*** journal ***/
+
+.journal
+	position relative
+
+	display block
+
+	.journal-information
+		width: 400px
+
+		margin 0 auto
+		margin-top 50px
+		margin-bottom 70px
+
+		line-height 2
+
+		font-size 16px
+		text-align center
+
+	.journal-row
+		display block
+		margin-bottom: 100px
+
+		.journal-row-year
+			display block
+
+			font-size 32px
+
+			text-align center
+
+			margin-bottom 50px
+
+		.journal-items
+			display flex
+			justify-content space-between
+
+	.load-more
+		.load-more-btn
+			width 150px
+
+	.search
+		position absolute
+		right 0
+		top -50px
+
+		width 320px
+
+		.search-item
+			width 100%
+			padding 5px 0 16px 0
+			border-bottom 2px solid #cccccc
+
+			&::-webkit-input-placeholder
+				font-size 14px
+				font-family GothamProRegular
+				font-weight: 500
+				color #333333
+
+				opacity 1
+
+				transition opacity .2s cubic-transition, transform .1s cubic-transition
+
+			&:focus
+				border-bottom 1px solid #cccccc
+
+				&::-webkit-input-placeholder
+					opacity 0
+					transform translateY(10px)
+
+		.search-submit
+			position absolute
+			top 0
+			right 0
+
+			width 30px
+
+			height 100%
+
+			background #ccc
+
+/*** //journal ***/
+
+
 
 /*** //MAIN STYLES***/

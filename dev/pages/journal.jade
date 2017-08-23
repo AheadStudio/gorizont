@@ -1,0 +1,29 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--indents")
+        h1(class="page-heading") Журнал
+        div(class="journal")
+            div(class="search")
+                form(action="/search.html")
+                    input(type="text", class="search-item", placeholder="Поиск магазина")
+                    button(type="submit", title="Найти", class="search-submit")
+                        span(class="icon-search-loupe-inner")
+            div(class="journal-information") Для удобства на сайте размещен полный архив номеров нашего журнала, свежие экземпляры которого есть в ТРЦ &#171Горизонт&#187
+            div(class="journal-row")
+                div(class="journal-row-year") 2017
+                div(class="journal-items")
+                    img(src="../dummy/Life_style_1.jpg", class="journal-item")
+                    img(src="../dummy/Life_style_2.jpg", class="journal-item")
+                    img(src="../dummy/Life_style_3.jpg", class="journal-item")
+                    img(src="../dummy/Life_style_4.jpg", class="journal-item")
+            div(class="journal-row")
+                div(class="journal-row-year") 2016
+                div(class="journal-items")
+                    img(src="../dummy/Life_style_5.jpg", class="journal-item")
+                    img(src="../dummy/Life_style_2.jpg", class="journal-item")
+                    img(src="../dummy/Life_style_3.jpg", class="journal-item")
+                    img(src="../dummy/Life_style_1.jpg", class="journal-item")
+            div(class="load-more")
+                a(href="#",class="link load-more-btn") еще 8
+            
