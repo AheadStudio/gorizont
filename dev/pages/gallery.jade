@@ -1,0 +1,39 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--indents")
+        h1(class="page-heading") Галерея
+        div(class="gallery")
+            div(class="gallery-container", id="gallery-container-item")
+                div(class="gallery-rows")
+                    div(class="gallery-item gallery-item--w1")
+                        a(href="#", class="gallery-item-container gallery-item-container--video")
+                            img(src="../dummy/garizont_shops.jpg", class="gallery-item-content")
+                        span(class="gallery-item-title gallery-item-title--blue") Открытие новых горизонтов в ТРК Горизонт
+                    div(class="gallery-item gallery-item--w1")
+                        a(href="#", class="gallery-item-container gallery-item-container--img")
+                            img(src="../dummy/garizont_shops.jpg", class="gallery-item-content")
+                        
+                div(class="gallery-rows")
+                    div(class="gallery-item gallery-item--w2")
+                        a(href="#", class="gallery-item-container gallery-item-container--img")
+                            img(src="../dummy/garizont_pandora.jpg", class="gallery-item-content")
+                    div(class="gallery-item gallery-item--w2")
+                        a(href="#", class="gallery-item-container gallery-item-container--video")
+                            img(src="../dummy/garizont_shops.jpg", class="gallery-item-content")
+                        span(class="gallery-item-title gallery-item-title--blue") Прогулка в 12:00
+                    div(class="gallery-item gallery-item--w2")
+                        a(href="#", class="gallery-item-container gallery-item-container--img")
+                            img(src="../dummy/garizont_pandora.jpg", class="gallery-item-content")
+
+                div(class="gallery-rows")
+                    div(class="gallery-item gallery-item--w1")
+                        a(href="#", class="gallery-item-container gallery-item-container--img")
+                            img(src="../dummy/garizont_shops.jpg", class="gallery-item-content")
+                        span(class="gallery-item-title")
+                    div(class="gallery-item gallery-item--w1")
+                        a(href="#", class="gallery-item-container gallery-item-container--img")
+                            img(src="../dummy/garizont_shops.jpg", class="gallery-item-content")
+                        span(class="gallery-item-title gallery-item-title--green") Прогулка в 12:00
+            div(class="load-more")
+                a(href="gallery-item-load.html", data-container="#gallery-container-item", class="link load-more-btn") еще 8

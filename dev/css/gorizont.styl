@@ -16,7 +16,10 @@ em
 /*-- variables --*/
 
 cubic-transition = cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
 color-gray = #969aa3
+color-blue = #a23f97
+color-yellow = #ffd102
 
 color-black-hover =  rgba(#000000, 0.6)
 /*-- //variables --*/
@@ -83,7 +86,7 @@ body
 
 		.header-contacts
 			display flex
-			padding 15px 0
+			padding 17px 0
 
 			.header-contacts-phone,
 			.header-contacts-location
@@ -91,7 +94,7 @@ body
 
 			.header-contacts-phone
 				.header-phone-link
-					font-weight bold
+					font-family GothamProMedium
 
 					.header-phone-note
 						margin-top 4px
@@ -104,9 +107,20 @@ body
 
 			.header-contacts-location
 				text-align right
+
+				.header-location-point
+					position absolute
+
+					top -4px
+					height 23px
+					width 20px
+					left -25px
+
 				.header-location-link
+					position relative
+
 					.header-location-link-text
-						font-weight bold
+						font-family GothamProMedium
 
 		.header-logo
 			display flex
@@ -191,6 +205,41 @@ body
 			&:hover
 				opacity 0.5
 
+.icon-shop
+	position relative
+	margin-left 30px
+	&:before
+		content ""
+		position absolute
+		top 3px
+		left -27px
+
+		background-image: url("../svg/icons/shop_white.svg")
+		background-size contain
+		background-repeat no-repeat
+
+		width 18px
+		height 30px
+
+		z-index 100
+
+	&:after
+		content ""
+		position absolute
+		top -2px
+		left -36px
+
+		display block
+
+		width 35px
+		height 35px
+
+		border-radius 35px
+
+		background color-blue
+
+
+
 /** //main menu **/
 
 /*** //HEADER STYLES ***/
@@ -263,6 +312,7 @@ body
 
 .link-dark-gray
 	color #333333
+
 .link-bold
 	font-weight bold
 
@@ -282,16 +332,16 @@ body
 		border-bottom-color transparent
 
 .link-blue
-	color #a23f97
+	color color-blue
 
 .link-blue-bottom
 	border-bottom 2px solid transparent
 	transition border-bottom-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 	&:hover
-		border-bottom-color #a23f97
+		border-bottom-color color-blue
 
 .link-blue-inverse
-	border-bottom 2px solid #a23f97
+	border-bottom 2px solid color-blue
 	transition border-bottom-color 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 	&:hover
 		border-bottom-color transparent
@@ -300,7 +350,7 @@ body
 	clearfix()
 	width 100%
 
-	max-width 1150px
+	max-width 1200px
 
 	margin 0 auto
 	box-sizing border-box
@@ -331,6 +381,48 @@ body
 		text-align center
 
 		color #fff
+		transition opacity 0.5s cubic-transition
+
+		&:hover
+			opacity 0.8
+
+.search
+	position absolute
+
+	.search-item
+		width 100%
+		padding 5px 0 16px 0
+		border-bottom 2px solid #cccccc
+
+		&::-webkit-input-placeholder
+			font-size 14px
+			font-family GothamProRegular
+			font-weight: 500
+			color #333333
+
+			opacity 1
+
+			transition opacity .2s cubic-transition, transform .1s cubic-transition
+
+		&:focus
+			border-bottom 1px solid #cccccc
+
+			&::-webkit-input-placeholder
+				opacity 0
+				transform translateY(10px)
+
+	.search-submit
+		position absolute
+		top 0
+		right 0
+
+		width 25px
+		height 25px
+
+		background-image url("../svg/icons/loupe.svg")
+		background-repeat no-repeat
+		background-size contain
+
 		transition opacity 0.5s cubic-transition
 
 		&:hover
@@ -568,47 +660,207 @@ body
 			width 150px
 
 	.search
-		position absolute
 		right 0
 		top -50px
 
 		width 320px
 
-		.search-item
-			width 100%
-			padding 5px 0 16px 0
-			border-bottom 2px solid #cccccc
-
-			&::-webkit-input-placeholder
-				font-size 14px
-				font-family GothamProRegular
-				font-weight: 500
-				color #333333
-
-				opacity 1
-
-				transition opacity .2s cubic-transition, transform .1s cubic-transition
-
-			&:focus
-				border-bottom 1px solid #cccccc
-
-				&::-webkit-input-placeholder
-					opacity 0
-					transform translateY(10px)
-
-		.search-submit
-			position absolute
-			top 0
-			right 0
-
-			width 30px
-
-			height 100%
-
-			background #ccc
 
 /*** //journal ***/
 
+
+/*** search result***/
+
+.search-result
+	position relative
+	width 100%
+
+	.search
+		top -77px
+		left 50%
+		margin-left -325px
+		width 650px
+
+	.search-result-items
+		width 100%
+		display block
+
+		.search-result-item
+			padding 30px 0
+			border-top 1px solid #e6e6e6
+
+
+			&:last-child
+				border-bottom 1px solid #e6e6e6
+
+			.search-result-item-inner
+				padding 0px 25px 0 42px
+
+				display flex
+				align-items center
+
+				.search-result-item-logo
+					display block
+					width 15%
+					margin-right 5%
+					text-align center
+
+				.search-result-item-shop
+					display block
+					width 30%
+
+					.search-result-item-shop-name
+						display block
+						margin-bottom 16px
+						font-size 16px
+
+					.search-result-item-shop-phone
+						display block
+						font-size 16px
+
+				.search-result-item-products
+					display block
+					width 30%
+
+					.search-result-item-products-time
+						display block
+						margin-bottom 15px
+						margin-top 15px
+
+					.search-result-item-products-text--bold
+						font-family GothamProBold
+
+
+					.search-result-item-products-more
+
+						padding 5px 10px
+
+						background-color color-blue
+						text-transform lowercase
+
+						color #fff
+
+						transition opacity 0.5s cubic-transition
+
+						&:hover
+							opacity 0.8
+
+				.search-result-item-location
+					display block
+					width 20
+
+					.search-result-item-location-floor
+						display block
+						margin-bottom 25px
+
+					.search-result-item-location-floor-show
+						padding 15px 15px
+
+						background-color color-yellow
+						text-transform lowercase
+
+						color #000
+
+						transition opacity 0.5s cubic-transition
+
+						&:hover
+							opacity 0.8
+
+
+/*** search result***/
+
+
+/*** gallery***/
+
+.gallery
+	display block
+	width 100%
+	margin-top 60px
+
+	.gallery-rows
+		clearfix()
+		margin-bottom 45px
+
+	.gallery-item
+		position relative
+		display inline-block
+
+		float left
+		&--w1
+			width 48%
+			margin-right 4%
+
+			&:last-child
+				margin-right 0
+		&--w2
+			width 31%
+			margin-right 3%
+
+			&:last-child
+				margin-right 0
+		a
+			display block
+
+		.gallery-item-content
+			width 100%
+
+		.gallery-item-title
+			position absolute
+			top 20px
+			left 20px
+
+			padding 5px
+
+			color #fff
+			font-family GothamProMedium
+
+			&--green
+				background #faaf78
+
+			&--blue
+				background color-blue
+
+
+		.gallery-item-container
+			position relative
+
+			&--img,&--video
+				&:after
+					content ""
+					position absolute
+
+					top 0
+					left 0
+					right 0
+					bottom 0
+
+					background rgba(0, 0, 0, 0.6)
+
+					opacity 0
+
+					transform scale(0.5)
+
+					transition all 0.5s cubic-transition
+
+				&:hover
+					&:after
+						opacity 1
+
+						transform scale(1.0)
+
+
+
+	.load-more
+		.load-more-btn
+			width 150px
+
+/*** //gallery***/
+
+
+/*** about ***/
+
+
+/*** //about ***/
 
 
 /*** //MAIN STYLES***/

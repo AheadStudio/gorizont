@@ -66,10 +66,29 @@
 					}, 220);
 				}
 			},
+			initAjaxLoader: function() {
+				$sel.body.on("click", ".load-more-btn", function(event) {
+					var $linkAddress = $(this),
+						href = $linkAddress.attr("href"),
+						$container = $($linkAddress.data("container"));
+
+						(function(href, $container) {
+							$.ajax({
+								url: href,
+								success: function(data) {
+									var $data = $(data).addClass("load-events-item");
+										$container.append($data);
+								}
+							})
+						})(href, $container);
+						event.preventDefault();
+				})
+			},
+
 		};
 
 	})();
-	
+	GORIZONT.initAjaxLoader();
 	GORIZONT.menu();
 	GORIZONT.dropdown.init();
 
