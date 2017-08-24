@@ -66,6 +66,7 @@
 					}, 220);
 				}
 			},
+
 			initAjaxLoader: function() {
 				$sel.body.on("click", ".load-more-btn", function(event) {
 					var $linkAddress = $(this),
@@ -85,9 +86,38 @@
 				})
 			},
 
+			modalWindow: function() {
+				$(".popup-gallery").magnificPopup({
+					delegate: ".gallery-item-container",
+					mainClass: "mfp-gallery",
+					type: "image",
+					removalDelay: 200,
+					tLoading: '',
+					closeOnContentClick: true,
+					gallery: {
+						enabled: true,
+						navigateByImgClick: false,
+						preload: [0, 2],
+						arrowMarkup: "<button title='%title%' type='button' class='mfp-gallery-arrow mfp-gallery-arrow--%dir%'></button>",
+						tPrev: "prev",
+						tNext: "next",
+						tCounter: "",
+					},
+					zoom: {
+						enabled: true,
+						duration: 500,
+					},
+					midClick: true,
+
+				});
+
+			},
+
 		};
 
 	})();
+
+	GORIZONT.modalWindow();
 	GORIZONT.initAjaxLoader();
 	GORIZONT.menu();
 	GORIZONT.dropdown.init();

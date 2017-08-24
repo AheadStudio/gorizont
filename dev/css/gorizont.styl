@@ -814,6 +814,11 @@ body
 			color #fff
 			font-family GothamProMedium
 
+			opacity 0
+			transform translateX(-200px)
+
+			transition all 0.5s cubic-transition
+
 			&--green
 				background #faaf78
 
@@ -848,12 +853,141 @@ body
 
 						transform scale(1.0)
 
+				&:hover + .gallery-item-title
+					opacity 1
+					transform translateX(0px)
 
 
 	.load-more
 		.load-more-btn
 			width 150px
 
+/* magnific popup */
+
+
+
+/* //magnific popup */
+
+.mfp-gallery
+	&.mfp-wrap
+		background rgba(242, 89, 145, 0.6)
+
+	&.mfp-with-anim
+		opacity 0
+		transition all 1s cubic-transition
+		transform scale(0.8)
+
+	&.mfp-bg
+		opacity 0
+		transition all 1s cubic-transition
+
+	&.mfp-ready
+		.mfp-with-anim
+			opacity 1
+			transform scale(1)
+		&.mfp-bg
+			opacity 0.8
+
+	&.mfp-removing
+
+		.mfp-with-anim
+			transform scale(0.8)
+			opacity 0
+
+		&.mfp-bg
+			opacity 0
+
+	&.mfp-bg, .mfp-preloader
+		opacity 0
+		transition all 0.3s ease-out
+
+	.mfp-container
+		.mfp-content
+			.mfp-close
+				position absolute
+				top -15px
+				right -60px
+
+				display inline-block
+				padding 0
+
+
+				width 30px
+				height 30px
+
+
+				border-radius 20px
+
+				opacity 1
+
+				background #fff
+
+				line-height 0
+
+				font-size 20px
+				text-align center
+				color #000
+
+				transition all 0.5s cubic-transition
+
+				cursor pointer
+
+				&:hover
+					transform: rotate(360deg);
+					opacity 0.8
+
+		.mfp-gallery-arrow
+			position: absolute
+			top 48%
+
+			display inline-block
+
+			width: 40px
+			height 40px
+
+			border-radius 30px
+
+			background: #fff
+
+			transition all 0.5s cubic-transition
+
+
+			&--left
+				left 33%
+
+				&:before
+					content "\02190"
+
+					position absolute
+					top 12px
+					left 10px
+
+					transition all 0.5s cubic-transition
+
+
+			&--right
+				right 33%
+
+				&:before
+					content "\02192"
+
+					position absolute
+					top 12px
+					right 10px
+
+					transition all 0.5s cubic-transition
+
+
+			&:hover
+				opacity 0.8
+
+				&.mfp-gallery-arrow--left
+					&:before
+						transform translateX(-5px)
+
+				&.mfp-gallery-arrow--right
+					&:before
+						transform translateX(5px)
 /*** //gallery***/
 
 

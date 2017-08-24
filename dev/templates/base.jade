@@ -49,6 +49,10 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				noCache: true,
 			}, {
 				media: "screen",
+				href: "../css/plugins/magnific-popup.min.css",
+				noCache: true,
+			}, {
+				media: "screen",
 				href: "../css/" + info.code + ".css",
 				noCache: true
 			}
@@ -159,6 +163,8 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 		+addJS([
 			{
 				src: "http://code.jquery.com/jquery-1.11.3.min.js"
+			}, {
+				src: "../js/plugins/jquery.magnific-popup.min.js"
 			}, {
 				src: "../js/" + info.code + ".js"
 			}

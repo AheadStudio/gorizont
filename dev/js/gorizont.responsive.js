@@ -18,7 +18,7 @@
 							phoneText = $phone.text(),
 							phoneNum = phoneText.replace(/ /g,"").replace(/-/g,"").replace(/\(/g,"").replace(/\)/g,""),
 							phoneLink = '<a href="tel:' + phoneNum + '" class="phone-link' + ' ' + $phone.attr("class") + '">' + phoneText + '</a>';
-						
+
 						$phone.empty().html(phoneLink);
 					});
 				},
@@ -26,7 +26,7 @@
 					$phones.each(function() {
 						var $phone = $(this),
 							phoneText = $phone.text();
-						
+
 						$phone.empty().html(phoneText);
 					});
 				}
@@ -182,13 +182,13 @@
 						query: "(max-width: 670px)",
 						onEnter: function() {
 							self.menu.init();
-							
+
 							self.mobilizePhones.init($(".header-phone", $sel.body));
-							
+
 							self.scroll.make($(".rates", $sel.body), {
 								items: "span"
 							});
-							
+
 							self.slider.make($(".products", $sel.body), {
 								infinite: true,
 								arrows: false,
