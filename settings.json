@@ -50,7 +50,7 @@
 		"shares": {
 			"name": "Акции",
 			"progress": {
-				"desktop": "90",
+				"desktop": "95",
 				"tablet": "0",
 				"mobile": "0"
 			}
@@ -58,7 +58,7 @@
 		"shares_detail": {
 			"name": "Страница акции",
 			"progress": {
-				"desktop": "90",
+				"desktop": "95",
 				"tablet": "0",
 				"mobile": "0"
 			}
@@ -66,7 +66,7 @@
 		"gallery": {
 			"name": "Галерея",
 			"progress": {
-				"desktop": "10",
+				"desktop": "90",
 				"tablet": "0",
 				"mobile": "0"
 			}
@@ -106,7 +106,7 @@
 		"journal": {
 			"name": "Журнал",
 			"progress": {
-				"desktop": "85",
+				"desktop": "95",
 				"tablet": "0",
 				"mobile": "0"
 			}
@@ -114,7 +114,7 @@
 		"search_result": {
 			"name": "Результаты поиска",
 			"progress": {
-				"desktop": "70",
+				"desktop": "95",
 				"tablet": "0",
 				"mobile": "0"
 			}
