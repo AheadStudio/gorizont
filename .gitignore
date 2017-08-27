@@ -4,3 +4,4 @@ archives
 *.sublime-project
 *.sublime-workspace
 npm-debug.log
+__MACOSX
