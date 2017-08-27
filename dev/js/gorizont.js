@@ -79,6 +79,9 @@
 								success: function(data) {
 									var $data = $(data).addClass("load-events-item");
 										$container.append($data);
+									setTimeout(function() {
+										$container.find(".load-events-item").removeClass("load-events-item");
+									}, 50);
 								}
 							})
 						})(href, $container);
@@ -88,7 +91,7 @@
 
 			modalWindow: function() {
 				$(".popup-gallery").magnificPopup({
-					delegate: ".gallery-item-container",
+					delegate: ".gallery-container-item",
 					mainClass: "mfp-gallery",
 					type: "image",
 					removalDelay: 200,
@@ -103,6 +106,11 @@
 						tNext: "next",
 						tCounter: "",
 					},
+					callbacks: {
+						buildControls: function() {
+							this.contentContainer.append(this.arrowLeft.add(this.arrowRight));
+						}
+					},
 					zoom: {
 						enabled: true,
 						duration: 500,
@@ -113,14 +121,37 @@
 
 			},
 
+			goTop: function() {
+				var $goTopBtn = $(".go-top", $sel.body);
+
+				$sel.window.on("scroll", function() {
+					var sTop = $sel.window.scrollTop();
+
+					if(sTop != 0 ) {
+						$goTopBtn.addClass("active");
+					} else {
+						$goTopBtn.removeClass("active");
+					}
+
+				});
+
+				$goTopBtn.on("click", function(e) {
+					if ($goTopBtn.hasClass("active")) {
+						$sel.body.add($sel.html).animate({scrollTop:0},800);
+					}
+					e.preventDefault();
+				});
+
+			},
+
+
 		};
 
 	})();
-
+	GORIZONT.goTop();
 	GORIZONT.modalWindow();
 	GORIZONT.initAjaxLoader();
 	GORIZONT.menu();
 	GORIZONT.dropdown.init();
-
 
 })(jQuery);
