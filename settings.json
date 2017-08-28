@@ -39,6 +39,14 @@
 				"mobile": "0"
 			}
 		},
+		"service": {
+			"name": "Сервис",
+			"progress": {
+				"desktop": "10",
+				"tablet": "0",
+				"mobile": "0"
+			}
+		},
 		"shops_detail": {
 			"name": "Карточка магазина",
 			"progress": {

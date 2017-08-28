@@ -93,7 +93,7 @@
 				$(".popup-gallery").magnificPopup({
 					delegate: ".gallery-container-item",
 					mainClass: "mfp-gallery",
-					type: "image",
+					type: "iframe",
 					removalDelay: 200,
 					tLoading: '',
 					closeOnContentClick: true,
@@ -109,6 +109,13 @@
 					callbacks: {
 						buildControls: function() {
 							this.contentContainer.append(this.arrowLeft.add(this.arrowRight));
+						},
+						elementParse: function(item) {
+							if($(item.el).hasClass("gallery-container-item--video")) {
+								item.type = 'iframe';
+							} else {
+								item.type = 'image';
+							}
 						}
 					},
 					zoom: {

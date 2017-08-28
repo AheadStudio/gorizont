@@ -51,10 +51,10 @@ $color-black-hover =  rgba(#000000, 0.6)
 /*** //Fonts ***/
 
 html
-
+	height 100%
 body
 	min-height 100%
-
+	height 100%
 	line-height 1
 
 	color #333333
@@ -62,7 +62,12 @@ body
 
 	font-family "GothamProLight", sans-serif
 
+body
+	min-height 100%
 
+.page
+	width 100%
+	min-height 100%
 
 /*** HEADER STYLES ***/
 .page-header
@@ -145,22 +150,29 @@ body
 		.header-menu-item-holder
 			display inline-block
 
-			padding 15px 5px
+			padding 15px 0px
 
 			border 1px solid transparent
 			box-sizing border-box
 
 			font-family GothamProMedium
 
-			&--has-submenu
-				padding 15px 10px
-				width 126px
-
 			.header-menu-item
-				padding 5px 0
+				padding 5px 5px 5px 3px
 
 				.header-menu-item-name
 					font-size 16px
+
+			&--has-submenu
+				padding 15px 10px
+				width 126px
+				margin-right 10px
+
+				.header-menu-item
+					padding 5px 0px
+
+				.header-menu-level1
+					border 1px solid transparent
 
 
 
@@ -173,7 +185,7 @@ body
 			.header-menu-level1
 				box-sizing border-box
 
-				border 1px solid $color-gray
+				border-color $color-gray
 				border-top-color transparent
 
 
@@ -222,7 +234,7 @@ body
 		content ""
 		position absolute
 		top 3px
-		left -27px
+		left -29px
 
 		background-image: url("../svg/icons/shop_white.svg")
 		background-size contain
@@ -237,7 +249,7 @@ body
 		content ""
 		position absolute
 		top -2px
-		left -36px
+		left -38px
 
 		display block
 
@@ -290,10 +302,9 @@ body
 				font-family: GothamProRegular
 
 				text-transform uppercase
-
-				&:hover
+			&:hover
+				.footer-creators-name
 					border-bottom-color transparent
-
 
 		.footer-copyrights
 			width 34%
@@ -422,8 +433,6 @@ body
 
 
 .page-inner
-	position relative
-	clearfix()
 	width 100%
 
 	max-width 1150px
@@ -436,6 +445,11 @@ body
 		max-width 1150px
 		padding-left 30px
 
+	&--relative
+		position relative
+
+	&--clearfix
+		clearfix()
 .page-text
 	p
 		font-size 16px
@@ -471,8 +485,8 @@ body
 
 	.search-item
 		width 100%
-		padding 5px 0 16px 0
-		border-bottom 2px solid #cccccc
+		padding 5px 0 14px 0
+		border-bottom 1px solid #cccccc
 
 		&::-webkit-input-placeholder
 			font-size 14px
@@ -485,7 +499,6 @@ body
 			transition opacity 0.5s $cubic-transition, transform 0.5s $cubic-transition
 
 		&:focus
-			border-bottom 1px solid #cccccc
 
 			&::-webkit-input-placeholder
 				opacity 0
@@ -503,12 +516,11 @@ body
 		background-repeat no-repeat
 		background-size contain
 
-		transition opacity 0.5s $cubic-transition, transform 0.5s $cubic-transition
+		transition all 0.5s $cubic-transition, transform 0.5s $cubic-transition
 
 		&:hover
-			opacity 0.6
+			background-image url("../svg/icons/red_loupe.svg")
 
-			transform rotate(20deg) scale(1.1)
 
 /** //search **/
 
@@ -534,6 +546,11 @@ body
 .go-top.active
 	opacity 1
 	cursor pointer
+	transition opacity 0.5s $cubic-transition
+
+	&:hover
+		opacity 0.6
+
 
 /** //button up **/
 
@@ -585,8 +602,8 @@ body
 
 .navigation
 	position absolute
-	right 30px
-	top 40px
+	right 35px
+	top 10px
 
 	display block
 
@@ -662,7 +679,7 @@ body
 /*** MAIN STYLES***/
 
 .page-title
-	letter-spacing 10px
+	letter-spacing 7px
 	font-size 18px
 
 	text-transform uppercase
@@ -681,10 +698,9 @@ body
 .shares
 	width 100%
 
-	margin-top 60px
+	margin-top 55px
 
-	.shares-list-container
-		clearfix()
+	.shares-container-items
 		display block
 
 		transform translateY(0px)
@@ -695,20 +711,30 @@ body
 			opacity 0
 			transform translateY(50px)
 
+	.load-more
+		display block
+		margin-top 60px
+
 	.shares-item
 		display inline-block
 		vertical-align top
 
 		width 28%
 
-		margin-bottom 100px
-		margin-right 8%
+		margin-bottom 50px
+		margin-right 6%
 
 		&:nth-child(3n)
 			margin-right 0%
 
 		.shares-item-heading
 			margin-bottom 20px
+
+			.shares-item-photo-holder
+				.shares-item-photo
+					display block
+					max-width 100%
+
 
 		.shares-item-content
 			width 100%
@@ -717,10 +743,11 @@ body
 
 				width 75%
 
-				margin-bottom 20px
+				margin-bottom 5px
 
 				span
 					font-size 24px
+				    line-height 30px
 
 				&:after
 					content ""
@@ -741,28 +768,33 @@ body
 					z-index -10
 
 				&:before
-					content url("../svg/icons/arrow_black_up.svg")
+					content ""
 					position absolute
 
 					top 15%
 					left 90%
 					width 20px
+					height 22px
 
 					display block
 					opacity 0
 
-					transform rotate(90deg) translateY(50%)
-					transition opacity 0.5s $cubic-transition, transform 1s $cubic-transition
+					background url("../svg/icons/arrow_black_up.svg")
+					background-size contain
+					background-repeat no-repeat
+
+					transform rotate(90deg) translateY(120%)
+					transition opacity 0.5s $cubic-transition, transform 0.3s $cubic-transition
 
 			.shares-item-content-text
 				width 100%
 				margin-bottom 10px
 
-				line-height 1.2
+				line-height 20px
 
 			.shares-item-content-shop
 				width 100%
-				margin-bottom 15px
+				margin-bottom 10px
 
 				font-family GothamProMedium
 				font-weight bold
@@ -786,6 +818,8 @@ body
 						font-weight 600
 
 						font-family GothamProBold
+
+						line-height 36px
 		&:hover
 			.shares-item-content-title:after
 				opacity 1
@@ -793,7 +827,7 @@ body
 
 			.shares-item-content-title:before
 				opacity 1
-				transform rotate(90deg) translateY(-100%)
+				transform rotate(90deg) translateY(-50%)
 
 /*** //shares ***/
 
@@ -854,7 +888,7 @@ body
 
 			width 28%
 
-			margin-right 8%
+			margin-right 6%
 
 			&:nth-child(3n)
 				margin-right 0%
@@ -937,7 +971,7 @@ body
 		width: 400px
 
 		margin 0 auto
-		margin-top 50px
+		margin-top 60px
 		margin-bottom 70px
 
 		line-height 2
@@ -945,9 +979,19 @@ body
 		font-size 16px
 		text-align center
 
+	.journal-container-items
+		transform translateY(0px)
+
+		transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+		&.load-events-item
+			opacity 0
+			transform translateY(50px)
+
 	.journal-row
 		display block
-		margin-bottom: 100px
+		margin-bottom 55px
+
 
 		.journal-row-year
 			display block
@@ -956,15 +1000,26 @@ body
 
 			text-align center
 
-			margin-bottom 50px
+			margin-bottom 45px
 
 		.journal-items
 			display flex
+			flex-wrap wrap
 			justify-content space-between
 
+			.journal-item
+				display block
+
+				margin-bottom 40px
+
+				img
+					display block
+
 	.load-more
+		display block
+		margin-top -10px
 		.load-more-btn
-			width 150px
+			width 185px
 
 	.search
 		right 0
@@ -1069,10 +1124,15 @@ body
 .gallery
 	display block
 	width 100%
+
+	width 105%
+	margin-left -2.5%
+
 	margin-top 60px
 
+	.gallery-container-items
+		font-size 0
 	.gallery-container-more
-		clearfix()
 		transform translateY(0px)
 
 		transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -1081,49 +1141,61 @@ body
 			opacity 0
 			transform translateY(-50px)
 
-	.gallery-container-items
-		clearfix()
-
-
 	.gallery-container-item
 		position relative
+
 		display inline-block
 		vertical-align top
 
+		margin-bottom 40px
+
+		&:before
+			content ""
+
+			display block
+			padding-top 50%
+
 		&--w1
-			width 48%
-			margin-right 4%
-			margin-bottom 40px
-
-			&:nth-child(2n)
-				margin-right 0
+			width 45%
+			margin-left 2.5%
+			margin-right 2.5%
 		&--w2
-			width 32%
-			margin-right 2%
-			margin-bottom 40px
-
-			&:nth-child(5n)
-				margin-right 0
+			width 28.33333333%
+			margin-right 2.5%
+			margin-left 2.5%
 
 		&:after
 			content ""
 			position absolute
 
-			top 0
-			left 0
-			right 0
-			bottom 0
+			top 50%
+			left 50%
 
-			background rgba(0, 0, 0, 0.6)
+			width 90px
+			height 50px
 
+			margin-left -45px
+			margin-top -25px
+
+			background url("../svg/icons/eye.svg")
+			background-repeat no-repeat
+			background-size contain
 			opacity 0
 
-			transform scale(0.5)
+			transform translateY(10%)
 
 			transition all 0.5s $cubic-transition
 
-		.gallery-container-item-content
+		.gallery-container-item-img
+			position absolute
+			left 0
+			top 0
+
+			display block
 			width 100%
+			height 100%
+
+			object-fit cover
 
 		.gallery-container-item-title
 			position absolute
@@ -1134,6 +1206,7 @@ body
 
 			color #fff
 			font-family GothamProMedium
+			font-size 16px
 
 			opacity 0
 			transform translateY(-10px)
@@ -1148,13 +1221,30 @@ body
 			&--blue
 				background $color-blue
 
-		&:hover
+		&:not(.gallery-container-item--video):hover
 			&:after
 				opacity 1
+				transform translateY(0%)
 
-				transform scale(1.0)
+		&--video
+			&:after
+				width: 0
+				height 0
 
-		&:hover
+				top 0
+				left 0
+				bottom 0
+				right 0
+				margin auto
+
+				border-top 65px solid transparent
+				border-left 105px solid #e83b7d
+				border-bottom 65px solid transparent
+
+				opacity 1
+
+				background transparent
+
 			.gallery-container-item-title
 				opacity 1
 				transform translateX(0px)
@@ -1295,10 +1385,114 @@ body
 /*** //gallery***/
 
 
-/*** about ***/
+/*** shops ***/
+
+.shops
+	width 100%
+	margin-top 40px
+
+	.shops-container-items
+
+		.shops-container-item
+			position relative
+
+			display block
+
+			height 150px
+
+			background transparent
+
+			border-bottom 1px solid #e6e6e6
+
+			transition all 0.5s $cubic-transition
+			img
+				position absolute
+				top 0
+				left 0
+
+				display block
+
+				width 100%
+				height 100%
+				object-fit cover
+
+				z-index -10
+				opacity 0
+
+				transition all 0.8s $cubic-transition
+
+			.shops-container-item-header
+				display flex
+				align-items center
+				height 150px
+				padding 25px 0
+				box-sizing border-box
+
+				.shops-container-item-header-name
+				.shops-container-item-header-count
+				.shops-container-item-header-toggler
+					display inline-block
+					box-sizing border-box
+					transition all 0.3s $cubic-transition
+
+				.shops-container-item-header-name
+					width 50%
+					text-align left
+					font-size 32px
+
+				.shops-container-item-header-count
+					width 30%
+					font-size 32px
+					text-align right
+					padding-right 20px
+
+				.shops-container-item-header-toggler
+					width 20%
+					padding-right 20px
+
+					.shops-container-item-header-toggler-title
+						margin 0 20px
+						font-size 18px
+
+						border-bottom 1px solid #c17dba
+
+						transition all 0.5s $cubic-transition
+						&:hover
+							border-bottom transparent
+
+					.shops-container-item-header-toggler-icon
+						position relative
+						display inline-block
+
+						vertical-align middle
+						width 50px
+						height 50px
+
+						border 1px solid #000
+						border-radius 50%
+
+						transition all 0.5s $cubic-transition
 
 
-/*** //about ***/
+
+			&:hover
+				background rgba(#993399, 0.7)
+
+				img
+					opacity 1
+
+				.shops-container-item-header
+
+					.shops-container-item-header-name
+					.shops-container-item-header-count
+						color #fff
+
+					.shops-container-item-header-toggler-icon
+						border-color #fff
+					.shops-container-item-header-toggler-title
+						color #fff
+
+/*** //shops ***/
 
 
 /*** //MAIN STYLES***/
