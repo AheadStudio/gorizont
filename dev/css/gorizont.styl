@@ -370,6 +370,8 @@ body
 .link--darkgray
 	color #333333
 
+.link--white
+	color #fff
 
 .link--black
 	color #000
@@ -507,7 +509,7 @@ body
 	.search-submit
 		position absolute
 		top 0
-		right 0
+		right 10px
 
 		width 25px
 		height 25px
@@ -1388,8 +1390,14 @@ body
 /*** shops ***/
 
 .shops
+	position relative
 	width 100%
-	margin-top 40px
+	margin-top 30px
+
+	.search
+		top -50px
+		right 405px
+		width 310px
 
 	.shops-container-items
 
@@ -1398,13 +1406,25 @@ body
 
 			display block
 
-			height 150px
+			height 250px
+
+			overflow hidden
 
 			background transparent
 
 			border-bottom 1px solid #e6e6e6
 
 			transition all 0.5s $cubic-transition
+
+			&--blue:hover
+				background rgba(#993399, 0.75)
+
+			&--red:hover
+				background rgba(#d43d74, 0.75)
+
+			&--darkblue:hover
+				background rgba(#251440, 0.75)
+
 			img
 				position absolute
 				top 0
@@ -1414,7 +1434,9 @@ body
 
 				width 100%
 				height 100%
+
 				object-fit cover
+				object-position top
 
 				z-index -10
 				opacity 0
@@ -1428,12 +1450,13 @@ body
 				padding 25px 0
 				box-sizing border-box
 
+
 				.shops-container-item-header-name
 				.shops-container-item-header-count
 				.shops-container-item-header-toggler
 					display inline-block
 					box-sizing border-box
-					transition all 0.3s $cubic-transition
+					transition all 0.5s $cubic-transition
 
 				.shops-container-item-header-name
 					width 50%
@@ -1444,11 +1467,11 @@ body
 					width 30%
 					font-size 32px
 					text-align right
-					padding-right 20px
+					padding-right 65px
 
 				.shops-container-item-header-toggler
 					width 20%
-					padding-right 20px
+					text-align right
 
 					.shops-container-item-header-toggler-title
 						margin 0 20px
@@ -1457,13 +1480,16 @@ body
 						border-bottom 1px solid #c17dba
 
 						transition all 0.5s $cubic-transition
+
+						cursor pointer
 						&:hover
-							border-bottom transparent
+							border-bottom-color transparent
 
 					.shops-container-item-header-toggler-icon
 						position relative
 						display inline-block
 
+						margin-right 25px
 						vertical-align middle
 						width 50px
 						height 50px
@@ -1473,11 +1499,31 @@ body
 
 						transition all 0.5s $cubic-transition
 
+						cursor pointer
 
+						&:after,
+						&:before
+							content ""
+							position: absolute
+							top 50%
+							left 50%
+
+							background: #000
+
+							transition all 0.5s $cubic-transition
+
+						&:after
+							width 20px
+							height 1px
+
+							margin -0.5px 0 0 -10px
+						&:before
+							width 1px
+							height 20px
+
+							margin -10px 0 0 -0.5px
 
 			&:hover
-				background rgba(#993399, 0.7)
-
 				img
 					opacity 1
 
@@ -1489,8 +1535,46 @@ body
 
 					.shops-container-item-header-toggler-icon
 						border-color #fff
+
+						&:before
+							background #fff
+						&:after
+							background #fff
+
 					.shops-container-item-header-toggler-title
 						color #fff
+
+			.shops-container-item-content
+				position relative
+
+				display block
+				width 100%
+
+				padding 70px 20px 80px 20px
+
+				box-sizing border-box
+
+				&:before
+					content ""
+
+					position: absolute
+					top 0
+					display block
+
+					height 1px
+
+					background #e6e6e6
+
+					width 1000%
+					margin-left -500%
+
+				.shops-container-item-content-link
+					display inline-block
+					width 25%
+					font-size 18px
+
+					margin-bottom 35px
+
 
 /*** //shops ***/
 

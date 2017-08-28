@@ -4,13 +4,229 @@ block content
     div(class="page-inner page-inner--w1 page-inner--relative")
         div(class="page-title") Магазины
     div(class="shops")
+        div(class="search")
+            form(action="/search.html")
+                input(type="text", class="search-item", placeholder="Поиск магазина")
+                button(type="submit", title="Найти", class="search-submit")
         div(class="shops-container-items")
-            div(class="shops-container-item")
+            div(class="shops-container-item shops-container-item--blue")
                 img(src="../dummy/hall_big.jpg")
                 div(class="page-inner page-inner--w1 page-inner--relative")
                     div(class="shops-container-item-header")
                         span(class="shops-container-item-header-name") Одежда
                         span(class="shops-container-item-header-count") 66
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="link link--white shops-container-item-content-link") Adidas Originals
+                        a(href="#", class="link link--white shops-container-item-content-link") Airfield
+                        a(href="#", class="link link--white shops-container-item-content-link") Armani Jeans
+                        a(href="#", class="link link--white shops-container-item-content-link") Befree
+                        a(href="#", class="link link--white shops-container-item-content-link") Bershka
+                        a(href="#", class="link link--white shops-container-item-content-link") Boardriders
+                        a(href="#", class="link link--white shops-container-item-content-link") Calvin Klein Jeans
+                        a(href="#", class="link link--white shops-container-item-content-link") Camel Active
+
+                        
+            div(class="shops-container-item shops-container-item--darkblue")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Обувь и сумки
+                        span(class="shops-container-item-header-count") 31
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Товары для детей
+                        span(class="shops-container-item-header-count") 15
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+
+            div(class="shops-container-item shops-container-item--red")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Косметика, красота и здоровье
+                        span(class="shops-container-item-header-count") 26
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Украшения
+                        span(class="shops-container-item-header-count") 26
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Аксессуары
+                        span(class="shops-container-item-header-count") 27
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Рестораны, кафе
+                        span(class="shops-container-item-header-count") 12
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Фудкорт, фастфуд, продукты питания
+                        span(class="shops-container-item-header-count") 26
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Белье
+                        span(class="shops-container-item-header-count") 8
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") товары для дома
+                        span(class="shops-container-item-header-count") 11
                         div(class="shops-container-item-header-toggler")
                             span(class="shops-container-item-header-toggler-title") свернуть
                             span(class="shops-container-item-header-toggler-icon")
@@ -29,4 +245,72 @@ block content
                         a(href="#", class="shops-container-item-content-link")
                         a(href="#", class="shops-container-item-content-link")
                         
-                        
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Спортивные товары
+                        span(class="shops-container-item-header-count") 7
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Бытовая техника, электроника
+                        span(class="shops-container-item-header-count") 10
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+            div(class="shops-container-item")
+                img(src="../dummy/hall_big.jpg")
+                div(class="page-inner page-inner--w1 page-inner--relative")
+                    div(class="shops-container-item-header")
+                        span(class="shops-container-item-header-name") Сувениры, товары для творчества
+                        span(class="shops-container-item-header-count") 21
+                        div(class="shops-container-item-header-toggler")
+                            span(class="shops-container-item-header-toggler-title") свернуть
+                            span(class="shops-container-item-header-toggler-icon")
+                    div(class="shops-container-item-content")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
+                        a(href="#", class="shops-container-item-content-link")
