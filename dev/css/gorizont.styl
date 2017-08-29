@@ -50,6 +50,8 @@ $color-black-hover =  rgba(#000000, 0.6)
 	src url("../fonts/GothamProRegular.woff") format("woff")
 /*** //Fonts ***/
 
+/*** structure ***/
+
 html
 	height 100%
 body
@@ -68,6 +70,12 @@ body
 .page
 	width 100%
 	min-height 100%
+
+.page-content
+	max-width 1366px
+	margin 0 auto
+
+/*** //structure ***/
 
 /*** HEADER STYLES ***/
 .page-header
@@ -202,6 +210,7 @@ body
 	width 126px
 
 	transition background-color 0.5s $cubic-transition
+	z-index 10000
 
 	.header-menu-level1-inner
 		position relative
@@ -558,44 +567,52 @@ body
 
 
 /** social block **/
+.social-container
+	display block
 
-.social-item
-	position relative
-	display inline-block
+	.social-container-text
+		font-size 18px
+		float left
+		margin-top 6px
+		margin-right 20px
 
-	margin 0px 5px
+	.social-item
+		position relative
+		display inline-block
 
-	width 32px
-	height 32px
+		margin 0px 5px
 
-	box-sizing border-box
+		width 32px
+		height 32px
 
-	border-radius 50%
-	border 2px solid black
+		box-sizing border-box
 
-	transition opacity 0.5s $cubic-transition
-	opacity 1
+		border-radius 50%
+		border 2px solid black
 
-	svg
-		position absolute
-		width 60%
-		display block
-		left 50%
-		top 50%
-		transform: translate(-50%,-50%)
+		transition opacity 0.5s $cubic-transition
+		opacity 1
 
-		path
-			fill #000000
-
-	&--facebook
 		svg
-			width 26%
-	&--ok
-		svg
-			width 34%
+			position absolute
+			width 60%
+			display block
+			left 50%
+			top 50%
+			transform: translate(-50%,-50%)
 
-	&:hover
-		opacity: 0.5
+			path
+				fill #000000
+
+		&--facebook
+			svg
+				width 26%
+		&--ok
+			svg
+				width 34%
+
+		&:hover
+			opacity: 0.5
 
 /** //social block **/
 
@@ -856,13 +873,8 @@ body
 		font-size 16px
 		font-family GothamProMedium
 
-	.article-social
+	.social-container
 		margin-top 45px
-		.article-social-text
-			font-size 18px
-			float left
-			margin-top 6px
-			margin-right 20px
 
 	.article-img
 		margin-top 60px
@@ -1400,13 +1412,14 @@ body
 		width 310px
 
 	.shops-container-items
+		overflow hidden
 
 		.shops-container-item
 			position relative
 
 			display block
 
-			height 250px
+			height 150px
 
 			overflow hidden
 
@@ -1416,14 +1429,16 @@ body
 
 			transition all 0.5s $cubic-transition
 
+
 			&--blue:hover
-				background rgba(#993399, 0.75)
+				background rgba(#993399, 0.85)
 
 			&--red:hover
-				background rgba(#d43d74, 0.75)
+				background rgba(#d43d74, 0.85)
 
 			&--darkblue:hover
-				background rgba(#251440, 0.75)
+				background rgba(#251440, 0.85)
+
 
 			img
 				position absolute
@@ -1449,7 +1464,6 @@ body
 				height 150px
 				padding 25px 0
 				box-sizing border-box
-
 
 				.shops-container-item-header-name
 				.shops-container-item-header-count
@@ -1550,7 +1564,7 @@ body
 				display block
 				width 100%
 
-				padding 70px 20px 80px 20px
+				padding 65px 20px 80px 0px
 
 				box-sizing border-box
 
@@ -1563,20 +1577,309 @@ body
 
 					height 1px
 
-					background #e6e6e6
+					background #a8a8a8
 
 					width 1000%
 					margin-left -500%
 
+					z-index -10
+
 				.shops-container-item-content-link
+					position relative
 					display inline-block
 					width 25%
 					font-size 18px
 
-					margin-bottom 35px
+					margin-bottom 30px
+
+					&:after
+						content ""
+						position absolute
+						bottom 0
+
+						margin-left 15px
+
+						display inline-block
+
+						width 15px
+						height 15px
+
+						opacity 0
+
+						background url("../svg/icons/arrow_white_up.svg")
+						background-repeat no-repeat
+
+						transform rotate(90deg)
+
+						transition opacity 0.5s $cubic-transition
+
+					&:hover
+						&:after
+							opacity 1
+
+
+			&--active
+				height auto
+				overflow inherit
+
+				background rgba(#993399, 0.85)
+
+				img
+					opacity 1
+
+
+				.shops-container-item-header
+					.shops-container-item-header-name
+					.shops-container-item-header-count
+					.shops-container-item-header-toggler
+						color #fff
+
+
+					.shops-container-item-header-toggler
+
+						.shops-container-item-header-toggler-icon
+							border-color #fff
+
+							&:after
+								background #fff
+
+							&:before
+								opacity 0
+								transform scale(0.5)
 
 
 /*** //shops ***/
+
+
+/*** shops detail ***/
+
+.shops-detail
+	overflow hidden
+	display block
+
+	.shops-detail-photo-holder
+		display block
+		width 100%
+
+		.shops-detail-photo-holder-img
+			width 100%
+
+	.shops-detail-col
+		position relative
+		display block
+		width 50%
+
+		&--left
+			float left
+
+		&--right
+			float right
+
+	.shops-detail-description
+		display block
+		padding 55px 85px 10px 130px
+		box-sizing border-box
+
+		.shops-detail-articles
+			display block
+			margin-bottom 70px
+
+			.shops-detail-articles-description
+				p
+					font-size 18px
+					margin-bottom 35px
+
+				.shops-detail-more-link
+					display block
+					width 150px
+					height 65px
+
+					font-size 18px
+
+					padding 25px
+					box-sizing border-box
+
+					margin-top -15px
+					background #ffd001
+
+					opacity 1
+					transition opacity 0.5s $cubic-transition
+
+					&:hover
+						opacity 0.6
+
+		.shops-detail-shares
+			.shops-detail-shares-title
+				display block
+				margin-bottom 35px
+				font-size 30px
+
+			.shops-detail-shares-item
+				display block
+				width 100%
+				overflow hidden
+
+				margin-bottom 30px
+
+				.shops-detail-shares-item-holder
+					width 145px
+					height 145px
+					display block
+					float left
+
+					border-radius 50%
+
+					.shops-detail-shares-item-holder-img
+						vertical-align middle
+						display inline-block
+						max-width 100%
+						max-height 100%
+						width auto
+						height auto
+
+				.shops-detail-shares-item-discount
+					display inline-block
+					padding 15px 0 10px 25px
+
+					.shops-detail-shares-item-discount-type
+					.shops-detail-shares-item-discount-date
+						display block
+						width 100%
+
+						font-size 18px
+
+					.shops-detail-shares-item-discount-type
+						margin-bottom 20px
+
+					.shops-detail-shares-item-discount-date
+						margin-bottom 15px
+
+					.shops-detail-shares-item-discount-arrow
+						display block
+						width 200px
+						height 35px
+
+						svg
+							width 120px
+							height 100%
+
+							transition all 0.5s $cubic-transition
+
+				&:hover
+					.shops-detail-shares-item-discount
+						.shops-detail-shares-item-discount-arrow
+							svg
+								width 190px
+
+		.shops-detail-similar
+			margin-top 100px
+
+			.shops-detail-similar-title
+				font-size 30px
+				display block
+				margin-bottom 45px
+
+			.shops-detail-similar-items
+				display flex
+				flex-wrap wrap
+				justify-content: space-between
+				align-items center
+
+				.shops-detail-similar-item-holder
+					width 20%
+					height 60px
+
+					margin-bottom 60px
+					margin-right 2%
+
+					.shops-detail-similar-item-holder-img
+						height 100%
+						width 100%
+						object-fit contain
+
+
+	.shops-detail-information
+		position relative
+
+		padding 90px 105px
+		box-sizing border-box
+
+		background #f4f4f4
+
+		.shops-detail-information-holder
+			display block
+			width 100%
+			margin-bottom 50px
+
+		.shops-detail-information-tags-items
+			display block
+			margin-bottom 10px
+
+			.shops-detail-information-tags-item
+				border-bottom-width 1px
+				margin-right 5px
+				font-size 18px
+
+		.shops-detail-information-contacts
+			display block
+			margin-bottom 15px
+
+			.shops-detail-information-contacts-phone
+				font-size 18px
+				display inline-block
+				margin-right 20px
+
+			.shops-detail-information-contacts-time
+				font-size 18px
+
+		.shops-detail-information-email
+			display inline-block
+
+			border-bottom-width 1px
+			font-size 18px
+			margin-bottom 90px
+
+
+		.shops-detail-scheme-link
+			display block
+
+			width 350px
+			height 85px
+
+			padding 20px 40px
+			box-sizing border-box
+
+			font-size 24px
+			margin-bottom 65px
+
+			background #ffd001
+
+			opacity 1
+			transition opacity 0.5s $cubic-transition
+
+			&:hover
+				opacity 0.6
+
+		.social-container
+		.social-container-text
+			margin-left 10px
+
+		.navigation
+			.navigation-item--close
+				background #fff
+
+/*** //shops detail ***/
+
+
+/*** contacts ***/
+
+
+
+/*** //contacts ***/
+
+
+
+
 
 
 /*** //MAIN STYLES***/
