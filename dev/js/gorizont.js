@@ -126,6 +126,11 @@
 
 				});
 
+				$(".contacts-application").magnificPopup({
+					type: "inline",
+					focus: '#name',
+				});
+
 			},
 
 			goTop: function() {
@@ -151,10 +156,49 @@
 
 			},
 
+			yandexMap: {
+				$map: false,
+				map: false,
+				points: false,
+				init: function() {
+					var self = this;
+					self.$map = $(".contacts-location-container-map", $sel.body);
+					if(!self.$map.length) {
+						return false;
+					}
+					self.map = new ymaps.Map(self.$map[0], {
+						center: self.$map.data("center"),
+						zoom: self.$map.data("zoom")
+					});
+					self.map.behaviors.disable("scrollZoom");
+					self.map.controls.remove("trafficControl").remove("scaleLine").remove("typeSelector").remove("searchControl");
+					self.points = eval(self.$map.data("points"));
+
+					var point1 = self.points[0],
+						placemark1,
+						pointPosition1 = point1.position.split(",");
+					placemark1 = new ymaps.Placemark(
+						[parseFloat(pointPosition1[0]), parseFloat(pointPosition1[1])], {
+							balloonContent: point1.description,
+						}, {
+							preset: "islands#redIcon",
+							iconImageHref: point1.icon,
+							iconImageSize: [110, 145],
+						}
+					);
+
+					self.map.geoObjects.add(placemark1);
+				}
+			},
+
 
 		};
 
 	})();
+
+	ymaps.ready(function() {
+		GORIZONT.yandexMap.init();
+	});
 	GORIZONT.goTop();
 	GORIZONT.modalWindow();
 	GORIZONT.initAjaxLoader();

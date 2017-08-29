@@ -5,17 +5,71 @@ block content
         div(class="page-title") Контакты
         div(class="contacts")
             div(class="contacts-welcome")
-                span(class="contacts-welcome-title")
+                span(class="contacts-welcome-title") Рады приветствовать Вас от лица нашей команды профессионалов
             div(class="contacts-items")
-                div(class="contacts-item")
-                    div(class="contacts-employees-holder contacts-employees-holder--left")
-                        img(src="", class="contacts-employees-holder")
+                div(class="contacts-item contacts-item--left")
+                    div(class="contacts-employees-holder")
+                        img(src="../dummy/photo_director.jpg", class="contacts-employees-holder")
                     div(class="contacts-employees-description")
-                        span(class="contacts-employees-position")
-                        span(class="contacts-employees-name")
-                div(class="contacts-item")
+                        span(class="contacts-employees-position") Генеральный директор
+                        span(class="contacts-employees-name") Полонский Дан Эммануилович
+                div(class="contacts-item contacts-item--right")
                     div(class="contacts-employees-holder contacts-employees-holder--left")
-                        img(src="", class="contacts-employees-holder")
+                        img(src="../dummy/zam_directora.jpg", class="contacts-employees-holder")
                     div(class="contacts-employees-description")
-                        span(class="contacts-employees-position")
-                        span(class="contacts-employees-name")
+                        span(class="contacts-employees-position") Заместитель генерального директора, директор департамента управления активами, маркетинга и правового обеспечения
+                        span(class="contacts-employees-name") Заболоцкая Елена Николаевна
+            div(class="contacts-departments")
+                span(class="contacts-departments-title") Решить любые вопросы Вам помогут
+                div(class="contacts-departments-items")
+                    div(class="contacts-departments-item")
+                        div(class="contacts-departments-item-name") Коммерческий отдел
+                        a(href="tel:+78632725108", class="link link--darkgray contacts-departments-item-phone") (863) 2725-108
+                        div(class="contacts-departments-item-time") Пн-пт c 09:00 до 18:00
+                    div(class="contacts-departments-item")
+                        div(class="contacts-departments-item-name") Рекламный отдел
+                        a(href="tel:+78632725108", class="link link--darkgray contacts-departments-item-phone") (863) 2725-108 доб. 109
+                        div(class="contacts-departments-item-time") Пн-вт c 09:00 до 18:00
+                        div(class="contacts-departments-item-time") Чт-пт c 11:00 до 15:00
+            a(href="#application-form-open", class="link link--darkgray contacts-application")  
+                span Заявка на аренду
+    div(class="contacts-location")
+        div(class="page-inner page-inner--w1")
+            div(class="contacts-location-title") Россия, Ростов-на-Дону, проспкт Михаила Нагибина
+        div(class="contacts-location-container")
+            div(class="contacts-location-container-holder")
+                img(src="../dummy/gorizont_photo.jpg", class="contacts-location-container-holder-img")
+            div(class="contacts-location-container-map", data-center="[47.2586, 39.7203]", data-zoom="17", data-points='[{name:"1", position: "47.2597, 39.7198", icon: "../svg/icons/point_map_blue.svg", description:"г. Ростов-На-Дону, пр. Нагибина, 32ж"}]')
+    div(id="application-form-open", class="application-form white-popup mfp-hide")
+        span(class="application-form-title")        
+        div(class="application-form-items")
+            form(action="#")               
+                span(class="application-form-information") Информация об Арендаторе:
+                div(class="application-form-container-item")
+                    span(class="application-form-container-item-nmae") Название компании и форма организации  
+                    input(type="text", class="application-form-container-item")
+                div(class="application-form-container-item")
+                    span(class="application-form-container-item-nmae") Юридический / почтовый адрес (с индексом)
+                    input(type="text", class="application-form-container-item")
+                div(class="application-form-container-item")
+                    span(class="application-form-container-item-nmae") Телефон (код страны, города)
+                    input(type="text", class="application-form-container-item")
+                div(class="application-form-container-item")
+                    span(class="application-form-container-item-nmae") Электронная почта
+                    input(type="text", class="application-form-container-item")
+                div(class="application-form-container-item")
+                    span(class="application-form-container-item-nmae") Сайт
+                    input(type="text", class="application-form-container-item")
+                div(class="application-form-container-item")
+                    span(class="application-form-container-item-nmae") Контактное лицо, должность
+                    input(type="text", class="application-form-container-item")
+                div(class="application-form-container-item")
+                    span(class="application-form-container-item-nmae") Тип бизнеса (франшиза или собственные магазины с указанием компании, предоставляющей бренд в России)
+                    input(type="text", class="application-form-container-item")
+                div(class="application-form-container-item")
+                    span(class="application-form-container-item-nmae") формат проекта и требуемая площадь (магазин/павильон)
+                    input(type="text", class="application-form-container-item")
+                span(class="application-form-information") Информация о заявке Арендатора
+                div(class="application-form-container-item")
+                    span(class="application-form-container-item-nmae") Представляемые торговые марки магазины/павильоны (в формате монобренд/ мультибренд)
+                    input(type="text", class="application-form-container-item")

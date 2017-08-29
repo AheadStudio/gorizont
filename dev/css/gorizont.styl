@@ -916,10 +916,11 @@ body
 
 					width 75%
 
-					margin-bottom 20px
+					margin-bottom 5px
 
 					span
 						font-size 24px
+					    line-height 30px
 
 					&:after
 						content ""
@@ -940,18 +941,24 @@ body
 						z-index -10
 
 					&:before
-						content url("../svg/icons/arrow_black_up.svg")
+						content ""
 						position absolute
 
 						top 15%
 						left 90%
 						width 20px
+						height 22px
 
 						display block
 						opacity 0
 
-						transform rotate(90deg) translateY(50%)
-						transition opacity 0.5s $cubic-transition, transform 1s $cubic-transition
+						background url("../svg/icons/arrow_black_up.svg")
+						background-size contain
+						background-repeat no-repeat
+
+						transform rotate(90deg) translateY(120%)
+						transition opacity 0.5s $cubic-transition, transform 0.3s $cubic-transition
+
 
 				&-title
 					font-size 34px
@@ -969,8 +976,6 @@ body
 				.similar-shares-item-content-title:before
 					opacity 1
 					transform rotate(90deg) translateY(-100%)
-
-
 
 /*** //article ***/
 
@@ -1873,6 +1878,228 @@ body
 
 /*** contacts ***/
 
+.contacts
+	position relative
+	display block
+
+	.contacts-welcome
+		display block
+		width 70%
+
+		margin-top 105px
+		margin-bottom 75px
+
+		.contacts-welcome-title
+			line-height 40px
+			font-size 34px
+
+	.contacts-items
+		display block
+		width 100%
+
+		.contacts-item
+			display block
+			padding 50px 210px 60px 210px
+			border-top 1px solid #e0e0e0
+			overflow hidden
+
+			&--left
+				.contacts-employees-holder
+					margin-left 10px
+					float left
+
+				.contacts-employees-description
+					margin-left 140px
+					margin-top 80px
+
+			&--right
+				.contacts-employees-holder
+					float right
+					margin-top -2px
+					margin-right 20px
+
+				.contacts-employees-description
+					margin 45px 0px 0px 20px
+
+			&:last-child
+				border-bottom 1px solid #e0e0e0
+
+			.contacts-employees-holder
+				width 200px
+				display inline-block
+				text-align center
+
+
+				.contacts-employees-holder-img
+					width 100%
+
+			.contacts-employees-description
+				width 300px
+				display inline-block
+				vertical-align: top
+
+				.contacts-employees-position
+					display block
+					width 100%
+
+					font-size 16px
+
+					margin-bottom 5px
+
+					line-height 25px
+
+				.contacts-employees-name
+					display block
+					width 100%
+
+					font-family GothamProBold
+					font-size 16px
+
+.contacts
+	.contacts-departments
+		margin-top 115px
+
+		.contacts-departments-title
+			display block
+			width 100%
+
+			margin-bottom 100px
+
+			font-size 34px
+
+		.contacts-departments-items
+			width 100%
+			display block
+
+			margin-bottom 95px
+
+			.contacts-departments-item
+				width 49%
+				vertical-align top
+				display inline-block
+
+				.contacts-departments-item-name
+					display block
+					width 100%
+
+					margin-bottom 15px
+
+					font-size 16px
+					font-family GothamProBold
+
+				.contacts-departments-item-phone
+					display block
+					width 100%
+
+					font-size 34px
+
+					margin-bottom 15px
+
+				.contacts-departments-item-time
+					margin-bottom 15px
+
+	.contacts-application
+		display block
+		width 100%
+		height 210px
+
+		background #ef4785
+
+		color #fff
+
+		padding 90px 0
+		box-sizing border-box
+
+		margin-bottom 155px
+
+		text-align center
+
+		font-size 34px
+
+		opacity 1
+		transition all 0.5s $cubic-transition
+
+		&:hover
+			opacity 0.8
+		span
+			display: inline-block;
+			position: relative;
+			&:before
+				content ""
+				position absolute
+
+				top 50%
+				left -90px
+				margin-top: -33px
+
+				width 47px
+				height 66px
+
+				background-image: url("../svg/icons/application.svg")
+				background-size contain
+				background-repeat no-repeat
+
+				z-index 100
+
+.contacts-location
+	display block
+
+	width 100%
+
+	.contacts-location-title
+		position relative
+		display inline-block
+
+		margin-bottom: 50px
+
+		font-size: 16px
+		font-family: GothamProBold
+
+		&:after
+			content ""
+			position absolute
+			top -83px
+			right -151px
+
+			width 100px
+			height 100px
+
+			background-image url(../svg/icons/compass.svg)
+			background-size contain
+			background-repeat no-repeat
+			z-index 100
+
+
+	.contacts-location-container
+		display flex
+		flex-wrap wrap
+
+		width 100%
+		height 100%
+
+		.contacts-location-container-holder
+			width 50%
+			display inline-block
+
+			.contacts-location-container-holder-img
+				width 100%
+				height 100%
+				object-fit fill
+
+		.contacts-location-container-map
+			width 49%
+			display inline-block
+			vertical-align top
+		    height 100%
+
+.application-form
+	position relative
+	width 70%
+	
+	background white
+
+	margin 0 auto
+	padding 70px 90px
 
 
 /*** //contacts ***/
