@@ -4,18 +4,22 @@ block content
     div(class="page-inner page-inner--w1")
         div(class="page-title") Контакты
         div(class="contacts")
+            div(class="search")
+                form(action="/search.html")
+                    input(type="text", class="search-item", placeholder="Поиск магазина")
+                    button(type="submit", title="Найти", class="search-submit")
             div(class="contacts-welcome")
                 span(class="contacts-welcome-title") Рады приветствовать Вас от лица нашей команды профессионалов
             div(class="contacts-items")
                 div(class="contacts-item contacts-item--left")
                     div(class="contacts-employees-holder")
-                        img(src="../dummy/photo_director.jpg", class="contacts-employees-holder")
+                        img(src="../dummy/photo_director.jpg", class="contacts-employees-holder-img")
                     div(class="contacts-employees-description")
                         span(class="contacts-employees-position") Генеральный директор
                         span(class="contacts-employees-name") Полонский Дан Эммануилович
                 div(class="contacts-item contacts-item--right")
                     div(class="contacts-employees-holder contacts-employees-holder--left")
-                        img(src="../dummy/zam_directora.jpg", class="contacts-employees-holder")
+                        img(src="../dummy/zam_directora.jpg", class="contacts-employees-holder-img")
                     div(class="contacts-employees-description")
                         span(class="contacts-employees-position") Заместитель генерального директора, директор департамента управления активами, маркетинга и правового обеспечения
                         span(class="contacts-employees-name") Заболоцкая Елена Николаевна
@@ -40,23 +44,23 @@ block content
             div(class="contacts-location-container-holder")
                 img(src="../dummy/gorizont_photo.jpg", class="contacts-location-container-holder-img")
             div(class="contacts-location-container-map", data-center="[47.2586, 39.7203]", data-zoom="17", data-points='[{name:"1", position: "47.2597, 39.7198", icon: "../svg/icons/point_map_blue.svg", description:"г. Ростов-На-Дону, пр. Нагибина, 32ж"}]')
-    div(id="form-open", class="form white-popup mfp-hide")
+    div(id="form-open", class="application-form white-popup mfp-hide", data-send="send_ajaxForm")
         span(class="form-title") Заявка на аренду
-        form(action="#")        
+        form(id="ajaxForm", class="form", action="#")        
             div(class="form-items")       
                 span(class="form-information") Информация об Арендаторе:
                 div(class="form-container-item")
                     span(class="form-container-item-name") Название компании и форма организации  
-                    input(type="text", class="form-item")
+                    input(type="text", class="form-item", name="namecompany", required, data-error="Введите имя компании")
                 div(class="form-container-item")
                     span(class="form-container-item-name") Юридический / почтовый адрес (с индексом)
                     textarea(rows="5", class="form-item form-item--textarea")
                 div(class="form-container-item")
                     span(class="form-container-item-name") Телефон (код страны, города)
-                    input(type="text", class="form-item")
+                    input(type="text", class="form-item", name="mobile", required, data-error="Введите телефон", data-pattern="mobileRu")
                 div(class="form-container-item")
                     span(class="form-container-item-name") Электронная почта
-                    input(type="text", class="form-item")
+                    input(type="email", class="form-item", name="email", required, data-error="Введите Email")
                 div(class="form-container-item")
                     span(class="form-container-item-name") Сайт
                     input(type="text", class="form-item")
@@ -133,4 +137,7 @@ block content
                     input(type="file", class="form-item form-item--file") 
                 span(class="form-information form-information--mini") Обращаем Ваше внимание, что ТРК &#171Горизонт&#187 для павильонов ограничение по высоте (не выше 1.4 м)
                 div(class="form-container-item form-container-item--center")
-                    input(type="submit", class="btn btn--red form-item-submit", value="Отправить") 
+                    input(type="submit", class="btn btn--red form-item-submit", name="send", value="Отправить") 
+                    
+    div(id="send_ajaxForm", class="application-form white-popup mfp-hide")
+        span(class="form-title") Спасибо за проявленный интерес

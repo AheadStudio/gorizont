@@ -157,6 +157,88 @@
 
 			},
 
+			form: {
+				init: function($container) {
+					if(!$container) {
+						var $container = $sel.body;
+					}
+
+					jcf.setOptions("File", {
+						buttonText: "Обзор",
+						placeholderText: "",
+					});
+
+					jcf.replace($(".form-item--file", $container));
+
+					$.validator.setDefaults({
+						errorClass: "form-item--error",
+						errorElement: "span"
+					});
+					$.validator.addMethod("mobileRU", function(phone_number, element) {
+						phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
+						return this.optional(element) || phone_number.length > 5 && phone_number.match(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{6,10}$/);
+					}, "Error");
+
+					$(".form", $container).each(function() {
+						var $form = $(this),
+							formParams = {
+								rules: {
+
+								},
+								messages: {
+								}
+							},
+							$formFields = $form.find("[data-error]");
+						$formFields.each(function() {
+							var $field = $(this),
+								fieldPattern = $field.data("pattern"),
+								fieldError = $field.data("error");
+							if(fieldError) {
+								formParams.messages[$field.attr("name")] = $field.data("error");
+							} else {
+								formParams.messages[$field.attr("name")] = "Ошибка заполнения";
+							}
+							if(fieldPattern) {
+								formParams.rules[$field.attr("name")] = {};
+								formParams.rules[$field.attr("name")][fieldPattern] = true;
+							}
+						});
+
+						$form.validate(formParams);
+					});
+				}
+			},
+
+			ajaxForm: {
+
+				init: function() {
+
+					$("#ajaxForm", $sel.body).submit(function(){
+				        var $form = $(this),
+							$result = $("#send_ajaxForm", $sel.body).html();
+
+				        $.ajax({
+				            type: 'POST',
+				            url: $form.attr('action'),
+				            data: $form.serialize(),
+				            success: function(data) {
+				                $.magnificPopup({
+				                    items: {
+				                        src: $result,
+				                        type: "inline"
+				                    }
+				                });
+				            },
+				        });
+
+				    });
+
+				}
+
+			},
+
+
+
 			yandexMap: {
 				$map: false,
 				map: false,
@@ -200,7 +282,9 @@
 	ymaps.ready(function() {
 		GORIZONT.yandexMap.init();
 	});
+	GORIZONT.ajaxForm.init();
 	GORIZONT.goTop();
+	GORIZONT.form.init();
 	GORIZONT.modalWindow();
 	GORIZONT.initAjaxLoader();
 	GORIZONT.menu();

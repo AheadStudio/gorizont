@@ -1446,13 +1446,13 @@ body
 
 
 			&--blue:hover
-				background rgba(#993399, 0.85)
+				background rgba(#993399, 0.9)
 
 			&--red:hover
-				background rgba(#d43d74, 0.85)
+				background rgba(#d43d74, 0.9)
 
 			&--darkblue:hover
-				background rgba(#251440, 0.85)
+				background rgba(#251440, 0.9)
 
 
 			img
@@ -1503,6 +1503,7 @@ body
 					text-align right
 
 					.shops-container-item-header-toggler-title
+						display none
 						margin 0 20px
 						font-size 18px
 
@@ -1637,8 +1638,7 @@ body
 				height auto
 				overflow inherit
 
-				background rgba(#993399, 0.85)
-
+				background rgba(#993399, 0.9)
 				img
 					opacity 1
 
@@ -1651,6 +1651,8 @@ body
 
 
 					.shops-container-item-header-toggler
+						.shops-container-item-header-toggler-title
+							display inline-block
 
 						.shops-container-item-header-toggler-icon
 							border-color #fff
@@ -1669,8 +1671,7 @@ body
 /*** shops detail ***/
 
 .shops-detail
-	overflow hidden
-	display block
+	display flex
 
 	.shops-detail-photo-holder
 		display block
@@ -1685,10 +1686,14 @@ body
 		width 50%
 
 		&--left
+			flex 1
 			float left
 
 		&--right
+			flex 1
 			float right
+
+			background #f4f4f4
 
 	.shops-detail-description
 		display block
@@ -1892,12 +1897,19 @@ body
 	position relative
 	display block
 
+	margin-top 98px
+
+	.search
+		top -118px
+		right 10px
+		width 312px
+
+
 	.contacts-welcome
 		display block
 		width 70%
 
-		margin-top 105px
-		margin-bottom 75px
+		margin-bottom 67px
 
 		.contacts-welcome-title
 			line-height 40px
@@ -1909,7 +1921,7 @@ body
 
 		.contacts-item
 			display block
-			padding 50px 210px 60px 210px
+			padding 50px 210px 55px 210px
 			border-top 1px solid #e0e0e0
 			overflow hidden
 
@@ -1917,6 +1929,12 @@ body
 				.contacts-employees-holder
 					margin-left 10px
 					float left
+
+					box-shadow 45px 45px 0px -20px rgba(85,68,155,1)
+
+					.contacts-employees-holder-img
+						display block
+						width 100%
 
 				.contacts-employees-description
 					margin-left 140px
@@ -1926,7 +1944,13 @@ body
 				.contacts-employees-holder
 					float right
 					margin-top -2px
-					margin-right 20px
+					margin-right 45px
+
+					box-shadow 45px 45px 0px -20px rgba(238,69,131,1)
+
+					.contacts-employees-holder-img
+						display block
+						width 100%
 
 				.contacts-employees-description
 					margin 45px 0px 0px 20px
@@ -1967,13 +1991,13 @@ body
 
 .contacts
 	.contacts-departments
-		margin-top 115px
+		margin-top 120px
 
 		.contacts-departments-title
 			display block
 			width 100%
 
-			margin-bottom 100px
+			margin-bottom 90px
 
 			font-size 34px
 
@@ -1981,7 +2005,7 @@ body
 			width 100%
 			display block
 
-			margin-bottom 95px
+			margin-bottom 92px
 
 			.contacts-departments-item
 				width 49%
@@ -2146,7 +2170,7 @@ body
 
 
 
-.form
+.application-form
 	position relative
 
 	width 855px
@@ -2212,11 +2236,26 @@ body
 				text-align: left
 
 		.form-container-item
+			position relative
 			display block
 			width 100%
 
 			&--center
 				text-align center
+
+			.form-item.form-item--error
+				border 2px solid $color-red
+
+			span.form-item--error
+				position absolute
+				bottom -15px
+				left 50%
+
+				transform translateX(-50%)
+
+				font-size 14px
+
+				color $color-red
 
 			.form-container-item-name
 				display block
@@ -2259,6 +2298,50 @@ body
 
 				font-size 20px
 				color #fff
+
+			.jcf-file
+				position relative
+
+				display block
+
+				overflow hidden
+
+				.jcf-fake-list
+					float left
+
+					display block
+					width 80%
+					height 65px
+
+					padding 10px
+					box-sizing border-box
+
+					margin-bottom 35px
+
+					border 1px solid #c3c3c3
+
+					font-size 18px
+					font-family GothamProLight
+
+					.fake-list-item
+						margin-top: 12px
+
+				.form-item--file.jcf-real-element
+					top 0
+					margin-bottom: 0
+					cursor pointer
+
+				.jcf-upload-button
+					width 18%
+					height 66px
+
+					margin-left 2%
+
+					line-height 66px
+
+					background #f5f3f0
+
+					font-size 18px
 
 		.form-container-item-columns
 			display flex

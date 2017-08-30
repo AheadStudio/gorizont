@@ -34,7 +34,7 @@
 		"shops": {
 			"name": "Магазины",
 			"progress": {
-				"desktop": "10",
+				"desktop": "90",
 				"tablet": "0",
 				"mobile": "0"
 			}
@@ -50,7 +50,7 @@
 		"shops_detail": {
 			"name": "Карточка магазина",
 			"progress": {
-				"desktop": "10",
+				"desktop": "100",
 				"tablet": "0",
 				"mobile": "0"
 			}
@@ -82,7 +82,7 @@
 		"contacts": {
 			"name": "Контакты",
 			"progress": {
-				"desktop": "10",
+				"desktop": "90",
 				"tablet": "0",
 				"mobile": "0"
 			}
