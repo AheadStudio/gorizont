@@ -128,7 +128,8 @@
 
 				$(".contacts-application").magnificPopup({
 					type: "inline",
-					focus: '#name',
+					mainClass: "mfp-form",
+					closeMarkup: '<button title="%title%" class="mfp-close"><img src="../svg/icons/close_white.svg" width="20" height="20" class="mfp-close-icn mfp-close"/></button>',
 				});
 
 			},
