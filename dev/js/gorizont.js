@@ -237,8 +237,6 @@
 
 			},
 
-
-
 			yandexMap: {
 				$map: false,
 				map: false,
@@ -275,6 +273,41 @@
 			},
 
 
+			hoverElement: {
+				
+				init: function() {
+					var $allElementHover = $(".hover-item", $sel.body);
+
+					$allElementHover.each(function() {
+						var $element = $(this);
+
+						$($element).on("mouseenter", function() {
+							var $hoverItem = $(this),
+								$elementId = $hoverItem.attr("id"),
+								$hoverBlock = $sel.body.find("[data-hover='" + $elementId + "']");
+
+							if (!$hoverBlock.hasClass("hover-block")) {
+								$hoverBlock.addClass("hover-block");
+							}
+
+						});
+
+						$($element).on("mouseleave", function() {
+							var $hoverItem = $(this),
+								$elementId = $hoverItem.attr("id"),
+								$hoverBlock = $sel.body.find("[data-hover='" + $elementId + "']");
+
+							if ($hoverBlock.hasClass("hover-block")) {
+								$hoverBlock.removeClass("hover-block");
+							}
+
+						});
+
+					});
+				}
+			},
+
+
 		};
 
 	})();
@@ -282,7 +315,11 @@
 	ymaps.ready(function() {
 		GORIZONT.yandexMap.init();
 	});
+
 	GORIZONT.ajaxForm.init();
+
+	GORIZONT.hoverElement.init();
+
 	GORIZONT.goTop();
 	GORIZONT.form.init();
 	GORIZONT.modalWindow();
