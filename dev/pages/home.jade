@@ -1,3 +1,142 @@
 extends ../templates/base
 
 block content
+    div(class="page-inner page-inner--w1 page-inner--relative")
+        div(class="home-promo")
+            div(class="home-promo-holder")
+                img(src="../dummy/home_promo.png", class="home-promo-holder-img")
+            div(class="home-promo-count")
+                div(class="home-promo-count-img")
+                    include ../../prod/svg/icons/shop.svg        
+                div(class="home-promo-count-title") 322
+                div(class="home-promo-count-text") Мест торговли и развлечений
+            div(class="home-promo-search")
+                div(class="home-promo-search-img")
+                    include ../../prod/svg/icons/red_loupe.svg
+                div(class="home-promo-search-title") Найдите свой магазин        
+                a(href="#", class="link link--darkgray link--red-inverse home-promo-search-link") По категориям
+                a(href="#", class="link link--darkgray link--red-inverse home-promo-search-link") На схеме
+        div(class="home-offers")
+            div(class="home-container-items")
+                a(href="#", class="link home-item home-item--w1")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #59489e") Кино.
+                        div(class="link--darkgray home-item-heading-info") 8 кинозалов
+                    div(class="home-item-content")
+                        img(src="../dummy/films.jpg", class="home-item-content-img")
+                    
+                a(href="#", class="link home-item home-item--w1")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #a24098") Детям.
+                        div(class="link--darkgray home-item-heading-info") Детский город, для ваших детей
+                    div(class="home-item-content")
+                        img(src="../dummy/children.jpg", class="home-item-content-img")
+
+                a(href="#", class="link home-item home-item--w2")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #ef4784") Фитнес.
+                        div(class="link--darkgray home-item-heading-info") Спорт и развлечения рядом
+                    div(class="home-item-content")
+                        img(src="../dummy/fitnes.jpg", class="home-item-content-img")
+                        
+                a(href="#", class="link home-item home-item--w2")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #a77ab5") Одежда.
+                        div(class="link--darkgray home-item-heading-info") 98 брендов
+                    div(class="home-item-content")
+                        img(src="../dummy/clothes.jpg", class="home-item-content-img")
+                        
+                a(href="#", class="link home-item home-item--w2")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #faaf78") Удовольствие.
+                        div(class="link--darkgray home-item-heading-info") Огромный фудкорт
+                    div(class="home-item-content")
+                        img(src="../dummy/food.jpg", class="home-item-content-img")
+        div(class="home-news")
+            div(class="page-title") Горизонт Life & Style
+            div(class="shares")
+                div(class="shares-container-items")
+                    a(href="#", class="link link--darkgray shares-item shares-item--title-bold")
+                        div(class="shares-item-heading")
+                            div(class="shares-item-photo-holder")
+                                img(src="../dummy/two_girls.jpg", class="shares-item-photo")
+                        div(class="shares-item-content")
+                            div(class="shares-item-content-title ")
+                                span(class="link shares-item-content-title-text") Обуздай не удержимое!
+                            div(class="shares-item-content-text") Открытие бутика джинсовой одежды лагендарного бренда
+                            div(class="shares-item-content-shop") Mustang
+                            div(class="shares-item-content-tag") Новое открытие
+                            
+                    a(href="#", class="link link--darkgray shares-item")
+                        div(class="shares-item-content")
+                            div(class="shares-item-content-title")
+                                span(class="link shares-item-content-title-text") Желанный подарок вернулся
+                            div(class="shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
+                            div(class="shares-item-content-tag") новость
+
+                    a(href="#", class="link link--darkgray shares-item")
+                        div(class="shares-item-content")
+                            div(class="shares-item-content-title")
+                                span(class="link shares-item-content-title-text") Концерт духового аркестра
+                            div(class="shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
+                            div(class="shares-item-content-tag") новость
+                            
+                    a(href="#", class="link link--darkgray shares-item")
+                        div(class="shares-item-heading")
+                            div(class="shares-item-photo-holder")
+                                img(src="../dummy/model.jpg", class="shares-item-photo")
+                        div(class="shares-item-content")
+                            div(class="shares-item-content-title")
+                                span(class="link shares-item-content-title-text") Объем, как тренд 2017 от кутюр
+                            div(class="shares-item-content-text") Полоска - тренд вне времени, и дизайнеры ее любят за локоничность и универсальность
+                            div(class="shares-item-content-shop") L'Oral
+                            div(class="shares-item-content-tag") спец. предложение
+
+                    a(href="#", class="link link--darkgray shares-item")
+                        div(class="shares-item-heading")
+                            div(class="shares-item-photo-holder")
+                                img(src="../dummy/children_day.jpg", class="shares-item-photo")
+                        div(class="shares-item-content")
+                            div(class="shares-item-content-title")
+                                span(class="link shares-item-content-title-text") Детский день!
+                            div(class="shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
+                            div(class="shares-item-content-tag") Мероприятие
+                            
+                a(href="/pages/shares.html", class="btn btn--red home-shares-more") Узнать больше
+            
+            div(class="jornal-news")
+                div(class="jornal-news-title")
+                    span(class="jornal-news-title-number") №10
+                    span(class="jornal-news-title-name") Журнал о жизни и стиле
+                a(href="#", class="jornal-news-holder")
+                    img(src="../dummy/Life_style_10.jpg", class="jornal-news-holder-img")
+                    
+                    
+        div(class="home-comfort")
+            div(class="home-comfort-video")
+                a(href="/page/gallery.html", class="link home-comfort-item-link") Видео о горизонте
+                div(class="home-comfort-video-holder")
+                    img(src="../dummy/people_gorizont.jpg", class="home-comfort-video-holder-img")
+            div(class="home-comfort-logo")
+                a(href="/page/concept.html", class="link home-comfort-item-link") Концепция
+                div(class="home-comfort-logo-holder")
+                    img(src="../dummy/home_promo.png", class="home-comfort-logo-holder-img")
+            div(class="home-comfort-gallery")
+                a(href="/page/gallery.html", class="link home-comfort-item-link") Фото галерея
+                div(class="home-comfort-gallery-holder")
+                    img(src="../dummy/rectangle.jpg", class="home-comfort-gallery-holder-img")
+            div(class="home-comfort-about")
+                div(class="home-comfort-item-title") Место вашего комфорта
+                div(class="home-comfort-item-prev") Торгово-развлекательный комплекс «Горизонт» постоянно развивается, открывая новые проекты, которые будут интересны и востребованы нашими покупателями. 
+                a(href="/page/gallery.html", class="link home-comfort-item-link") О Горизонте
+        
+        div(class="home-welcome")
+            div(class="home-welcome-title") Мы ждем вас!
+            div(class="home-welcome-time") Ежедневно с 8:00 до 20:00
+            a(href="tel:+78002001955", class="link link--darkgray home-welcome-phone") 8 (800) 200 19 55
+            div(class="home-welcome-location") 
+                | г. Ростов-на-Дону, 
+                a(href="#", class="link link--darkgray link--gray-inverse") пр. им. М. Нагибина, 32/2
+            div(class="home-welcome-btn") 
+                a(href="#", class="link btn btn--blue home-welcome-btn-map") как добраться
+                a(href="#", class="link btn btn--red home-welcome-btn-contacts") контакты
