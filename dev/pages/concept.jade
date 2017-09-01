@@ -1,0 +1,57 @@
+extends ../templates/base
+
+block content
+    div(class="page-inner page-inner--w1")
+        div(class="page-title") Концепция
+        div(class="concept")
+            div(class="search")
+                form(action="/search.html")
+                    input(type="text", class="search-item", placeholder="Поиск магазина")
+                    button(type="submit", title="Найти", class="search-submit")
+                    
+            div(class="concept-background")
+                img(src="../dummy/concept_background.jpg", class="concept-background-img")
+        
+            div(class="page-text")
+                span(class="page-text-title") «Горизонт» — это место Вашего комфорта... постоянно развивается, открывая новые проекты, которые будут интересны и востребованы нашими покупателями. 
+                p Проспект М. Нагибина, на котором расположен ТРК «Мегацентр Горизонт» является одной из основных автомагистралей г.Ростова-на-Дону, ведущая из центра города в крупные жилые микрорайоны, в которых проживает более трети населения города. Прямая трасса из Краснодара в Ростов также ведет к проспекту Нагибина.
+                a(href="#", class="link link--darkgray link--gray-inverse page-text-filelink") Наша Концепция безупречного развития
+                a(href="#", class="link link--darkgray link--gray-inverse page-text-filelink") 7 успешных правил ТРК «Горизонт»
+            
+    div(class="home-offers")
+        div(class="page-inner page-inner--w1 page-inner--relative")
+            div(class="home-container-items")
+                a(href="#", class="link home-item home-item--w1")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #59489e") Кино.
+                        div(class="link--darkgray home-item-heading-info") 8 кинозалов
+                    div(class="home-item-content")
+                        img(src="../dummy/films.jpg", class="home-item-content-img")
+                    
+                a(href="#", class="link home-item home-item--w1")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #a24098") Детям.
+                        div(class="link--darkgray home-item-heading-info") Детский город, для ваших детей
+                    div(class="home-item-content")
+                        img(src="../dummy/children.jpg", class="home-item-content-img")
+
+                a(href="#", class="link home-item home-item--w2")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #ef4784") Фитнес.
+                        div(class="link--darkgray home-item-heading-info") Спорт и развлечения рядом
+                    div(class="home-item-content")
+                        img(src="../dummy/fitnes.jpg", class="home-item-content-img")
+                        
+                a(href="#", class="link home-item home-item--w2")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #a77ab5") Одежда.
+                        div(class="link--darkgray home-item-heading-info") 98 брендов
+                    div(class="home-item-content")
+                        img(src="../dummy/clothes.jpg", class="home-item-content-img")
+                        
+                a(href="#", class="link home-item home-item--w2")
+                    div(class="home-item-heading")
+                        div(class="link--darkgray home-item-heading-tag", style="background: #faaf78") Удовольствие.
+                        div(class="link--darkgray home-item-heading-info") Огромный фудкорт
+                    div(class="home-item-content")
+                        img(src="../dummy/food.jpg", class="home-item-content-img")

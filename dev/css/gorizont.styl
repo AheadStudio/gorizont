@@ -74,7 +74,6 @@ body
 	min-height 100%
 
 .page-content
-	max-width 1366px
 	margin 0 auto
 
 /*** //structure ***/
@@ -444,6 +443,16 @@ body
 	&:hover
 		border-bottom-color transparent
 
+.page-max
+	display block
+	width 100%
+
+	&--relative
+		position relative
+
+	&--hidden
+		overflow hidden
+
 
 
 .page-inner
@@ -459,6 +468,9 @@ body
 		max-width 1150px
 		padding-left 30px
 
+	&--w2
+		max-width 1366px
+		margin 0 auto
 	&--relative
 		position relative
 
@@ -467,9 +479,50 @@ body
 
 .page-text
 	p
-		font-size 16px
 		margin-bottom 45px
 		line-height 2
+		font-size 16px
+
+	.page-text-title
+		display block
+		width 100%
+
+		margin-bottom 45px
+		line-height 50px
+
+		font-size 35px
+
+	.page-text-filelink
+		position relative
+		display inline-block
+
+		margin-bottom 70px
+
+		font-size 34px
+		font-family GothamProBold
+
+
+		margin-left 66px
+
+		&:before
+			content ".pdf"
+
+			position absolute
+			left -66px
+
+			display inline-block
+
+			width 44px
+			height 33px
+
+			padding 6px 5px
+			box-sizing border-box
+			background $color-blue
+
+			color #fff
+
+			font-size 18px
+			font-family GothamProLight
 
 .load-more
 	width 100%
@@ -573,6 +626,7 @@ body
 
 
 /** social block **/
+
 .social-container
 	display block
 
@@ -704,6 +758,280 @@ body
 /** //button **/
 
 
+/** acordeon **/
+
+.acordeon-container-items
+	overflow hidden
+
+	.acordeon-container-item
+		position relative
+
+		display block
+		height 150px
+
+		overflow hidden
+
+		background transparent
+
+		border-bottom 1px solid #e6e6e6
+
+		transition all 0.5s $cubic-transition
+
+		cursor pointer
+
+		&--blue:hover
+			background rgba(#993399, 0.9)
+
+		&--red:hover
+			background rgba(#d43d74, 0.9)
+
+		&--darkblue:hover
+			background rgba(#251440, 0.9)
+
+
+		img
+			position absolute
+			top 0
+			left 0
+
+			display block
+
+			width 100%
+			height 100%
+
+			object-fit cover
+			object-position top
+
+			z-index -10
+			opacity 0
+
+			transition opacity 0.8s $cubic-transition
+
+		.acordeon-container-item-header
+			display flex
+			align-items center
+			height 150px
+			padding 25px 0
+			box-sizing border-box
+
+			.acordeon-container-item-header-name
+			.acordeon-container-item-header-count
+			.acordeon-container-item-header-toggler
+				display inline-block
+				box-sizing border-box
+				transition color 0.5s $cubic-transition
+
+			.acordeon-container-item-header-name
+				width 50%
+				text-align left
+				font-size 32px
+
+			.acordeon-container-item-header-count
+				width 30%
+				font-size 32px
+				text-align right
+				padding-right 65px
+
+			.acordeon-container-item-header-toggler
+				width 20%
+				text-align right
+
+				.acordeon-container-item-header-toggler-title
+					display none
+					margin 0 20px
+					font-size 18px
+
+					border-bottom 1px solid #c17dba
+
+					transition all 0.5s $cubic-transition
+
+					cursor pointer
+					&:hover
+						border-bottom-color transparent
+
+				.acordeon-container-item-header-toggler-icon
+					position relative
+					display inline-block
+
+					margin-right 25px
+					vertical-align middle
+					width 50px
+					height 50px
+
+					border 1px solid #000
+					border-radius 50%
+
+					transition all 0.5s $cubic-transition
+
+					cursor pointer
+
+					&:not(.acordeon-container-item-header-toggler-icon--arrow)
+						&:after,
+						&:before
+							content ""
+							position: absolute
+							top 50%
+							left 50%
+
+							background #000
+
+							transition background 0.5s $cubic-transition
+
+						&:after
+							width 20px
+							height 1px
+
+							margin -0.5px 0 0 -10px
+						&:before
+							width 1px
+							height 20px
+
+							margin -10px 0 0 -0.5px
+
+					&.acordeon-container-item-header-toggler-icon--arrow
+						svg
+							position absolute
+							width 16px
+							height 26px
+
+							transform rotate(90deg)
+
+							top 50%
+							left 50%
+
+							margin-top -13px
+							margin-left -8px
+
+							path
+								fill #000
+
+								transition fill 0.5s $cubic-transition
+
+
+		&:hover
+			img
+				opacity 1
+
+			.acordeon-container-item-header
+
+				.acordeon-container-item-header-name
+				.acordeon-container-item-header-count
+					color #fff
+
+				.acordeon-container-item-header-toggler-icon
+
+					border-color #fff
+					&:not(.acordeon-container-item-header-toggler-icon--arrow)
+						&:before
+							background #fff
+						&:after
+							background #fff
+
+
+					&.acordeon-container-item-header-toggler-icon--arrow
+						svg
+							path
+								fill #fff
+
+				.acordeon-container-item-header-toggler-title
+					color #fff
+
+
+		.acordeon-container-item-content
+			position relative
+
+			display block
+			width 100%
+
+			padding 65px 20px 80px 0px
+
+			box-sizing border-box
+
+			&:before
+				content ""
+
+				position: absolute
+				top 0
+				display block
+
+				height 1px
+
+				background #a8a8a8
+
+				width 1000%
+				margin-left -500%
+
+				z-index -10
+
+			.acordeon-container-item-content-link
+				position relative
+				display inline-block
+				width 25%
+				font-size 18px
+
+				margin-bottom 30px
+
+				&:after
+					content ""
+					position absolute
+					bottom 0
+
+					margin-left 15px
+
+					display inline-block
+
+					width 15px
+					height 15px
+
+					opacity 0
+
+					background url("../svg/icons/arrow_white_up.svg")
+					background-repeat no-repeat
+
+					transform rotate(90deg)
+
+					transition opacity 0.5s $cubic-transition
+
+				&:hover
+					&:after
+						opacity 1
+
+
+		&--active
+			height auto
+			overflow inherit
+
+			background rgba(#993399, 0.9)
+
+			&.acordeon-container-item--red
+				background rgba(#d43d74, 0.9)
+			img
+				opacity 1
+
+
+			.acordeon-container-item-header
+				.acordeon-container-item-header-name
+				.acordeon-container-item-header-count
+				.acordeon-container-item-header-toggler
+					color #fff
+
+
+				.acordeon-container-item-header-toggler
+					.acordeon-container-item-header-toggler-title
+						display inline-block
+
+					.acordeon-container-item-header-toggler-icon
+						border-color #fff
+
+						&:not(.acordeon-container-item-header-toggler-icon--arrow)
+							&:after
+								background #fff
+
+							&:before
+								opacity 0
+								transform scale(0.5)
+
+/** //acordeon **/
 
 /*** //COMMON STYLES***/
 
@@ -1133,6 +1461,8 @@ body
 						padding 5px 10px
 						text-transform lowercase
 
+						height 30px
+						line-height 1
 						font-size 16px
 						color #fff
 
@@ -1145,10 +1475,13 @@ body
 						margin-bottom 35px
 
 					.search-result-item-location-floor-show
+						height 50px
 						padding 15px 15px
-						text-transform lowercase
 
+						line-height 1
 						font-size 16px
+
+						text-transform lowercase
 
 
 /*** search result***/
@@ -1428,249 +1761,30 @@ body
 
 	.search
 		top -50px
-		right 405px
+		right 125px
 		width 310px
-
-	.shops-container-items
-		overflow hidden
-
-		.shops-container-item
-			position relative
-
-			display block
-
-			height 150px
-
-			overflow hidden
-
-			background transparent
-
-			border-bottom 1px solid #e6e6e6
-
-			transition all 0.5s $cubic-transition
-
-
-			&--blue:hover
-				background rgba(#993399, 0.9)
-
-			&--red:hover
-				background rgba(#d43d74, 0.9)
-
-			&--darkblue:hover
-				background rgba(#251440, 0.9)
-
-
-			img
-				position absolute
-				top 0
-				left 0
-
-				display block
-
-				width 100%
-				height 100%
-
-				object-fit cover
-				object-position top
-
-				z-index -10
-				opacity 0
-
-				transition opacity 0.8s $cubic-transition
-
-			.shops-container-item-header
-				display flex
-				align-items center
-				height 150px
-				padding 25px 0
-				box-sizing border-box
-
-				.shops-container-item-header-name
-				.shops-container-item-header-count
-				.shops-container-item-header-toggler
-					display inline-block
-					box-sizing border-box
-					transition color 0.5s $cubic-transition
-
-				.shops-container-item-header-name
-					width 50%
-					text-align left
-					font-size 32px
-
-				.shops-container-item-header-count
-					width 30%
-					font-size 32px
-					text-align right
-					padding-right 65px
-
-				.shops-container-item-header-toggler
-					width 20%
-					text-align right
-
-					.shops-container-item-header-toggler-title
-						display none
-						margin 0 20px
-						font-size 18px
-
-						border-bottom 1px solid #c17dba
-
-						transition all 0.5s $cubic-transition
-
-						cursor pointer
-						&:hover
-							border-bottom-color transparent
-
-					.shops-container-item-header-toggler-icon
-						position relative
-						display inline-block
-
-						margin-right 25px
-						vertical-align middle
-						width 50px
-						height 50px
-
-						border 1px solid #000
-						border-radius 50%
-
-						transition all 0.5s $cubic-transition
-
-						cursor pointer
-
-						&:after,
-						&:before
-							content ""
-							position: absolute
-							top 50%
-							left 50%
-
-							background #000
-
-							transition background 0.5s $cubic-transition
-
-						&:after
-							width 20px
-							height 1px
-
-							margin -0.5px 0 0 -10px
-						&:before
-							width 1px
-							height 20px
-
-							margin -10px 0 0 -0.5px
-
-			&:hover
-				img
-					opacity 1
-
-				.shops-container-item-header
-
-					.shops-container-item-header-name
-					.shops-container-item-header-count
-						color #fff
-
-					.shops-container-item-header-toggler-icon
-						border-color #fff
-
-						&:before
-							background #fff
-						&:after
-							background #fff
-
-					.shops-container-item-header-toggler-title
-						color #fff
-
-			.shops-container-item-content
-				position relative
-
-				display block
-				width 100%
-
-				padding 65px 20px 80px 0px
-
-				box-sizing border-box
-
-				&:before
-					content ""
-
-					position: absolute
-					top 0
-					display block
-
-					height 1px
-
-					background #a8a8a8
-
-					width 1000%
-					margin-left -500%
-
-					z-index -10
-
-				.shops-container-item-content-link
-					position relative
-					display inline-block
-					width 25%
-					font-size 18px
-
-					margin-bottom 30px
-
-					&:after
-						content ""
-						position absolute
-						bottom 0
-
-						margin-left 15px
-
-						display inline-block
-
-						width 15px
-						height 15px
-
-						opacity 0
-
-						background url("../svg/icons/arrow_white_up.svg")
-						background-repeat no-repeat
-
-						transform rotate(90deg)
-
-						transition opacity 0.5s $cubic-transition
-
-					&:hover
-						&:after
-							opacity 1
-
-
-			&--active
-				height auto
-				overflow inherit
-
-				background rgba(#993399, 0.9)
-				img
-					opacity 1
-
-
-				.shops-container-item-header
-					.shops-container-item-header-name
-					.shops-container-item-header-count
-					.shops-container-item-header-toggler
-						color #fff
-
-
-					.shops-container-item-header-toggler
-						.shops-container-item-header-toggler-title
-							display inline-block
-
-						.shops-container-item-header-toggler-icon
-							border-color #fff
-
-							&:after
-								background #fff
-
-							&:before
-								opacity 0
-								transform scale(0.5)
 
 
 /*** //shops ***/
+
+/*** service, entertainment, 404  ***/
+
+.service
+.entertainment
+.page404
+.search-empty
+	position relative
+	width 100%
+	margin-top 30px
+
+	.search
+		top -160px
+		right 125px
+		width 310px
+
+
+/*** //service, entertainment, 404 ***/
+
 
 
 /*** shops detail ***/
@@ -1783,7 +1897,7 @@ body
 						display block
 						width 200px
 						height 35px
-
+						overflow hidden
 						svg
 							width 120px
 							height 100%
@@ -2514,38 +2628,36 @@ body
 		content ""
 
 		position absolute
-		top 25%
+		top 26%
 		left 0
 
-		width 1000%
-		height 85%
-
-		margin-left -500%
+		width 100%
+		height 80%
 
 		background #ef4784
 
 		z-index -200
-
-	&:before
-		content ""
-
-		position absolute
-		top 77%
-		left -67px
-
-		width 85px
-		height 320px
-
-		background url("../svg/icons/exclamation_point.svg")
-		background-repeat no-repeat
-
-		z-index -190
 
 	.home-container-items
 		display block
 		width 105%
 
 		margin-left -2.5%
+
+		&:before
+			content ""
+
+			position absolute
+			top 73%
+			left -35px
+
+			width 85px
+			height 320px
+
+			background url("../svg/icons/exclamation_point.svg")
+			background-repeat no-repeat
+
+			z-index -190
 
 		.home-item
 			position relative
@@ -2648,7 +2760,7 @@ body
 
 
 .home-news
-	margin-top 185px
+	margin-top 155px
 
 	.page-title
 		font-size 25px
@@ -2729,10 +2841,8 @@ body
 		left 0
 		bottom 0
 
-		width 1000%
+		width 100%
 		height 100%
-
-		margin-left -500%
 
 		background #5b3f92
 
@@ -2743,6 +2853,11 @@ body
 	&.hover-block
 		&:before
 			background:  #6a49ab
+
+	.home-comfort-items
+		display block
+		width 100%
+		height 625px
 
 	.home-comfort-item-link
 		position absolute
@@ -3055,5 +3170,268 @@ body
 /*** //home page ***/
 
 
+/*** concept page ***/
+
+.concept
+	position relative
+	display block
+
+	margin-top 50px
+
+	.search
+		top -70px
+		right -5px
+		width 312px
+
+	.concept-background
+		position relative
+		display block
+		width 1366px
+		height 350px
+
+		margin-left -130px
+		margin-bottom 60px
+
+		.concept-background-img
+			position absolute
+			top 0
+			left 0
+
+			display block
+			width 100%
+			height 100%
+
+			object-fit cover
+
+	.page-text
+		.page-text-filelink
+			margin-bottom 54px
+
+			&:last-child
+				margin-bottom 95px
+
+		p
+			margin-bottom 70px
+/*** //concept page ***
+
+
+/*** about page ***/
+
+.about
+	display block
+	display block
+
+	margin-top 50px
+
+	.search
+		top -70px
+		right -5px
+		width 312px
+
+	.about-background
+		position relative
+		display block
+		width 1366px
+		height 350px
+
+		margin-left -130px
+		margin-bottom 85px
+
+		.about-background-img
+			position absolute
+			top 0
+			left 0
+
+			display block
+			width 100%
+			height 100%
+
+			object-fit cover
+
+	.page-text
+
+		.page-text-title
+			margin-bottom 115px
+
+		.page-text-filelink
+			margin-bottom 54px
+
+			&:last-child
+				margin-bottom 95px
+
+		p
+			margin-bottom 70px
+
+	.about-information
+		display block
+		width 100%
+
+		margin-top 85px
+
+		.about-information-items
+			display block
+			width 100%
+
+			.about-information-item
+				position relative
+
+				display block
+				min-height 200px
+
+				margin-bottom 100px
+
+
+				&--left
+					.about-information-item-container
+						float left
+					.about-information-item-holder
+						float right
+
+						.about-information-item-img
+							top -35px
+							left 60%
+
+				&--right
+					.about-information-item-container
+						float right
+					.about-information-item-holder
+						float left
+
+						.about-information-item-img
+							top -35px
+							right 60%
+
+				.about-information-item-holder
+
+					display block
+					width 50%
+					overflow hidden
+
+					.about-information-item-img
+						position absolute
+						display block
+						width 165px
+						height 205px
+
+						svg
+							display block
+							width 100%
+							height 100%
+
+				.about-information-item-container
+					position relative
+					display block
+					width 50%
+
+					.about-information-item-title
+						display block
+						width 100%
+
+						margin-bottom 40px
+
+						font-size 16px
+						font-family GothamProBold
+
+					.about-information-item-text
+						display block
+						width 100%
+
+						line-height 25px
+						font-size 16px
+
+
+/*** //about page ***/
+
+/*** 404 page ***/
+.page404
+	height 300px
+	box-shadow 0px 6px 40px -13px rgba(0,0,0,0.75)
+
+
+
+.page404-container
+	display block
+	width 60%
+	margin 0 auto
+
+	margin-top 130px
+
+	text-align center
+
+	.page404-title
+		display block
+
+		font-size 32px
+		line-height 40px
+		text-align center
+
+	.page404-home
+		position relative
+		display inline-block
+		margin-top 45px
+
+		margin-left 140px
+
+		font-family GothamProRegular
+
+		&:before
+			content ""
+			position absolute
+			top -6px
+			left -170px
+
+			display block
+			width 120px
+			height 33px
+
+
+			background url("../svg/icons/arrow_yellow_right.svg")
+			background-repeat no-repeat
+
+			transform rotate(180deg) translateX(0)
+
+			transition transform 0.3s $cubic-transition
+
+
+		&:hover
+			&:before
+				transform rotate(180deg) translateX(30px)
+
+
+/*** //404 page ***/
+
+/*** search empty ***/
+.search-empty
+	.search
+		top -50px
+		width 625px
+		left 275px
+
+.search-empty-container
+	display block
+
+	height 300px
+	width 80%
+	margin 0 auto
+
+
+	text-align center
+
+	line-height 470px
+
+	font-size 30px
+
+/*** //search empty ***/
+
 
 /*** //MAIN STYLES***/
+
+
+
+
+
+/*** ADD STYLES ***/
+
+/*----  this block for add styles ----*/
+
+/*** //ADD STYLES ***/
