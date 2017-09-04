@@ -7,6 +7,7 @@
 		$sel.body = $("body", $sel.html);
 
 		return {
+
 			common: {
 				go: function(topPos, speed, callback) {
 					var curTopPos = $sel.window.scrollTop(),
@@ -103,7 +104,8 @@
 				})
 			},
 
-			modalWindow: function() {
+			gallery: function() {
+
 				$(".popup-gallery").magnificPopup({
 					delegate: ".gallery-container-item",
 					mainClass: "mfp-gallery",
@@ -140,16 +142,10 @@
 
 				});
 
-				$(".contacts-application").magnificPopup({
-					type: "inline",
-					mainClass: "mfp-form",
-					closeMarkup: '<button title="%title%" class="mfp-close"><img src="../svg/icons/close_white.svg" width="20" height="20" class="mfp-close-icn mfp-close"/></button>',
-					removalDelay: 300,
-				});
-
 			},
 
 			goTop: function() {
+
 				var $goTopBtn = $(".go-top", $sel.body);
 
 				$sel.window.on("scroll", function() {
@@ -173,7 +169,12 @@
 			},
 
 			form: {
+
 				init: function($container) {
+					var self = this;
+
+					self.modalForm();
+
 					if(!$container) {
 						var $container = $sel.body;
 					}
@@ -199,12 +200,12 @@
 						var $form = $(this),
 							formParams = {
 								rules: {
-
 								},
 								messages: {
 								}
 							},
 							$formFields = $form.find("[data-error]");
+
 						$formFields.each(function() {
 							var $field = $(this),
 								fieldPattern = $field.data("pattern"),
@@ -219,6 +220,7 @@
 								formParams.rules[$field.attr("name")][fieldPattern] = true;
 							}
 						});
+
 						if($form.data("success")) {
 							formParams.submitHandler = function(form) {
 								$.magnificPopup.open({
@@ -231,9 +233,21 @@
 								});
 							};
 						}
+
 						$form.validate(formParams);
 					});
-				}
+				},
+
+				modalForm: function() {
+					$(".contacts-application").magnificPopup({
+						type: "inline",
+						mainClass: "mfp-form",
+						closeMarkup: '<button title="%title%" class="mfp-close"><img src="../svg/icons/close_white.svg" width="20" height="20" class="mfp-close-icn mfp-close"/></button>',
+						removalDelay: 300,
+					});
+				},
+
+
 			},
 
 			ajaxForm: {
@@ -392,8 +406,8 @@
 						],
 						formatResult: function(suggestion, currentValue) {
 							var strItem = " ",
-								itemName = suggestion.value.replace(currentValue, "<b>" + currentValue + "</b>");
 
+							itemName = suggestion.value.replace(currentValue, "<b>" + currentValue + "</b>");
 							strItem += '<a href="#" class="search-item">' +
 											'<div class="search-item-name">'
 												+ itemName + " / " + suggestion.data.category +
@@ -436,7 +450,7 @@
 
 			},
 
-			stick: {
+			stickBlock: {
 
 				init: function() {
 					$(".shops-detail-information").stick_in_parent({
@@ -539,12 +553,13 @@
 		};
 
 	})();
+
 	GORIZONT.accordion.init();
 	ymaps.ready(function() {
 		GORIZONT.yandexMap.init();
 	});
 	GORIZONT.toggler.init();
-	GORIZONT.stick.init();
+	GORIZONT.stickBlock.init();
 
 	GORIZONT.ajaxForm.init();
 	GORIZONT.slider.init();
@@ -555,7 +570,7 @@
 	GORIZONT.goTop();
 	GORIZONT.form.init();
 
-	GORIZONT.modalWindow();
+	GORIZONT.gallery();
 	GORIZONT.initAjaxLoader();
 
 	GORIZONT.menu();
