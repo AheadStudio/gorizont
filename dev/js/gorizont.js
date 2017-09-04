@@ -174,7 +174,7 @@
 						errorClass: "form-item--error",
 						errorElement: "span"
 					});
-					$.validator.addMethod("mobileRU", function(phone_number, element) {
+					$.validator.addMethod("mobileRu", function(phone_number, element) {
 						phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
 						return this.optional(element) || phone_number.length > 5 && phone_number.match(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{6,10}$/);
 					}, "Error");
@@ -274,7 +274,7 @@
 
 
 			hoverElement: {
-				
+
 				init: function() {
 					var $allElementHover = $(".hover-item", $sel.body);
 
@@ -307,6 +307,201 @@
 				}
 			},
 
+			search: {
+				init: function() {
+					$(".search-input", $sel.body).autocomplete({
+						minChars: 3,
+						groupBy: "category",
+						lookup: [
+							{
+								value: "Пиджак",
+								data: {
+									category: "Одежда",
+									img: "/dummy/catalog/1.jpg"
+								}
+							}, {
+								value: "Пальто",
+								data: {
+									category: "Одежда",
+									img: "/dummy/catalog/2.jpg"
+								}
+							}, {
+								value: "Галстук",
+								data: {
+									category: "Одежда",
+									img: "/dummy/catalog/3.jpg"
+								}
+							}, {
+								value: "Классическая рубашка",
+								data: {
+									category: "Одежда",
+									img: "/dummy/catalog/4.jpg"
+								}
+							}, {
+								value: "Adidas",
+								data: {
+									category: "Обувь",
+									img: "/dummy/actions/1.jpg"
+								}
+							}, {
+								value: "Adidas",
+								data: {
+									category: "Магазин",
+									img: "/dummy/actions/2.jpg"
+								}
+							}, {
+								value: "Nike",
+								data: {
+									category: "Обувь",
+									img: "/dummy/actions/2.jpg"
+								}
+							}, {
+								value: "Nike",
+								data: {
+									category: "Магазин",
+									img: "/dummy/actions/2.jpg"
+								}
+							}
+						],
+						formatResult: function(suggestion, currentValue) {
+							var strItem = " ",
+								itemName = suggestion.value.replace(currentValue, "<b>" + currentValue + "</b>");
+
+							strItem += '<a href="#" class="search-item">' +
+											'<div class="search-item-name">'
+												+ itemName + " / " + suggestion.data.category +
+											'</div>' +
+										'</a>';
+							return strItem;
+						},
+
+
+					});
+
+				}
+			},
+
+			slider: {
+
+				init: function() {
+
+					$(".owl-carousel").owlCarousel({
+					    nav: false,
+						items: 1,
+						autoplay: true,
+						autoplayTimeout: 5000,
+						dots: true,
+						dotClass: "dots-item",
+					    responsive:{
+					        0: {
+					            items:1
+					        },
+					        600: {
+					            items:1
+					        },
+					        1000: {
+					            items:1
+					        }
+					    }
+					});
+
+				},
+
+			},
+
+			stick: {
+
+				init: function() {
+					$(".shops-detail-information").stick_in_parent({
+						container: $(".shops-detail-col"),
+						offset_top: 50
+					});
+				},
+
+			},
+
+			toggler: {
+				init: function() {
+					var self = this;
+					$(".text-toggler", $sel.body).on("click", function(e) {
+						var $toggler = $(this);
+						if($toggler.data("show")) {
+							self.hide($toggler);
+							$toggler.data("show", false);
+						} else {
+							$toggler.data("show", true);
+							self.show($toggler);
+						}
+						e.preventDefault();
+					});
+				},
+				show: function($toggler) {
+					$($toggler.data("text")).css("display", "block");
+					(function($text) {
+						setTimeout(function() {
+							$text.addClass("show");
+						}, 100);
+					})($($toggler.data("text")));
+				},
+				hide: function($toggler) {
+					$($toggler.data("text")).removeClass("show").css("display", "none");
+				}
+			},
+
+
+			accordion: {
+
+				init: function() {
+					var self = this;
+					var $accordionItem = $(".acordeon-container-item");
+
+					$accordionItem.on("mouseenter", function() {
+						var $item = $(this),
+							itemColor = $item.data("color");
+						if (!$item.hasClass("acordeon-container-item--active")) {
+							$item.css("background", itemColor);
+						}
+					});
+
+					$accordionItem.on("mouseleave", function() {
+						var $item = $(this),
+							itemColor = $item.data("color");
+						if (!$item.hasClass("acordeon-container-item--active")) {
+							$item.css("background", "transparent");
+						}
+					});
+
+					$accordionItem.on("click", function(e) {
+						var $item = $(this);
+
+						if (!$item.hasClass("acordeon-container-item--active")) {
+							var curHeight = $item.height(),
+								autoHeight = $item.css('height', 'auto').height();
+
+							$item.height(curHeight);
+							self.animateToggle($item, autoHeight, 200, true);
+							self.animateToggle($item.siblings().css("background", "transparent"), curHeight, 200, false);
+
+						} else if ($item.hasClass("acordeon-container-item--active")) {
+							self.animateToggle($item, "150px", 200, false);
+						}
+					});
+
+				},
+
+				animateToggle: function(block, heightElement, time, classElement) {
+					block.animate({ height: heightElement }, time , function() {
+						if (classElement == true) {
+							block.addClass("acordeon-container-item--active");
+						} else if (classElement == false) {
+							block.removeClass("acordeon-container-item--active");
+						}
+					});
+				}
+
+
+			}
+
 
 		};
 
@@ -315,15 +510,21 @@
 	ymaps.ready(function() {
 		GORIZONT.yandexMap.init();
 	});
-
+	GORIZONT.toggler.init();
+	GORIZONT.stick.init();
+	GORIZONT.accordion.init();
 	GORIZONT.ajaxForm.init();
+	GORIZONT.slider.init();
 
 	GORIZONT.hoverElement.init();
+	GORIZONT.search.init();
 
 	GORIZONT.goTop();
 	GORIZONT.form.init();
+
 	GORIZONT.modalWindow();
 	GORIZONT.initAjaxLoader();
+
 	GORIZONT.menu();
 	GORIZONT.dropdown.init();
 

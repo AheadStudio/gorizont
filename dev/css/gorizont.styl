@@ -169,6 +169,8 @@ body
 			.header-menu-item
 				padding 5px 5px 5px 3px
 
+				white-space nowrap
+
 				.header-menu-item-name
 					font-size 16px
 
@@ -483,7 +485,7 @@ body
 		line-height 2
 		font-size 16px
 
-	.page-text-title
+	cite
 		display block
 		width 100%
 
@@ -492,37 +494,67 @@ body
 
 		font-size 35px
 
-	.page-text-filelink
-		position relative
-		display inline-block
-
-		margin-bottom 70px
-
-		font-size 34px
-		font-family GothamProBold
-
-
-		margin-left 66px
-
-		&:before
-			content ".pdf"
-
-			position absolute
-			left -66px
-
+	.docs
+		.docs-item
+			position relative
 			display inline-block
 
-			width 44px
-			height 33px
+			margin-bottom 70px
 
-			padding 6px 5px
-			box-sizing border-box
-			background $color-blue
+			font-size 34px
+			font-family GothamProBold
 
-			color #fff
 
-			font-size 18px
-			font-family GothamProLight
+			margin-left 66px
+
+			color $color-darkgray
+			text-decoration none
+
+			border-bottom 1px solid $color-darkgray
+
+			transition border-bottom-color 0.3s $cubic-transition
+
+			.docs-item-icon
+
+				position absolute
+				left -66px
+
+				display inline-block
+
+				width 44px
+				height 33px
+
+				padding 6px 5px
+				box-sizing border-box
+				background $color-blue
+
+				color #fff
+
+				font-size 18px
+				font-family GothamProLight
+
+			&:hover
+				border-bottom 1px solid transparent
+
+
+.background-prev
+	position relative
+	display block
+	width 100%
+	height 350px
+	margin-bottom 60px
+
+	.background-prev-img
+		position absolute
+		top 0
+		left 0
+
+		display block
+		width 100%
+		height 100%
+
+		object-fit cover
+
 
 .load-more
 	width 100%
@@ -553,7 +585,10 @@ body
 .search
 	position absolute
 
-	.search-item
+	.search-form
+		position relative
+
+	.search-input
 		width 100%
 		padding 5px 0 14px 0
 		border-bottom 1px solid #cccccc
@@ -582,14 +617,83 @@ body
 		width 25px
 		height 25px
 
-		background-image url("../svg/icons/loupe.svg")
-		background-repeat no-repeat
-		background-size contain
+		&:before
+		&:after
+			content ""
+			position absolute
+			top 0
+			left 0
 
-		transition all 0.5s $cubic-transition, transform 0.5s $cubic-transition
+			width 100%
+			height 100%
+
+			background-repeat no-repeat
+			background-size contain
+
+			transition opacity 0.5s $cubic-transition
+
+
+		&:before
+			background-image url("../svg/icons/loupe.svg")
+
+			opacity 1
+
+		&:after
+			background-image url("../svg/icons/red_loupe.svg")
+
+			opacity 0
 
 		&:hover
-			background-image url("../svg/icons/red_loupe.svg")
+			&:before
+				opacity 0
+			&:after
+				opacity 1
+
+
+
+
+.autocomplete-suggestions
+	padding 30px
+	box-sizing border-box
+
+	border-bottom 1px solid #cccccc
+
+	background #FFF
+
+	overflow-y auto
+	overflow-x hidden
+
+.autocomplete-suggestion
+	margin-bottom 30px
+	white-space nowrap
+
+	overflow hidden
+	transition background 0.6s $cubic-transition
+
+	&:last-child
+		margin-bottom 0
+
+
+	.search-item
+		border-bottom transparent
+
+		color $color-darkgray
+		text-decoration none
+
+		transition border-bottom 0.6s $cubic-transition
+
+		.search-item-name
+			b
+				font-family GothamProBold
+
+
+.autocomplete-selected
+	.search-item-name
+		border-bottom 1px solid #cccccc
+
+
+.autocomplete-group
+	display none
 
 
 /** //search **/
@@ -775,19 +879,9 @@ body
 
 		border-bottom 1px solid #e6e6e6
 
-		transition all 0.5s $cubic-transition
+		transition height 0.6s $cubic-transition, background 0.6s $cubic-transition
 
 		cursor pointer
-
-		&--blue:hover
-			background rgba(#993399, 0.9)
-
-		&--red:hover
-			background rgba(#d43d74, 0.9)
-
-		&--darkblue:hover
-			background rgba(#251440, 0.9)
-
 
 		img
 			position absolute
@@ -988,23 +1082,17 @@ body
 					background url("../svg/icons/arrow_white_up.svg")
 					background-repeat no-repeat
 
-					transform rotate(90deg)
+					transform rotate(90deg) translateY(0px)
 
-					transition opacity 0.5s $cubic-transition
+					transition opacity 0.3s $cubic-transition, transform 0.6s $cubic-transition
 
 				&:hover
 					&:after
+						transform rotate(90deg) translateY(-10px)
+
 						opacity 1
 
-
-		&--active
-			height auto
-			overflow inherit
-
-			background rgba(#993399, 0.9)
-
-			&.acordeon-container-item--red
-				background rgba(#d43d74, 0.9)
+		&.acordeon-container-item--active
 			img
 				opacity 1
 
@@ -1846,6 +1934,18 @@ body
 
 					&:hover
 						opacity 0.6
+				&--hide
+					display none
+					transform translateY(-20px)
+
+					opacity 0
+
+					transition transform 0.3s $cubic-transition, opacity 0.3s $cubic-transition
+
+					&.show
+						transform translateY(0)
+						opacity 1
+
 
 		.shops-detail-shares
 			.shops-detail-shares-title
@@ -1959,9 +2059,13 @@ body
 				margin-right 5px
 				font-size 18px
 
-				transition color 0.6s $cubic-transition
+				transition color 0.6s $cubic-transition, 0.5s $cubic-transition
+
+				border-bottom 1px solid $color-gray
 
 				&:hover
+					border-bottom-color transparent
+
 					color $color-gray
 
 
@@ -2012,6 +2116,35 @@ body
 		.navigation
 			.navigation-item--close
 				background #fff
+
+.owl-dots
+	position absolute
+	display block
+
+	bottom 70px
+
+	width 100%
+
+	.dots-item
+		display inline-block
+
+		width 8px
+		height 8px
+
+		margin-right 35px
+		border-radius 50%
+
+		border 3px solid #fff
+
+		transition transform 0.3s $cubic-transition
+
+		cursor pointer
+
+		&:last-child
+			margin-right 0px
+		&.active
+			transform scale(1.3)
+
 
 /*** //shops detail ***/
 
@@ -2618,7 +2751,7 @@ body
 			margin-bottom 20px
 
 
-.home-offers
+.offers
 	position relative
 	display block
 
@@ -2628,17 +2761,17 @@ body
 		content ""
 
 		position absolute
-		top 26%
+		top 230px
 		left 0
 
 		width 100%
-		height 80%
+		height 680px
 
 		background #ef4784
 
 		z-index -200
 
-	.home-container-items
+	.offers-items
 		display block
 		width 105%
 
@@ -2648,7 +2781,7 @@ body
 			content ""
 
 			position absolute
-			top 73%
+			top 630px
 			left -35px
 
 			width 85px
@@ -2659,7 +2792,7 @@ body
 
 			z-index -190
 
-		.home-item
+		.offers-item
 			position relative
 			display inline-block
 
@@ -2682,7 +2815,7 @@ body
 				margin-left 2.5%
 				margin-right 2.5%
 
-			.home-item-heading
+			.offers-item-heading
 				position relative
 
 				display block
@@ -2694,7 +2827,7 @@ body
 
 				z-index 100
 
-				.home-item-heading-tag
+				.offers-item-heading-tag
 					display inline-block
 
 					margin-bottom 5px
@@ -2707,7 +2840,7 @@ body
 
 					color #fff
 
-				.home-item-heading-info
+				.offers-item-heading-info
 					display block
 					width 100%
 
@@ -2720,22 +2853,22 @@ body
 					color $color-darkgray
 
 
-			.home-item-content
+			.offers-item-content
 				position absolute
 
-				top 130px
+				top 0
 				right 0
 				left 0
 
 				width 100%
-				height 67%
+				height 100%
 
-				transition top 0.6s $cubic-transition, height 0.6s $cubic-transition
+				overflow hidden
 
-				.home-item-content-img
+				.offers-item-content-img
 					position absolute
 					left 0
-					top 0
+					top 130px
 
 					display block
 
@@ -2744,19 +2877,24 @@ body
 
 					object-fit cover
 
+					transition top 0.6s $cubic-transition
 
-.home-offers
-	.home-container-items
 
-		.home-item
+.offers
+	.offers-items
+
+		.offers-item
 			&:hover
-				.home-item-heading
-					.home-item-heading-info
+				.offers-item-heading
+					.offers-item-heading-info
 						color #fff
 
-				.home-item-content
-					top 0
-					height 100%
+				.offers-item-content
+
+
+					.offers-item-content-img
+						top 0
+
 
 
 .home-news
@@ -3183,25 +3321,6 @@ body
 		right -5px
 		width 312px
 
-	.concept-background
-		position relative
-		display block
-		width 1366px
-		height 350px
-
-		margin-left -130px
-		margin-bottom 60px
-
-		.concept-background-img
-			position absolute
-			top 0
-			left 0
-
-			display block
-			width 100%
-			height 100%
-
-			object-fit cover
 
 	.page-text
 		.page-text-filelink
@@ -3228,36 +3347,16 @@ body
 		right -5px
 		width 312px
 
-	.about-background
-		position relative
-		display block
-		width 1366px
-		height 350px
-
-		margin-left -130px
-		margin-bottom 85px
-
-		.about-background-img
-			position absolute
-			top 0
-			left 0
-
-			display block
-			width 100%
-			height 100%
-
-			object-fit cover
-
 	.page-text
-
-		.page-text-title
+		cite
 			margin-bottom 115px
 
-		.page-text-filelink
-			margin-bottom 54px
+		.docs
+			margin-bottom 95px
 
-			&:last-child
-				margin-bottom 95px
+			.docs-icon
+				&:first-child
+					margin-bottom 54px
 
 		p
 			margin-bottom 70px

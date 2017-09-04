@@ -4,14 +4,16 @@ block content
     div(class="page-inner--w2")
         div(class="shops-detail")
             div(class="shops-detail-col shops-detail-col--left")
-                div(class="shops-detail-photo-holder")
+                div(class="owl-carousel owl-theme shops-detail-photo-holder")
+                    img(src="../dummy/love_republic_prev.jpg", class="shops-detail-photo-holder-img")
                     img(src="../dummy/love_republic_prev.jpg", class="shops-detail-photo-holder-img")
                 div(class="shops-detail-description")
                     div(class="shops-detail-articles")
                         div(class="shops-detail-articles-description page-text")
                             p LOVE REPUBLIC – качественная и модная одежда для девушек, которые хотят быть в центре внимания!
                             p Девушка LOVE REPUBLIC - уверенная в себе, загадочная и невероятно женственная. Яркая, полная жизни и естественной энергии, активная, открытая и увлекающаяся. Имеет собственный выраженный, подчеркнуто женственный стиль,
-                            a(href="#", class="link link--darkgray shops-detail-more-link") Подробнее
+                                span(id="toggle-text", class=" shops-detail-articles-description--hide page-text") который выделяет ее среди остальных. Именно поэтому она выбирает именно этот магазин, а никакой другой!
+                            a(href="#", data-text="#toggle-text", class="link link--darkgray shops-detail-more-link text-toggler") Подробнее
                     div(class="shops-detail-shares")
                         span(class="shops-detail-shares-title") Акции от Love Republic
                         a(href="#", class="shops-detail-shares-item")
@@ -77,5 +79,5 @@ block content
                             include ../../prod/svg/icons/ok.svg
                     div(class="navigation")
                         div(class="navigation-items")
-                            a(href="#", class="navigation-item navigation-item--close")
+                            a(href="/pages/shops.html", class="navigation-item navigation-item--close")
                                 include ../../prod/svg/icons/close.svg
