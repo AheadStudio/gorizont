@@ -34,7 +34,7 @@
 		"shops": {
 			"name": "Магазины",
 			"progress": {
-				"desktop": "90",
+				"desktop": "100",
 				"tablet": "0",
 				"mobile": "0"
 			}
@@ -42,7 +42,7 @@
 		"service": {
 			"name": "Сервис",
 			"progress": {
-				"desktop": "90",
+				"desktop": "100",
 				"tablet": "0",
 				"mobile": "0"
 			}
@@ -50,7 +50,7 @@
 		"entertainment": {
 			"name": "Развлечения",
 			"progress": {
-				"desktop": "90",
+				"desktop": "100",
 				"tablet": "0",
 				"mobile": "0"
 			}
@@ -98,7 +98,7 @@
 		"contacts": {
 			"name": "Контакты",
 			"progress": {
-				"desktop": "90",
+				"desktop": "100",
 				"tablet": "0",
 				"mobile": "0"
 			}
