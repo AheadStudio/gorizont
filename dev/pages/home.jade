@@ -4,7 +4,8 @@ block content
     div(class="page-inner page-inner--w1 page-inner--relative")
         div(class="home-promo")
             div(class="home-promo-holder")
-                img(src="../dummy/home_promo.png", class="home-promo-holder-img")
+                video(muted="muted", loop="loop", autoplay="autoplay", width="100%", playsinline, poster="../i/home_bg.jpg", class="home-promo-holder-video")
+                     source(src="../dummy/video.mp4", type="video/mp4")
             div(class="home-promo-count")
                 div(class="home-promo-count-img")
                     include ../../prod/svg/icons/shop.svg        

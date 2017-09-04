@@ -4,9 +4,11 @@ block content
     div(class="page-inner--w2")
         div(class="page404")
             div(class="search")
-                form(action="/search.html")
-                    input(type="text", class="search-item", placeholder="Поиск магазина")
+                form(action="/search.html", class="search-form")
+                    input(type="text", class="search-input", placeholder="Поиск магазина")
                     button(type="submit", title="Найти", class="search-submit")
             div(class="page404-container")
                 div(class="page404-title") Извините страница не найдена или была удалена. Начните, пожалуйста, с главной страницы.
-                a(href="/pages/home.html", class="link link--darkgray link--gray-inverse page404-home") Перейти на главную    
+                a(href="/pages/home.html", class="page404-home")
+                    span(class="page404-home-icon") 
+                    span(class="page404-home-title") Перейти на главную    

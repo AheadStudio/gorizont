@@ -7,6 +7,20 @@
 		$sel.body = $("body", $sel.html);
 
 		return {
+			common: {
+				go: function(topPos, speed, callback) {
+					var curTopPos = $sel.window.scrollTop(),
+						diffTopPos = Math.abs(topPos - curTopPos);
+					$sel.body.add($sel.html).animate({
+						"scrollTop": topPos
+					}, speed, function() {
+						if(callback) {
+							callback();
+						}
+					});
+				}
+			},
+
 			menu: function() {
 				var self = this;
 
@@ -130,6 +144,7 @@
 					type: "inline",
 					mainClass: "mfp-form",
 					closeMarkup: '<button title="%title%" class="mfp-close"><img src="../svg/icons/close_white.svg" width="20" height="20" class="mfp-close-icn mfp-close"/></button>',
+					removalDelay: 300,
 				});
 
 			},
@@ -174,6 +189,7 @@
 						errorClass: "form-item--error",
 						errorElement: "span"
 					});
+
 					$.validator.addMethod("mobileRu", function(phone_number, element) {
 						phone_number = phone_number.replace(/\(|\)|\s+|-/g, "");
 						return this.optional(element) || phone_number.length > 5 && phone_number.match(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{6,10}$/);
@@ -203,7 +219,18 @@
 								formParams.rules[$field.attr("name")][fieldPattern] = true;
 							}
 						});
-
+						if($form.data("success")) {
+							formParams.submitHandler = function(form) {
+								$.magnificPopup.open({
+									items: {
+										src: $form.data("success"),
+										type: "inline"
+									},
+									mainClass: "mfp-form",
+									removalDelay: 300
+								});
+							};
+						}
 						$form.validate(formParams);
 					});
 				}
@@ -472,18 +499,24 @@
 					});
 
 					$accordionItem.on("click", function(e) {
-						var $item = $(this);
+						var $item = $(this),
+							itemColor = $item.data("color");
 
 						if (!$item.hasClass("acordeon-container-item--active")) {
 							var curHeight = $item.height(),
-								autoHeight = $item.css('height', 'auto').height();
+								autoHeight = $item.css("height", "auto").height();
 
 							$item.height(curHeight);
-							self.animateToggle($item, autoHeight, 200, true);
-							self.animateToggle($item.siblings().css("background", "transparent"), curHeight, 200, false);
+
+							self.animateToggle($item.css("background", itemColor), autoHeight, 50, true);
+							setTimeout(function() {
+								GORIZONT.common.go($item.offset().top, 500);
+							}, 350);
+
+							self.animateToggle($item.siblings().css("background", "transparent"), curHeight, 10, false);
 
 						} else if ($item.hasClass("acordeon-container-item--active")) {
-							self.animateToggle($item, "150px", 200, false);
+							self.animateToggle($item, "150px", 50, false);
 						}
 					});
 
@@ -506,13 +539,13 @@
 		};
 
 	})();
-
+	GORIZONT.accordion.init();
 	ymaps.ready(function() {
 		GORIZONT.yandexMap.init();
 	});
 	GORIZONT.toggler.init();
 	GORIZONT.stick.init();
-	GORIZONT.accordion.init();
+
 	GORIZONT.ajaxForm.init();
 	GORIZONT.slider.init();
 
