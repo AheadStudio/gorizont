@@ -405,14 +405,8 @@
 							}
 						],
 						formatResult: function(suggestion, currentValue) {
-							var strItem = " ",
-
-							itemName = suggestion.value.replace(currentValue, "<b>" + currentValue + "</b>");
-							strItem += '<a href="#" class="search-item">' +
-											'<div class="search-item-name">'
-												+ itemName + " / " + suggestion.data.category +
-											'</div>' +
-										'</a>';
+							var strItem = " ";
+							strItem += '<a href="#" class="search-item">' + '<div class="search-item-name">' + suggestion.value.replace(currentValue, "<b>" + currentValue + "</b>") + " / " + suggestion.data.category +'</div>' + '</a>';
 							return strItem;
 						},
 
