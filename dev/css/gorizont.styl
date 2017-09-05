@@ -278,6 +278,225 @@ body
 
 /** //main menu **/
 
+/** mobile menu **/
+
+
+.mobile-header
+	position fixed
+	top 0
+	left 0
+
+	display none
+	width 100%
+
+	padding 10px 20px
+
+	margin 0 auto
+	box-sizing border-box
+
+	z-index 1000
+	background #fff
+
+	.mobile-header-inner
+		display inline-block
+		width 50%
+		vertical-align top
+
+		.mobile-header-logo
+			display block
+			width 85px
+			height 70px
+
+			background-image url("../dummy/logo_mobile.png")
+			background-repeat no-repeat
+
+	.mobile-header-controls
+		width 48%
+		display inline-block
+		vertical-align top
+
+		margin-top 25px
+
+		text-align right
+
+
+		.mobile-header-controls-location
+		.mobile-header-controls-mobile
+			display inline-block
+			width 22px
+			height 30px
+
+			vertical-align top
+
+			svg
+				display block
+				width 100%
+				height 100%
+
+		.mobile-header-controls-mobile
+			width 14px
+			margin-left 23%
+
+		.mobile-header-burger
+			position relative
+			display inline-block
+			width 30px
+			height 30px
+
+			margin-left 23%
+
+			.mobile-header-burger-inner
+				content ""
+				position absolute
+				top 50%
+
+				width 30px
+				height 3px
+
+				margin-top -2px
+
+				vertical-align top
+
+				background #9c3593
+
+				transition transform 0.3s $cubic-transition
+
+			&:before
+				content ""
+				position absolute
+				top 0
+				left 0
+				right 0
+
+				width 100%
+				height 3px
+
+				background #9c3593
+				transition transform 0.3s $cubic-transition, width 0.3s $cubic-transition
+
+			&:after
+				content ""
+				position absolute
+				bottom 0
+				left 0
+				right 0
+
+				width 100%
+				height 3px
+
+				background #9c3593
+
+				transition transform 0.3s $cubic-transition, width 0.3s $cubic-transition
+
+		.mobile-header-burger
+			&.active
+				.mobile-header-burger-inner
+					opacity 0
+				&:before
+					width 40px
+					transform rotate(45deg) translateY(12px) translateX(7px)
+				&:after
+					width 40px
+					transform rotate(-45deg) translateY(-12px) translateX(6px)
+
+.mobile-panel
+	position fixed
+	top 0
+	left 0
+	padding 25px 20px
+
+	display block
+	width 100%
+	height 100%
+
+	box-sizing border-box
+
+	background $color-blue
+
+	z-index 10001
+
+	transform translateX(-100%)
+	opacity 0
+	overflow-y auto
+	transition transform 0.8s $cubic-transition, opacity 0.6s $cubic-transition
+
+	.mobile-panel-section
+		display block
+		width 100%
+
+		overflow hidden
+
+		margin-bottom 20px
+
+		.mobile-panel-section-item-close
+			display block
+			width 35px
+			height 35px
+
+			border-radius 50%
+
+			transition opacity 0.5s $cubic-transition, transform 0.5s $cubic-transition
+
+			padding 25px
+			background #f4f4f4
+
+			float right
+
+			&:focus
+				transform rotate(360deg)
+
+			svg
+				width 100%
+				vertical-align middle
+
+
+		.mobile-menu
+			padding 20px 20px
+			border-top 1px solid $color-gray
+
+			.mobile-menu-inner
+				display block
+				width 100%
+
+				.mobile-menu-item-holder
+					font-size 26px
+
+					font-family GothamProMedium
+
+					margin-bottom 40px
+
+					.mobile-menu-item
+
+						&.icon-shop
+							margin-left 0
+
+							&:before
+								left auto
+								right -50px
+
+								background-image url("../svg/icons/shop.svg")
+
+							&:after
+								width 40px
+								height 40px
+
+								top -5px
+
+								left auto
+								right -61px
+
+								background #fff
+
+.show-menu
+	.mobile-panel
+		opacity 1
+		transform translateX(0)
+
+
+/** //mobile menu **/
+
+
+
 /*** //HEADER STYLES ***/
 
 

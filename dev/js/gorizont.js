@@ -5,6 +5,7 @@
 		$sel.window = $(window);
 		$sel.html = $("html");
 		$sel.body = $("body", $sel.html);
+		$sel.menuBurger = $(".mobile-header-burger", $sel.body);
 
 		return {
 
@@ -541,8 +542,56 @@
 				}
 
 
-			}
+			},
 
+			menuMobile: {
+				isShow: false,
+				init: function() {
+					var self = this;
+					$sel.body.append('<div class="menu-overlay"></div>');
+					$sel.menuBurger.on("click", function() {
+						self.isShow ? self.hide() : self.show();
+					});
+					
+					$(".menu-overlay", $sel.body).on("click", function() {
+						self.hide();
+					});
+
+					$(".mobile-panel-section-item-close", $sel.body).on("click", function() {
+						self.hide();
+					});
+				},
+				show: function() {
+					this.isShow = true;
+					$sel.menuBurger.addClass("active");
+					$sel.body.addClass("show-menu");
+				},
+				hide: function() {
+					this.isShow = false;
+					$sel.menuBurger.removeClass("active");
+					$sel.body.removeClass("show-menu");
+				}
+			},
+
+			// Initialize scripts for each window size
+			initSSM: function() {
+				var self = this;
+
+				ssm.addStates([
+					{
+						// Tablets in landscape orientation
+						id: "tabletLandscape",
+						query: "(max-width: 1000px)",
+						onEnter: function() {
+							self.menuMobile.init();
+						},
+						onLeave: function() {
+
+						}
+					}
+				]);
+
+			}
 
 		};
 
@@ -554,6 +603,7 @@
 	});
 	GORIZONT.toggler.init();
 	GORIZONT.stickBlock.init();
+	GORIZONT.initSSM();
 
 	GORIZONT.ajaxForm.init();
 	GORIZONT.slider.init();
