@@ -150,6 +150,12 @@
 
 
 @media screen and (max-width: 1120px)
+	.mfp-image-holder
+	.mfp-iframe-holder
+		.mfp-content
+			max-width 75%
+
+
 	.page-header
 		.header-row
 
@@ -183,6 +189,11 @@
 					text-align center
 
 	.page-content
+
+		.shops-detail
+			.shops-detail-information
+				padding 90px 80px
+
 		.home-promo
 			margin-top 50px
 
@@ -220,6 +231,17 @@
 
 @media screen and (max-width: 1055px)
 	.page-content
+		margin-top 20px
+
+
+		.shops-detail
+			margin-top 100px
+
+			.shops-detail-col
+				.shops-detail-description
+						padding 50px 85px 10px 50px
+
+
 		.home-promo
 			margin-bottom 190px
 
@@ -276,6 +298,58 @@
 
 
 	.page-content
+		.article
+			width 100%
+			.article-img
+				display block
+				width 100%
+			.page-title
+				text-align left
+
+
+		.gallery
+			width 100%
+			margin-left 0
+
+
+
+		.shops-detail
+			display flex
+			flex-flow column-reverse
+
+			.shops-detail-col
+				display block
+				width 100%
+				float none
+
+		.page-title
+			margin-top 70px
+			text-align center
+
+		.shops
+		.service
+		.entertainment
+		.search-empty
+		.contacts
+			margin-top 90px
+
+			.search
+				left 50%
+				right auto
+
+				transform translateX(-50%)
+
+		.contacts
+			margin-top 150px
+
+
+		.search-empty
+			.search-empty-container
+				line-height 1
+				height auto
+
+				padding 100px 0
+
 		.home-welcome
 			margin-top 300px
 
@@ -401,12 +475,141 @@
 						.offers-item-heading-tag
 							font-size 20px
 
+		.shares
+			.shares-container-items
+
+				.shares-item
+					width 46%
+
+					margin-bottom 70px
+
+					&:nth-child(2n)
+						margin-right 0
+
+					&:nth-child(2n-1)
+						margin-right 6%
+
+
 @media screen and (max-width: 768px)
+
+	.application-form
+		width 100%
+		box-sizing border-box
+		padding 70px 40px
+
+		.form-title
+			&:before
+				left 5%
+
+
 	.mobile-header
 		display block
+
 	.page-header
 		display none
+
+	.mfp-image-holder
+	.mfp-iframe-holder
+
+		&.mfp-container
+			padding 0
+			margin 0
+
+		.mfp-content
+			max-width 65%
+
 	.page-content
+
+		.contacts
+			.contacts-items
+				.contacts-item
+					width 100%
+					padding 40px 20px
+
+			.contacts-departments
+				.contacts-departments-items
+					.contacts-departments-item
+						display block
+						width 100%
+						margin-bottom 40px
+
+			.contacts-application
+				padding 50px 20px
+				text-align center
+				font-size 28px
+				height auto
+
+		.contacts-location
+			padding 0 20px
+			box-sizing border-box
+			margin-bottom 50px
+
+			.contacts-location-container
+				flex-flow column
+
+				.contacts-location-container-holder
+					width 100%
+
+				.contacts-location-container-map
+					width 100%
+					height 500px
+
+
+
+		.gallery
+			.gallery-container-items
+				padding 0 20px
+			.gallery-container-item
+				width 100%
+
+				margin 0
+				margin-bottom 50px
+
+
+		.article
+			margin-top 120px
+
+		.navigation
+			height auto
+			width 150px
+
+			top -35px
+			right 20px
+
+
+			.navigation-item
+				display inline-block
+				float right
+
+				top -30px
+
+				margin-right 20px
+				margin-bottom 0
+
+				vertical-align top
+
+				&--next
+					margin-top 10px
+
+				&--prev
+					margin-top 10px
+
+				&--close
+					margin-right 0px
+
+		.page-title
+			margin-top 100px
+
+		.acordeon-container-items
+			.acordeon-container-item
+				.acordeon-container-item-header
+					.acordeon-container-item-header-name
+					.acordeon-container-item-header-count
+						font-size 20px
+
+				.acordeon-container-item-content
+					column-count 2
+
 
 		.home-comfort
 
@@ -471,7 +674,60 @@
 
 
 @media screen and (max-width: 640px)
+	.application-form
+		padding 70px 20px
+
+		.form-title
+			margin-top 30px
+			&:before
+				content ""
+				background none
+
 	.page-content
+
+		.page-title
+			&.page-title--big
+				font-size 30px
+
+
+		.similar-shares
+			.similar-shares-items
+				.similar-shares-item
+					width 100%
+					float none
+					margin-bottom 50px
+
+					.similar-shares-item-heading
+						display block
+						width 100%
+
+						.similar-shares-item-photo
+							display block
+							width 100%
+
+				.similar-shares-item-content
+					.similar-shares-item-content-title
+						font-size 38px
+
+		.shares
+			.shares-container-items
+				.shares-item
+					width 100%
+					margin-right 0
+
+				.shares-item-heading
+					.shares-item-photo-holder
+						display block
+						width 100%
+
+						.shares-item-photo
+							width 100%
+
+		.search-empty
+			.search
+				width 100%
+
+
 		.home-comfort
 
 			.home-comfort-items
@@ -545,6 +801,15 @@
 @media screen and (max-width: 600px)
 	.page-content
 
+
+		.contacts-location
+			.contacts-location-title
+				&:after
+					right 2%
+					z-index -100
+
+
+
 		.home-comfort
 			.home-comfort-video
 				height 380px
@@ -613,7 +878,144 @@
 					vertical-align: top
 
 @media screen and (max-width: 550px)
+	.mfp-gallery
+		.mfp-container
+			.mfp-gallery-arrow
+				top 40%
+
+			.mfp-gallery-arrow--left
+				left -45px
+
+			.mfp-gallery-arrow--right
+				right -45px
+
+			.mfp-content
+				.mfp-close
+					top -50px
+					right -45px
+
 	.page-content
+
+		.gallery
+			.gallery-container-item--video:after
+				border-top 40px solid transparent
+				border-left 85px solid #e83b7d
+				border-bottom 40px solid transparent
+
+
+		.contacts
+
+			.contacts-welcome
+				.contacts-welcome-title
+					font-size 24px
+
+			.contacts-departments
+				margin-top 50px
+
+				.contacts-departments-title
+					font-size 24px
+					margin-bottom 30px
+
+				.contacts-departments-items
+					.contacts-departments-item
+						.contacts-departments-item-phone
+							font-size 24px
+
+
+			.contacts-items
+				.contacts-item
+					width 100%
+					padding 10px 0px
+
+					.contacts-employees-holder
+						display block
+						width 100%
+
+						margin-left 0
+						margin-right 0
+
+						.contacts-employees-holder-img
+							width 100%
+							height 100%
+
+					.contacts-employees-description
+						width 100%
+						margin 50px 0
+
+			.contacts-departments
+				.contacts-departments-items
+					.contacts-departments-item
+						display block
+						width 100%
+						margin-bottom 40px
+
+			.contacts-application
+				padding 50px 20px
+				text-align center
+				font-size 28px
+				height auto
+
+
+		.page-title
+			&.page-title--big
+				line-height 1
+				margin-top 140px
+
+		.navigation
+			top -40px
+
+		.article
+			.page-text
+				p
+					font-size 20px
+
+		.similar-shares
+			.similar-shares-title
+				font-size 22px
+				margin-bottom 20px
+
+		.shops-detail
+			.shops-detail-col
+				.shops-detail-description
+					padding 20px
+
+					.shops-detail-shares
+						.shops-detail-shares-item
+							.shops-detail-shares-item-discount
+								padding 15px 0 10px 5px
+
+						.shops-detail-shares-title
+							font-size 22px
+
+				.shops-detail-information
+					padding 80px 20px
+
+					.shops-detail-scheme-link
+						font-size 18px
+						width 100%
+
+					.social-container
+						text-align right
+
+						.social-container-text
+							margin-left 0
+							margin-right 0
+
+		.search-empty
+			.search-empty-container
+				font-size 26px
+
+		.acordeon-container-items
+			.acordeon-container-item
+				.acordeon-container-item-header
+					.acordeon-container-item-header-name
+					.acordeon-container-item-header-count
+						font-size 18px
+
+				.acordeon-container-item-content
+					column-count 1
+
+
 		.home-promo
 			.home-promo-holder
 				width 100%
@@ -683,7 +1085,87 @@
 
 
 @media screen and (max-width: 430px)
+
+	.mfp-form
+		.mfp-content
+			.application-form
+				button
+					&.mfp-close
+						top 10px
+						right 10px
+
+	.application-form
+		padding 70px 10px
+
+		.form-title
+			font-size 24px
+			margin-bottom 20px
+
+		.form-items
+			.form-information
+				font-size 20px
+				padding 0
+
+			.form-container-item
+				span
+					&.form-item--error
+						bottom -30px
+						text-align center
+						width 100%
+
+
+				.form-container-item-name
+					padding 0
+					font-size 16px
+
+				.form-item-submit
+					width 100%
+
+				.jcf-file
+					.jcf-fake-list
+						width 100%
+						padding 0
+						margin-bottom 10px
+
+					.jcf-upload-button
+						width 100%
+						padding 0
+						margin 0
+						margin-bottom 40px
+
+			.form-container-item-columns
+				flex-flow column
+
+				.form-container-item-list
+					padding 0
+
+
+
 	.page-content
+
+		.gallery
+			.gallery-container-item
+				.gallery-container-item-title
+					font-size 12px
+
+					top 5px
+					left 5px
+					right 5px
+
+		.shares
+			.load-more
+				.load-more-btn
+					width 100%
+
+		.article
+			.page-text
+				p
+					font-size 16px
+
+		.search-empty
+			.search-empty-container
+				font-size 18px
+
 		.home-promo
 			.home-promo-count
 				left 0

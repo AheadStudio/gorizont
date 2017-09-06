@@ -35,72 +35,72 @@
 			"name": "Магазины",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"service": {
 			"name": "Сервис",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"entertainment": {
 			"name": "Развлечения",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"search_empty": {
 			"name": "Пустой результат поиска",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"shops_detail": {
 			"name": "Карточка магазина",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"shares": {
 			"name": "Акции",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"article": {
 			"name": "Страница акции",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"gallery": {
 			"name": "Галерея",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"contacts": {
 			"name": "Контакты",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"concept": {
