@@ -141,6 +141,7 @@
 									setTimeout(function() {
 										$container.find(".load-events-item").removeClass("load-events-item");
 									}, 100);
+									GORIZONT.reload()
 								}
 							})
 						})(href, $container);
@@ -280,6 +281,8 @@
 
 						$form.validate(formParams);
 					});
+
+					self.sendForm();
 				},
 
 				modalForm: function() {
@@ -291,12 +294,7 @@
 					});
 				},
 
-
-			},
-
-			ajaxForm: {
-
-				init: function() {
+				sendForm: function() {
 
 					$("#ajaxForm", $sel.body).submit(function(){
 				        var $form = $(this),
@@ -313,14 +311,18 @@
 				                        type: "inline"
 				                    }
 				                });
+
+								GORIZONT.reload()
 				            },
 				        });
 
 				    });
 
-				}
+				},
 
 			},
+
+
 
 			yandexMap: {
 				$map: false,
@@ -408,6 +410,18 @@
 								value: "Пальто",
 								data: {
 									category: "Одежда",
+									img: "/dummy/catalog/2.jpg"
+								}
+							}, {
+								value: "Пальто",
+								data: {
+									category: "Магазин H&M на карте - 1 этаж",
+									img: "/dummy/catalog/2.jpg"
+								}
+							}, {
+								value: "Пальто",
+								data: {
+									category: "Магазин Ostin на карте - 1 этаж",
 									img: "/dummy/catalog/2.jpg"
 								}
 							}, {
@@ -642,14 +656,72 @@
 					}
 				]);
 
-			}
+			},
+
+			load: {
+				isLoad: false,
+				$content: null,
+
+				init: function() {
+					var self = this;
+					self.$content = $(".page-content-inner", $sel.body);
+
+					$(".animation-link").on("click", function(e) {
+						GORIZONT.load.page($(this).attr("href"));
+						e.preventDefault();
+					});
+				},
+
+				page: function(url) {
+
+					var self = this;
+
+					if(self.isLoad) {
+						return false;
+					}
+
+					setTimeout(function() {
+						self.isLoad = true;
+						self.$content.addClass("loading");
+
+						setTimeout(function() {
+							$.ajax({
+								url: url,
+								success: function(html) {
+									self.isLoad = false;
+									var $html = $('<div />').append(html);
+									self.$content.empty().append($html.find(".page-content-inner").html());
+									self.$content.removeClass("loading");
+
+									GORIZONT.reload();
+								}
+							});
+						}, 200);
+
+					}, 320);
+				}
+			},
+
+			animateButton: function() {
+
+				$(".rippler").rippler({
+					effectClass : "rippler-effect",
+					effectSize  :  16,
+					addElement  : "div",
+					duration    :  800,
+				});
+			},
 
 		};
 
 	})();
 
+	GORIZONT.load.init();
+
 	GORIZONT.scrollAnimation.init();
+
 	GORIZONT.accordion.init();
+
 	ymaps.ready(function() {
 		GORIZONT.yandexMap.init();
 	});
@@ -657,7 +729,7 @@
 	GORIZONT.stickBlock.init();
 	GORIZONT.initSSM();
 
-	GORIZONT.ajaxForm.init();
+
 	GORIZONT.slider.init();
 
 	GORIZONT.hoverElement.init();
@@ -671,5 +743,39 @@
 
 	GORIZONT.menu();
 	GORIZONT.dropdown.init();
+
+	GORIZONT.animateButton();
+
+	GORIZONT.reload = function() {
+		GORIZONT.load.init();
+
+		GORIZONT.scrollAnimation.init();
+
+		GORIZONT.accordion.init();
+		ymaps.ready(function() {
+			GORIZONT.yandexMap.init();
+		});
+		GORIZONT.toggler.init();
+		GORIZONT.stickBlock.init();
+		GORIZONT.initSSM();
+
+
+		GORIZONT.slider.init();
+
+		GORIZONT.hoverElement.init();
+		GORIZONT.search.init();
+
+		GORIZONT.goTop();
+		GORIZONT.form.init();
+
+		GORIZONT.gallery();
+		GORIZONT.initAjaxLoader();
+
+		GORIZONT.menu();
+		GORIZONT.dropdown.init();
+
+		GORIZONT.animateButton();
+
+	}
 
 })(jQuery);

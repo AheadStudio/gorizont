@@ -1,103 +1,104 @@
 extends ../templates/base
 
 block content
-    div(class="page-inner page-inner--w1")
-        div(class="page-title") Вы искали
-    div(class="search-result")
-        div(class="search")
-            form(action="/search.html", class="search-form")
-                input(type="text", class="search-input", placeholder="Поиск магазина")
-                button(type="submit", title="Найти", class="search-submit")
-                
-        div(class="search-result-items")
-            div(class="search-result-item")
-                div(class="page-inner search-result-item-inner")
-                    a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo")
-                        img(src="../dummy/Love_Republic.jpg", class="search-result-item-logo-shop")
-                    div(class="search-result-item-shop")
-                        span(class="search-result-item-shop-name") Love Republic
-                        a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
-                    div(class="search-result-item-products")
-                        span(class="search-result-item-products-text") Одежда, аксессуары, 
-                        span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
-                        span(class="search-result-item-products-time") 10:00 - 23:00
-                        a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more") Узнать больше 
-                    div(class="search-result-item-location")
-                        span(class="search-result-item-location-floor") 1 этаж
-                        a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show") посмотреть на схеме
-            div(class="search-result-item")
-                div(class="page-inner search-result-item-inner")
-                    a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo")
-                        img(src="../dummy/adidas.png", class="search-result-item-logo-shop")
-                    div(class="search-result-item-shop")
-                        span(class="search-result-item-shop-name") Adidas
-                        a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
-                    div(class="search-result-item-products")
-                        span(class="search-result-item-products-text") Одежда, аксессуары, 
-                        span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
-                        span(class="search-result-item-products-time") 10:00 - 23:00
-                        a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more") Узнать больше 
-                    div(class="search-result-item-location")
-                        span(class="search-result-item-location-floor") 1 этаж
-                        a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show") посмотреть на схеме
-            div(class="search-result-item")
-                div(class="page-inner search-result-item-inner")
-                    a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo")
-                        img(src="../dummy/zara.jpg", class="search-result-item-logo-shop")
-                    div(class="search-result-item-shop")
-                        span(class="search-result-item-shop-name") Zara
-                        a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
-                    div(class="search-result-item-products")
-                        span(class="search-result-item-products-text") Одежда, аксессуары, 
-                        span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
-                        span(class="search-result-item-products-time") 10:00 - 23:00
-                        a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more") Узнать больше 
-                    div(class="search-result-item-location")
-                        span(class="search-result-item-location-floor") 1 этаж
-                        a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show") посмотреть на схеме
-            div(class="search-result-item")
-                div(class="page-inner search-result-item-inner")
-                    a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo")
-                        img(src="../dummy/Dockers.png",class="search-result-item-logo-shop")
-                    div(class="search-result-item-shop")
-                        span(class="search-result-item-shop-name") Dockers
-                        a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
-                    div(class="search-result-item-products")
-                        span(class="search-result-item-products-text") Одежда, аксессуары, 
-                        span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
-                        span(class="search-result-item-products-time") 10:00 - 23:00
-                        a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more") Узнать больше 
-                    div(class="search-result-item-location")
-                        span(class="search-result-item-location-floor") 1 этаж
-                        a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show") посмотреть на схеме
+    div(class="page-content-inner")
+        div(class="page-inner page-inner--w1")
+            div(class="page-title") Вы искали
+        div(class="search-result")
+            div(class="search")
+                form(action="/search.html", class="search-form")
+                    input(type="text", class="search-input", placeholder="Поиск магазина")
+                    button(type="submit", title="Найти", class="search-submit")
+                    
+            div(class="search-result-items")
+                div(class="search-result-item")
+                    div(class="page-inner search-result-item-inner")
+                        a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo animation-link")
+                            img(src="../dummy/Love_Republic.jpg", class="search-result-item-logo-shop")
+                        div(class="search-result-item-shop")
+                            span(class="search-result-item-shop-name") Love Republic
+                            a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
+                        div(class="search-result-item-products")
+                            span(class="search-result-item-products-text") Одежда, аксессуары, 
+                            span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
+                            span(class="search-result-item-products-time") 10:00 - 23:00
+                            a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more animation-link rippler rippler-inverse") Узнать больше 
+                        div(class="search-result-item-location")
+                            span(class="search-result-item-location-floor") 1 этаж
+                            a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show animation-link rippler rippler-inverse") посмотреть на схеме
+                div(class="search-result-item")
+                    div(class="page-inner search-result-item-inner")
+                        a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo animation-link")
+                            img(src="../dummy/adidas.png", class="search-result-item-logo-shop")
+                        div(class="search-result-item-shop")
+                            span(class="search-result-item-shop-name") Adidas
+                            a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
+                        div(class="search-result-item-products")
+                            span(class="search-result-item-products-text") Одежда, аксессуары, 
+                            span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
+                            span(class="search-result-item-products-time") 10:00 - 23:00
+                            a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more animation-link rippler rippler-inverse") Узнать больше 
+                        div(class="search-result-item-location")
+                            span(class="search-result-item-location-floor") 1 этаж
+                            a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show animation-link rippler rippler-inverse") посмотреть на схеме
+                div(class="search-result-item")
+                    div(class="page-inner search-result-item-inner")
+                        a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo animation-link")
+                            img(src="../dummy/zara.jpg", class="search-result-item-logo-shop")
+                        div(class="search-result-item-shop")
+                            span(class="search-result-item-shop-name") Zara
+                            a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
+                        div(class="search-result-item-products")
+                            span(class="search-result-item-products-text") Одежда, аксессуары, 
+                            span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
+                            span(class="search-result-item-products-time") 10:00 - 23:00
+                            a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more animation-link rippler rippler-inverse") Узнать больше 
+                        div(class="search-result-item-location")
+                            span(class="search-result-item-location-floor") 1 этаж
+                            a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show animation-link rippler rippler-inverse") посмотреть на схеме
+                div(class="search-result-item")
+                    div(class="page-inner search-result-item-inner")
+                        a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo animation-link")
+                            img(src="../dummy/Dockers.png",class="search-result-item-logo-shop")
+                        div(class="search-result-item-shop")
+                            span(class="search-result-item-shop-name") Dockers
+                            a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
+                        div(class="search-result-item-products")
+                            span(class="search-result-item-products-text") Одежда, аксессуары, 
+                            span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
+                            span(class="search-result-item-products-time") 10:00 - 23:00
+                            a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more animation-link rippler rippler-inverse") Узнать больше 
+                        div(class="search-result-item-location")
+                            span(class="search-result-item-location-floor") 1 этаж
+                            a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show animation-link rippler rippler-inverse") посмотреть на схеме
 
-            div(class="search-result-item")
-                div(class="page-inner search-result-item-inner")
-                    a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo")
-                        img(src="../dummy/matinique.png",class="search-result-item-logo-shop")
-                    div(class="search-result-item-shop")
-                        span(class="search-result-item-shop-name") Matinique
-                        a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
-                    div(class="search-result-item-products")
-                        span(class="search-result-item-products-text") Одежда, аксессуары, 
-                        span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
-                        span(class="search-result-item-products-time") 10:00 - 23:00
-                        a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more") Узнать больше 
-                    div(class="search-result-item-location")
-                        span(class="search-result-item-location-floor") 1 этаж
-                        a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show") посмотреть на схеме
-            div(class="search-result-item")
-                div(class="page-inner search-result-item-inner")
-                    a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo")
-                        img(src="../dummy/boss.png",class="search-result-item-logo-shop")
-                    div(class="search-result-item-shop")
-                        span(class="search-result-item-shop-name") Boss
-                        a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
-                    div(class="search-result-item-products")
-                        span(class="search-result-item-products-text") Одежда, аксессуары, 
-                        span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
-                        span(class="search-result-item-products-time") 10:00 - 23:00
-                        a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more") Узнать больше 
-                    div(class="search-result-item-location")
-                        span(class="search-result-item-location-floor") 1 этаж
-                        a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show") посмотреть на схеме
+                div(class="search-result-item")
+                    div(class="page-inner search-result-item-inner")
+                        a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo animation-link")
+                            img(src="../dummy/matinique.png",class="search-result-item-logo-shop")
+                        div(class="search-result-item-shop")
+                            span(class="search-result-item-shop-name") Matinique
+                            a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
+                        div(class="search-result-item-products")
+                            span(class="search-result-item-products-text") Одежда, аксессуары, 
+                            span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
+                            span(class="search-result-item-products-time") 10:00 - 23:00
+                            a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more animation-link rippler rippler-inverse") Узнать больше 
+                        div(class="search-result-item-location")
+                            span(class="search-result-item-location-floor") 1 этаж
+                            a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show animation-link rippler rippler-inverse") посмотреть на схеме
+                div(class="search-result-item")
+                    div(class="page-inner search-result-item-inner")
+                        a(href="shops_detail.html", class="link link-dark-gray search-result-item-logo animation-link")
+                            img(src="../dummy/boss.png",class="search-result-item-logo-shop")
+                        div(class="search-result-item-shop")
+                            span(class="search-result-item-shop-name") Boss
+                            a(href="tel:+74994270543", class="link link--darkgray search-result-item-shop-phone") т.+7 (499) 427 0543
+                        div(class="search-result-item-products")
+                            span(class="search-result-item-products-text") Одежда, аксессуары, 
+                            span(class="search-result-item-products-text search-result-item-products-text--bold") обувь
+                            span(class="search-result-item-products-time") 10:00 - 23:00
+                            a(href="shops_detail.html", class="btn btn--blue search-result-item-products-more animation-link rippler rippler-inverse") Узнать больше 
+                        div(class="search-result-item-location")
+                            span(class="search-result-item-location-floor") 1 этаж
+                            a(href="scheme.html", class="btn btn--yellow search-result-item-location-floor-show animation-link rippler rippler-inverse") посмотреть на схеме

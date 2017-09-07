@@ -76,6 +76,12 @@ body
 .page-content
 	margin 0 auto
 
+.page-content-inner
+	transition opacity 0.3s $cubic-transition, transform 0.6s $cubic-transition
+
+	&.loading
+		opacity 0
+		transform translateY(-50px)
 /*** //structure ***/
 
 /*** HEADER STYLES ***/
@@ -1106,11 +1112,12 @@ body
 
 		border-bottom 1px solid #e6e6e6
 
-		transition height 0.3s $cubic-transition, background 0.3s $cubic-transition
+		transition height 0.4s $cubic-transition, background 0.2s $cubic-transition
 
 		cursor pointer
 
 		text-decoration none
+
 		img
 			position absolute
 			top 0
@@ -1127,7 +1134,7 @@ body
 			z-index -10
 			opacity 0
 
-			transition opacity 0.3s $cubic-transition
+			transition opacity 0.2s $cubic-transition
 
 		&:first-child
 			border-top 1px solid #e6e6e6
@@ -1430,7 +1437,7 @@ body
 		width 28%
 
 		margin-bottom 50px
-		margin-right 8%
+		margin-right 7.55555%
 
 		&:nth-child(3n)
 			margin-right 0%
@@ -1542,6 +1549,15 @@ body
 
 
 /*** article ***/
+		/*
+		.page-content-inner
+			&.page-content-inner--article
+				transition opacity 0.3s $cubic-transition, transform 0.8s $cubic-transition
+
+				&.loading
+					opacity 0
+					transform translateX(-250px)
+		*/
 
 .article
 	display block
@@ -1689,17 +1705,17 @@ body
 		text-align center
 
 	.journal-container-items
-		transform translateY(0px)
+		display block
+
+	.journal-row
+		display block
+		margin-bottom 55px
 
 		transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
 		&.load-events-item
 			opacity 0
 			transform translateY(50px)
-
-	.journal-row
-		display block
-		margin-bottom 55px
 
 
 		.journal-row-year
@@ -1849,14 +1865,6 @@ body
 
 	.gallery-container-items
 		font-size 0
-	.gallery-container-more
-		transform translateY(0px)
-
-		transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-
-		&.load-events-item
-			opacity 0
-			transform translateY(-50px)
 
 	.gallery-container-item
 		position relative
@@ -1865,6 +1873,12 @@ body
 		vertical-align top
 
 		margin-bottom 40px
+
+		transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+		&.load-events-item
+			opacity 0
+			transform translateY(-90px)
 
 		&:before
 			content ""
@@ -2651,7 +2665,9 @@ body
 			width 49%
 			display inline-block
 			vertical-align top
-		    height 100%
+			min-height 715px
+			height 100%
+
 
 
 
@@ -3015,8 +3031,10 @@ body
 	display block
 
 	width 100%
+	min-height 400px
 
-	margin-bottom 310px
+	margin-bottom 210px
+
 	text-align center
 
 	.home-promo-holder
@@ -3124,6 +3142,8 @@ body
 
 	width 100%
 
+	&--concept
+		margin-bottom 70px
 	&:after
 		content ""
 
@@ -3424,21 +3444,21 @@ body
 
 		background #fecc00
 
-		transition background 0.6s $cubic-transition
-
-		&.hover-block
-			background  #ffdf50
 
 		&.animation-block
 			opacity 0
 
 			transform translateY(350px)
 
-			transition opacity 0.5s $cubic-transition, transform 0.6s $cubic-transition
+			transition opacity 0.5s $cubic-transition, transform 0.6s $cubic-transition, background 0.6s $cubic-transition
 
 			&.animated
 				transform translateY(0)
 				opacity 1
+
+		&.hover-block
+			background  #ffdf50
+
 
 		.home-comfort-item-link
 			right 75px
@@ -3487,14 +3507,12 @@ body
 		top -55px
 		right 25px
 
-		transition background 0.6s $cubic-transition
-
 		&.animation-block
 			opacity 0
 
 			transform translateY(250px)
 
-			transition opacity 0.6s $cubic-transition, transform 0.6s $cubic-transition
+			transition opacity 0.6s $cubic-transition, transform 0.6s $cubic-transition,  background 0.6s $cubic-transition
 
 			&.animated
 				transform translateY(0)
@@ -3528,8 +3546,6 @@ body
 
 		background #e83b7d
 
-		transition background 0.6s $cubic-transition
-
 		&.hover-block
 			background:  #ff4089
 
@@ -3538,7 +3554,7 @@ body
 
 			transform translateY(150px)
 
-			transition opacity 0.6s $cubic-transition, transform 0.8s $cubic-transition
+			transition opacity 0.6s $cubic-transition, transform 0.8s $cubic-transition,  background 0.6s $cubic-transition
 
 			&.animated
 				transform translateY(0)
@@ -3591,8 +3607,6 @@ body
 
 		background #a7358c
 
-		transition background 0.6s $cubic-transition
-
 		&.hover-block
 			background  #c23ea3
 
@@ -3601,7 +3615,7 @@ body
 
 			transform translateY(250px)
 
-			transition opacity 0.5s $cubic-transition, transform 0.6s $cubic-transition
+			transition opacity 0.5s $cubic-transition, transform 0.6s $cubic-transition,  background 0.6s $cubic-transition
 
 			&.animated
 				transform translateY(0)
@@ -3652,6 +3666,19 @@ body
 
 	text-align center
 
+
+	&.animation-block
+		opacity 0
+
+		transform translateY(150px)
+
+		transition opacity 0.4s $cubic-transition, transform 0.8s $cubic-transition
+
+		&.animated
+			transform translateY(0)
+			opacity 1
+
+
 	.home-welcome-title
 		position relative
 		display inline-block
@@ -3660,6 +3687,18 @@ body
 		font-family GothamProMedium
 
 		margin-bottom 60px
+
+
+		&.animation-block
+			opacity 0
+
+			transform translateY(-150px)
+
+			transition opacity 0.3s $cubic-transition, transform 2s $cubic-transition
+
+			&.animated
+				transform translateY(0)
+				opacity 1
 
 		&:after
 			content ""

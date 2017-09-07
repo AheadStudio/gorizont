@@ -1,145 +1,146 @@
 extends ../templates/base
 
 block content
-    div(class="page-inner page-inner--w1")
-        div(class="page-title") Контакты
-        div(class="contacts")
-            div(class="search")
-                form(action="/search.html", class="search-form")
-                    input(type="text", class="search-input", placeholder="Поиск магазина")
-                    button(type="submit", title="Найти", class="search-submit")
-            div(class="contacts-welcome")
-                span(class="contacts-welcome-title") Рады приветствовать Вас от лица нашей команды профессионалов
-            div(class="contacts-items")
-                div(class="contacts-item contacts-item--left")
-                    div(class="contacts-employees-holder")
-                        img(src="../dummy/photo_director.jpg", class="contacts-employees-holder-img")
-                    div(class="contacts-employees-description")
-                        span(class="contacts-employees-position") Генеральный директор
-                        span(class="contacts-employees-name") Полонский Дан Эммануилович
-                div(class="contacts-item contacts-item--right")
-                    div(class="contacts-employees-holder contacts-employees-holder--left")
-                        img(src="../dummy/zam_directora.jpg", class="contacts-employees-holder-img")
-                    div(class="contacts-employees-description")
-                        span(class="contacts-employees-position") Заместитель генерального директора, директор департамента управления активами, маркетинга и правового обеспечения
-                        span(class="contacts-employees-name") Заболоцкая Елена Николаевна
-            div(class="contacts-departments")
-                span(class="contacts-departments-title") Решить любые вопросы Вам помогут
-                div(class="contacts-departments-items")
-                    div(class="contacts-departments-item")
-                        div(class="contacts-departments-item-name") Коммерческий отдел
-                        a(href="tel:+78632725108", class="link link--darkgray contacts-departments-item-phone") (863) 2725-108
-                        div(class="contacts-departments-item-time") Пн-пт c 09:00 до 18:00
-                    div(class="contacts-departments-item")
-                        div(class="contacts-departments-item-name") Рекламный отдел
-                        a(href="tel:+78632725108", class="link link--darkgray contacts-departments-item-phone") (863) 2725-108 доб. 109
-                        div(class="contacts-departments-item-time") Пн-вт c 09:00 до 18:00
-                        div(class="contacts-departments-item-time") Чт-пт c 11:00 до 15:00
-            a(href="#form-open", class="link link--darkgray contacts-application")  
-                span Заявка на аренду
-    div(class="page-inner--w2")
-        div(class="contacts-location")
-            div(class="page-inner page-inner--w1")
-                div(class="contacts-location-title") Россия, Ростов-на-Дону, проспект Михаила Нагибина
-            div(class="contacts-location-container")
-                div(class="contacts-location-container-holder")
-                    img(src="../dummy/gorizont_photo.jpg", class="contacts-location-container-holder-img")
-                div(id="map",class="contacts-location-container-map", data-center="[47.2586, 39.7203]", data-zoom="17", data-points='[{name:"1", position: "47.2597, 39.7198", icon: "../svg/icons/point_map_blue.svg", description:"г. Ростов-На-Дону, пр. Нагибина, 32ж"}]')
-    div(id="form-open", class="application-form white-popup mfp-hide", data-send="send_ajaxForm")
-        span(class="form-title") Заявка на аренду
-        form(id="ajaxForm", class="form", action="#", data-success="#resultForm")        
-            div(class="form-items")       
-                span(class="form-information") Информация об Арендаторе:
-                div(class="form-container-item")
-                    label(for="namecompany", class="form-container-item-name") Название компании и форма организации  
-                    input(type="text", id="namecompany", class="form-item", name="namecompany", required, data-error="Введите имя компании")
-                div(class="form-container-item")
-                    label(for="index", class="form-container-item-name") Юридический / почтовый адрес (с индексом)
-                    textarea(rows="5", id="index", name="index", class="form-item form-item--textarea")
-                div(class="form-container-item")
-                    label(for="mobile", class="form-container-item-name") Телефон (код страны, города)
-                    input(type="text", class="form-item", id="mobile", name="mobile", required, data-pattern="mobileRu", data-error="Введите телефон")
-                div(class="form-container-item")
-                    label(for="email", class="form-container-item-name") Электронная почта
-                    input(type="email", class="form-item", id="email", name="email", required, data-error="Введите Email")
-                div(class="form-container-item")
-                    label(for="site", class="form-container-item-name") Сайт
-                    input(type="text", id="site", name="site", class="form-item")
-                div(class="form-container-item")
-                    label(for="position", class="form-container-item-name") Контактное лицо, должность
-                    input(type="text", id="position", name="position", class="form-item")
-                div(class="form-container-item")
-                    label(for="type_business", class="form-container-item-name") Тип бизнеса (франшиза или собственные магазины с указанием компании, предоставляющей бренд в России)
-                    input(type="text", id="type_business", name="type_business" class="form-item")
-                div(class="form-container-item")
-                    label(for="project_format", class="form-container-item-name")  Формат проекта и требуемая площадь (магазин/павильон)
-                    textarea(rows="7", id="project_format", name="project_format", class="form-item form-item--textarea")
-                span(class="form-information") Информация о заявке Арендатора
-                div(class="form-container-item")
-                    label(for="marks", class="form-container-item-name") Представляемые торговые марки магазины/павильоны (в формате монобренд/ мультибренд)
-                    input(type="text", id="marks", name="marks", class="form-item")
-                div(class="form-container-item")
-                    label(for="location_marks", class="form-container-item-name") Где представлены:
-                    div(class="form-container-item-columns")
-                        textarea(id="location_marks", name="location_marks", class="form-item form-item--textarea")
-                        div(class="form-container-item-list")
-                            ul
-                                li в мире
-                                li в России(в каких городах)
-                                li в городах
-                                li в каких ТЦ
-                                li на каких этажах ТЦ
-                                li рядом с какими магазинами представлены
-                                li нет открытых магазинов/павильонов
-                div(class="form-container-item")
-                    label(for="area", class="form-container-item-name") Площадь и средний ежемесячный оборот каждого
-                    input(type="text", id="area", name="area", class="form-item") 
-                div(class="form-container-item form-container-item--columns")
-                    label(for="type_products", class="form-container-item-name") Где представлены:
-                    div(class="form-container-item-columns")
-                        textarea(id="type_products", class="form-item form-item--textarea", name="type_products")
-                        div(class="form-container-item-list")
-                            ul
-                                li одежда
-                                li обувь
-                                li ювелирные изделия
-                                li аксессуары
-                                li косметика
-                                li рестораны, кафе
-                                li спортивные товары
-                                li сувениры, подарки
-                                li товары для детей
-                                li товары для дома
-                                li аудио- видео- бытовая техника
-                                li аппараты, банкоматы
-                                li услуги
-                                li равзлечения
-                                li свой вариант ответа
-                div(class="form-container-item")
-                    label(for="country_marks", class="form-container-item-name") Страна происхождения марки:
-                    input(type="text", id="country_marks", name="country_marks", class="form-item") 
-                div(class="form-container-item")
-                    label(for="people", class="form-container-item-name") Целевая аудитория (муж/жен/дет.) и возраст целевой аудитории
-                    input(type="text", id="people", name="people", class="form-item") 
-                div(class="form-container-item")
-                    label(for="cat_price", class="form-container-item-name") Ценовая категория:
-                    input(type="text", id="cat_price", name="cat_price", class="form-item") 
-                div(class="form-container-item")
-                    label(for="average_check", class="form-container-item-name") Средний чек:
-                    input(type="text", id="average_check", name="average_check", class="form-item") 
-                div(class="form-container-item")
-                    label(for="terms", class="form-container-item-name") Возможные сроки открытия:
-                    input(type="text", id="terms", name="terms", class="form-item") 
-                div(class="form-container-item")
-                    label(for="comments", class="form-container-item-name") Комментарии: 
-                    input(type="text", id="comments", name="comments", class="form-item") 
-                div(class="form-container-item")
-                    label(for="file", class="form-container-item-name") Приложить файлы не более 5мб (презентация, 3D- визуализация проекта/оборудование, фото магазина/павильона(обязательно в цветном формате))
-                    input(type="file", id="file", name="file", class="form-item form-item--file") 
-                span(class="form-information form-information--mini") Обращаем Ваше внимание, что ТРК &#171Горизонт&#187 для павильонов ограничение по высоте (не выше 1.4 м)
-                div(class="form-container-item form-container-item--center")
-                    input(type="submit", class="btn btn--red form-item-submit", name="send", value="Отправить") 
-                    
-    div(id="resultForm", class="application-form white-popup mfp-hide")
-        span(class="form-title form-title--result") Спасибо за проявленный интерес
-        span(class="form-subtitle") Заявка отправлена
+    div(class="page-content-inner")    
+        div(class="page-inner page-inner--w1")
+            div(class="page-title") Контакты
+            div(class="contacts")
+                div(class="search")
+                    form(action="/search.html", class="search-form")
+                        input(type="text", class="search-input", placeholder="Поиск магазина")
+                        button(type="submit", title="Найти", class="search-submit")
+                div(class="contacts-welcome")
+                    span(class="contacts-welcome-title") Рады приветствовать Вас от лица нашей команды профессионалов
+                div(class="contacts-items")
+                    div(class="contacts-item contacts-item--left")
+                        div(class="contacts-employees-holder")
+                            img(src="../dummy/photo_director.jpg", class="contacts-employees-holder-img")
+                        div(class="contacts-employees-description")
+                            span(class="contacts-employees-position") Генеральный директор
+                            span(class="contacts-employees-name") Полонский Дан Эммануилович
+                    div(class="contacts-item contacts-item--right")
+                        div(class="contacts-employees-holder contacts-employees-holder--left")
+                            img(src="../dummy/zam_directora.jpg", class="contacts-employees-holder-img")
+                        div(class="contacts-employees-description")
+                            span(class="contacts-employees-position") Заместитель генерального директора, директор департамента управления активами, маркетинга и правового обеспечения
+                            span(class="contacts-employees-name") Заболоцкая Елена Николаевна
+                div(class="contacts-departments")
+                    span(class="contacts-departments-title") Решить любые вопросы Вам помогут
+                    div(class="contacts-departments-items")
+                        div(class="contacts-departments-item")
+                            div(class="contacts-departments-item-name") Коммерческий отдел
+                            a(href="tel:+78632725108", class="link link--darkgray contacts-departments-item-phone") (863) 2725-108
+                            div(class="contacts-departments-item-time") Пн-пт c 09:00 до 18:00
+                        div(class="contacts-departments-item")
+                            div(class="contacts-departments-item-name") Рекламный отдел
+                            a(href="tel:+78632725108", class="link link--darkgray contacts-departments-item-phone") (863) 2725-108 доб. 109
+                            div(class="contacts-departments-item-time") Пн-вт c 09:00 до 18:00
+                            div(class="contacts-departments-item-time") Чт-пт c 11:00 до 15:00
+                a(href="#form-open", class="link link--darkgray contacts-application rippler rippler-default")  
+                    span Заявка на аренду
+        div(class="page-inner--w2")
+            div(class="contacts-location")
+                div(class="page-inner page-inner--w1")
+                    div(class="contacts-location-title") Россия, Ростов-на-Дону, проспект Михаила Нагибина
+                div(class="contacts-location-container")
+                    div(class="contacts-location-container-holder")
+                        img(src="../dummy/gorizont_photo.jpg", class="contacts-location-container-holder-img")
+                    div(id="map",class="contacts-location-container-map", data-center="[47.2586, 39.7203]", data-zoom="17", data-points='[{name:"1", position: "47.2597, 39.7198", icon: "../svg/icons/point_map_blue.svg", description:"г. Ростов-На-Дону, пр. Нагибина, 32ж"}]')
+        div(id="form-open", class="application-form white-popup mfp-hide", data-send="send_ajaxForm")
+            span(class="form-title") Заявка на аренду
+            form(id="ajaxForm", class="form", action="#", data-success="#resultForm")        
+                div(class="form-items")       
+                    span(class="form-information") Информация об Арендаторе:
+                    div(class="form-container-item")
+                        label(for="namecompany", class="form-container-item-name") Название компании и форма организации  
+                        input(type="text", id="namecompany", class="form-item", name="namecompany", required, data-error="Введите имя компании")
+                    div(class="form-container-item")
+                        label(for="index", class="form-container-item-name") Юридический / почтовый адрес (с индексом)
+                        textarea(rows="5", id="index", name="index", class="form-item form-item--textarea")
+                    div(class="form-container-item")
+                        label(for="mobile", class="form-container-item-name") Телефон (код страны, города)
+                        input(type="text", class="form-item", id="mobile", name="mobile", required, data-pattern="mobileRu", data-error="Введите телефон")
+                    div(class="form-container-item")
+                        label(for="email", class="form-container-item-name") Электронная почта
+                        input(type="email", class="form-item", id="email", name="email", required, data-error="Введите Email")
+                    div(class="form-container-item")
+                        label(for="site", class="form-container-item-name") Сайт
+                        input(type="text", id="site", name="site", class="form-item")
+                    div(class="form-container-item")
+                        label(for="position", class="form-container-item-name") Контактное лицо, должность
+                        input(type="text", id="position", name="position", class="form-item")
+                    div(class="form-container-item")
+                        label(for="type_business", class="form-container-item-name") Тип бизнеса (франшиза или собственные магазины с указанием компании, предоставляющей бренд в России)
+                        input(type="text", id="type_business", name="type_business" class="form-item")
+                    div(class="form-container-item")
+                        label(for="project_format", class="form-container-item-name")  Формат проекта и требуемая площадь (магазин/павильон)
+                        textarea(rows="7", id="project_format", name="project_format", class="form-item form-item--textarea")
+                    span(class="form-information") Информация о заявке Арендатора
+                    div(class="form-container-item")
+                        label(for="marks", class="form-container-item-name") Представляемые торговые марки магазины/павильоны (в формате монобренд/ мультибренд)
+                        input(type="text", id="marks", name="marks", class="form-item")
+                    div(class="form-container-item")
+                        label(for="location_marks", class="form-container-item-name") Где представлены:
+                        div(class="form-container-item-columns")
+                            textarea(id="location_marks", name="location_marks", class="form-item form-item--textarea")
+                            div(class="form-container-item-list")
+                                ul
+                                    li в мире
+                                    li в России(в каких городах)
+                                    li в городах
+                                    li в каких ТЦ
+                                    li на каких этажах ТЦ
+                                    li рядом с какими магазинами представлены
+                                    li нет открытых магазинов/павильонов
+                    div(class="form-container-item")
+                        label(for="area", class="form-container-item-name") Площадь и средний ежемесячный оборот каждого
+                        input(type="text", id="area", name="area", class="form-item") 
+                    div(class="form-container-item form-container-item--columns")
+                        label(for="type_products", class="form-container-item-name") Где представлены:
+                        div(class="form-container-item-columns")
+                            textarea(id="type_products", class="form-item form-item--textarea", name="type_products")
+                            div(class="form-container-item-list")
+                                ul
+                                    li одежда
+                                    li обувь
+                                    li ювелирные изделия
+                                    li аксессуары
+                                    li косметика
+                                    li рестораны, кафе
+                                    li спортивные товары
+                                    li сувениры, подарки
+                                    li товары для детей
+                                    li товары для дома
+                                    li аудио- видео- бытовая техника
+                                    li аппараты, банкоматы
+                                    li услуги
+                                    li равзлечения
+                                    li свой вариант ответа
+                    div(class="form-container-item")
+                        label(for="country_marks", class="form-container-item-name") Страна происхождения марки:
+                        input(type="text", id="country_marks", name="country_marks", class="form-item") 
+                    div(class="form-container-item")
+                        label(for="people", class="form-container-item-name") Целевая аудитория (муж/жен/дет.) и возраст целевой аудитории
+                        input(type="text", id="people", name="people", class="form-item") 
+                    div(class="form-container-item")
+                        label(for="cat_price", class="form-container-item-name") Ценовая категория:
+                        input(type="text", id="cat_price", name="cat_price", class="form-item") 
+                    div(class="form-container-item")
+                        label(for="average_check", class="form-container-item-name") Средний чек:
+                        input(type="text", id="average_check", name="average_check", class="form-item") 
+                    div(class="form-container-item")
+                        label(for="terms", class="form-container-item-name") Возможные сроки открытия:
+                        input(type="text", id="terms", name="terms", class="form-item") 
+                    div(class="form-container-item")
+                        label(for="comments", class="form-container-item-name") Комментарии: 
+                        input(type="text", id="comments", name="comments", class="form-item") 
+                    div(class="form-container-item")
+                        label(for="file", class="form-container-item-name") Приложить файлы не более 5мб (презентация, 3D- визуализация проекта/оборудование, фото магазина/павильона(обязательно в цветном формате))
+                        input(type="file", id="file", name="file", class="form-item form-item--file") 
+                    span(class="form-information form-information--mini") Обращаем Ваше внимание, что ТРК &#171Горизонт&#187 для павильонов ограничение по высоте (не выше 1.4 м)
+                    div(class="form-container-item form-container-item--center")
+                        input(type="submit", class="btn btn--red form-item-submit rippler rippler-default", name="send", value="Отправить") 
+                        
+        div(id="resultForm", class="application-form white-popup mfp-hide")
+            span(class="form-title form-title--result") Спасибо за проявленный интерес
+            span(class="form-subtitle") Заявка отправлена

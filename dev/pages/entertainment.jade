@@ -1,192 +1,193 @@
 extends ../templates/base
 
 block content
-    div(class="page-inner page-inner--w1 page-inner--relative")
-        div(class="page-title") Сервис
-    div(class="page-inner--w2")
-        div(class="entertainment")
-            div(class="search")
-                form(action="/search.html", class="search-form")
-                    input(type="text", class="search-input", placeholder="Поиск магазина")
-                    button(type="submit", title="Найти", class="search-submit")
-            div(class="acordeon-container-items")
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Киномкс Дон
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title")
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
-                                             
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#251440")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") H2O
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title")
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+    div(class="page-content-inner")
+        div(class="page-inner page-inner--w1 page-inner--relative")
+            div(class="page-title") Сервис
+        div(class="page-inner--w2")
+            div(class="entertainment")
+                div(class="search")
+                    form(action="/search.html", class="search-form")
+                        input(type="text", class="search-input", placeholder="Поиск магазина")
+                        button(type="submit", title="Найти", class="search-submit")
+                div(class="acordeon-container-items")
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Киномкс Дон
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title")
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
+                                                 
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#251440")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") H2O
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title")
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Capichi
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Capichi
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#d43d74")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") DoubleB
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#d43d74")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") DoubleB
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Fornetto
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Fornetto
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Franklin's Burgers
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Franklin's Burgers
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Fruit Lab
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Fruit Lab
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") KFC
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") KFC
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Krispy Kreme
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Krispy Kreme
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Mr. Tutti Ice Cream
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Mr. Tutti Ice Cream
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Zest Coffee & Wine
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Zest Coffee & Wine
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Shake Shack
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Shake Shack
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Starbucks
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Starbucks
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Subway
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
-                                    
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Suchi Buffer
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
-                            
-                
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Torro Grill
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
-                            
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Tutti Frutti Frozen Yogurt
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
-                            
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") UpsideDownCake
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") 
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Subway
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
+                                        
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Suchi Buffer
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
+                                
+                    
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Torro Grill
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
+                                
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Tutti Frutti Frozen Yogurt
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
+                                
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") UpsideDownCake
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") 
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg

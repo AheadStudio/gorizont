@@ -63,6 +63,10 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 				media: "screen",
 				href: "../css/plugins/owl.theme.default.min.css",
 				noCache: true
+			}, {
+				media: "screen",
+				href: "../css/plugins/rippler.min.css",
+				noCache: true
 			},  {
 				media: "screen",
 				href: "../css/" + info.code + ".css",
@@ -87,7 +91,7 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 						include ../../prod/svg/icons/mobile.svg
 					div(class="mobile-header-burger")
 						div(class="mobile-header-burger-inner")
-				
+
 			header(class="page-header", itemscope, itemtype="http://schema.org/WPHeader")
 				div(class="header-row header-row--top")
 					div(class="page-inner page-inner--relative page-inner--clearfix")
@@ -102,45 +106,45 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 										{
 											name: "О компании",
 											href: "about.html",
-											linkClass: "link link--black",
+											linkClass: "link link--black animation-link",
 										}, {
 											name: "Контакты",
 											href: "contacts.html",
-											linkClass: "link link--black",
+											linkClass: "link link--black animation-link",
 										}, {
 											name: "Концепция",
 											href: "concept.html",
-											linkClass: "link link--black",
+											linkClass: "link link--black animation-link",
 										}, {
 											name: "Галерея",
 											href: "gallery.html",
-											linkClass: "link link--black",
+											linkClass: "link link--black animation-link",
 										}
 									]
 								}, {
 									name: "Магазины",
 									href: "shops.html",
-									linkClass: "link link--black link--red-bottom icon-shop",
+									linkClass: "link link--black link--red-bottom icon-shop animation-link",
 								}, {
 									name: "Развлечения",
 									href: "entertainment.html",
-									linkClass: "link link--black link--red-bottom",
+									linkClass: "link link--black link--red-bottom animation-link",
 								}, {
 									name: "Сервис",
 									href: "service.html",
-									linkClass: "link link--black link--red-bottom",
+									linkClass: "link link--black link--red-bottom animation-link",
 								}, {
 									name: "Схема комплекса",
 									href: "scheme.html",
-									linkClass: "link link--black link--red-bottom",
+									linkClass: "link link--black link--red-bottom animation-link",
 								}, {
 									name: "Акции",
 									href: "shares.html",
-									linkClass: "link link--gray link--blue-bottom",
+									linkClass: "link link--gray link--blue-bottom animation-link",
 								}, {
 									name: "Журнал",
 									href: "journal.html",
-									linkClass: "link link--gray link--blue-bottom",
+									linkClass: "link link--gray link--blue-bottom animation-link",
 								}
 							]
 						})
@@ -154,14 +158,14 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 										include ../../prod/svg/icons/point_map.svg
 									span(class="header-location-link-text") Как добраться
 
+						
+					div(class="header-row header-row--bottom")
+						div(class="page-inner")
+							div(class="header-logo")
+								a(href="home.html", class="header-logo-link")
+									img(src="../dummy/logo.png", class="header-logo-img")
 					
-				div(class="header-row header-row--bottom")
-					div(class="page-inner")
-						div(class="header-logo")
-							a(href="home.html", class="header-logo-link")
-								img(src="../dummy/logo.png", class="header-logo-img")
-				
-				
+					
 				
 				
 			main(class="page-content")
@@ -185,7 +189,7 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 							linkClass: "link link--white link--red-bottom icon-shop",
 						}, {
 							name: "Развлечения",
-							href: "education.html",
+							href: "entertainment.html",
 							linkClass: "link link--white link--red-bottom",
 						}, {
 							name: "Сервис",
@@ -206,6 +210,8 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 						}
 					]
 				})
+				
+		
 
 		footer(class="page-footer", itemscope, itemtype="http://schema.org/WPFooter")
 			div(class="page-inner page-inner--w1")
@@ -225,31 +231,33 @@ html(lang="ru", class="no-js", prefix="og:http://ogp.me/ns#")
 								
 		a(href="#top", title="Вверх", class="go-top")
 			include ../../prod/svg/icons/arrow_black_up.svg	
-		
 
-			div(class="mobile-panel-section")
-		+addJS([
-			{
-				src: "http://code.jquery.com/jquery-1.11.3.min.js"
-			}, {
-				src: "../js/plugins/jquery.magnific-popup.min.js"
-			}, {
-				src: "http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"
-			},  {
-				src: "../js/plugins/jquery.validate.min.js"
-			},	{
-				src: "../js/plugins/jcf.js"
-			},	{
-				src: "../js/plugins/jcf.file.js"
-			},	{
-				src: "../js/plugins/jquery.autocomplete.js"
-			},	{
-				src: "../js/plugins/owl.carousel.min.js"
-			},  {
-				src: "../js/plugins/sticky-kit.js"
-			},	{
-				src: "../js/plugins/ssm.min.js"
-			},	{
-				src: "../js/" + info.code + ".js"
-			}
-		])
+
+		div(class="mobile-panel-section")
+			+addJS([
+				{
+					src: "http://code.jquery.com/jquery-1.11.3.min.js"
+				}, {
+					src: "../js/plugins/jquery.magnific-popup.min.js"
+				}, {
+					src: "http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"
+				},  {
+					src: "../js/plugins/jquery.validate.min.js"
+				},	{
+					src: "../js/plugins/jcf.js"
+				},	{
+					src: "../js/plugins/jcf.file.js"
+				},	{
+					src: "../js/plugins/jquery.autocomplete.js"
+				},	{
+					src: "../js/plugins/owl.carousel.min.js"
+				},  {
+					src: "../js/plugins/sticky-kit.js"
+				},	{
+					src: "../js/plugins/ssm.min.js"
+				},	{
+					src: "../js/plugins/jquery.rippler.min.js"
+				},	{
+					src: "../js/" + info.code + ".js"
+				}
+			])

@@ -1,42 +1,43 @@
 extends ../templates/base
 
 block content
-    div(class="page-inner page-inner--w1")
-        div(class="page-title") О Горизонте
-        div(class="about")
-            div(class="search")
-                form(action="/search.html")
-                    input(type="text", class="search-item", placeholder="Поиск магазина")
-                    button(type="submit", title="Найти", class="search-submit")
-                    
-    div(class="background-prev")
-        img(src="../dummy/about_gorizont.jpg", class="background-prev-img")
-    div(class="page-inner page-inner--w1")
-        div(class="about")
-            div(class="page-text")
-                cite Торгово-развлекательный комплекс «Мегацентр Горизонт» постоянно развивается, открывая новые проекты, которые будут интересны и востребованы нашими покупателями. Бесспорно, зенитное часовое число меняет тропический год.
-            div(class="about-information")
-                div(class="about-information-items")
-                    div(class="about-information-item")
-                        div(class="about-information-item-holder")
-                            div(class="about-information-item-img")
-                                include ../../prod/svg/icons/point_map.svg
-                        div(class="about-information-item-container")
-                            div(class="about-information-item-title") Расположение
-                            div(class="about-information-item-text") ТРК «Мегацентр Горизонт» удачно расположен в традиционно сложившейся коммерческой (торговой) зоне, в географическом центре города и в пяти минутах езды от его исторического, делового, культурного центра.
-                    
-                    div(class="about-information-item")
-                        div(class="about-information-item-holder")
-                            div(class="about-information-item-img")
-                                include ../../prod/svg/icons/door.svg
-                        div(class="about-information-item-container")
-                            div(class="about-information-item-title") Трафик
-                            div(class="about-information-item-text") Проспект М. Нагибина, на котором расположен ТРК «Мегацентр Горизонт» является одной из основных автомагистралей г.Ростова-на-Дону, ведущая из центра города в крупные жилые микрорайоны, в которых проживает более трети населения города. Прямая трасса из Краснодара в Ростов также ведет к проспекту Нагибина.
+    div(class="page-content-inner")
+        div(class="page-inner page-inner--w1")
+            div(class="page-title") О Горизонте
+            div(class="about")
+                div(class="search")
+                    form(action="/search.html")
+                        input(type="text", class="search-item", placeholder="Поиск магазина")
+                        button(type="submit", title="Найти", class="search-submit")
+                        
+        div(class="background-prev")
+            img(src="../dummy/about_gorizont.jpg", class="background-prev-img")
+        div(class="page-inner page-inner--w1")
+            div(class="about")
+                div(class="page-text")
+                    cite Торгово-развлекательный комплекс «Мегацентр Горизонт» постоянно развивается, открывая новые проекты, которые будут интересны и востребованы нашими покупателями. Бесспорно, зенитное часовое число меняет тропический год.
+                div(class="about-information")
+                    div(class="about-information-items")
+                        div(class="about-information-item")
+                            div(class="about-information-item-holder")
+                                div(class="about-information-item-img")
+                                    include ../../prod/svg/icons/point_map.svg
+                            div(class="about-information-item-container")
+                                div(class="about-information-item-title") Расположение
+                                div(class="about-information-item-text") ТРК «Мегацентр Горизонт» удачно расположен в традиционно сложившейся коммерческой (торговой) зоне, в географическом центре города и в пяти минутах езды от его исторического, делового, культурного центра.
+                        
+                        div(class="about-information-item")
+                            div(class="about-information-item-holder")
+                                div(class="about-information-item-img")
+                                    include ../../prod/svg/icons/door.svg
+                            div(class="about-information-item-container")
+                                div(class="about-information-item-title") Трафик
+                                div(class="about-information-item-text") Проспект М. Нагибина, на котором расположен ТРК «Мегацентр Горизонт» является одной из основных автомагистралей г.Ростова-на-Дону, ведущая из центра города в крупные жилые микрорайоны, в которых проживает более трети населения города. Прямая трасса из Краснодара в Ростов также ведет к проспекту Нагибина.
 
-                    div(class="about-information-item")
-                        div(class="about-information-item-holder")
-                            div(class="about-information-item-img")
-                                include ../../prod/svg/icons/disk.svg
-                        div(class="about-information-item-container")
-                            div(class="about-information-item-title") Торговые показатели
-                            div(class="about-information-item-text") 98 548 кв.м — арендуемая площадь. 2 400 — количество мест для парковки автомобилей (из них 600 — подземная парковка). Имеется автомойка.
+                        div(class="about-information-item")
+                            div(class="about-information-item-holder")
+                                div(class="about-information-item-img")
+                                    include ../../prod/svg/icons/disk.svg
+                            div(class="about-information-item-container")
+                                div(class="about-information-item-title") Торговые показатели
+                                div(class="about-information-item-text") 98 548 кв.м — арендуемая площадь. 2 400 — количество мест для парковки автомобилей (из них 600 — подземная парковка). Имеется автомойка.

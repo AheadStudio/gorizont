@@ -1,37 +1,38 @@
 extends ../templates/base
 
 block content
-    div(class="page-inner page-inner--w1")
-        div(class="page-title") Журнал
-        div(class="journal")
-            div(class="search")
-                form(action="/search.html", class="search-form")
-                    input(type="text", class="search-input", placeholder="Поиск магазина")
-                    button(type="submit", title="Найти", class="search-submit")
-            div(class="journal-information") Для удобства на сайте размещен полный архив номеров нашего журнала, свежие экземпляры которого есть в ТРЦ &#171Горизонт&#187
-            div(class="journal-container", id="journal-container-item")
-                div(class="journal-row")
-                    div(class="journal-row-year") 2017
-                    div(class="journal-items")
-                        a(href="#", class="journal-item")
-                            img(src="../dummy/Life_style_1.jpg")
-                        a(href="#", class="journal-item")
-                            img(src="../dummy/Life_style_2.jpg")                        
-                        a(href="#", class="journal-item")
-                            img(src="../dummy/Life_style_3.jpg")  
-                        a(href="#", class="journal-item")
-                            img(src="../dummy/Life_style_4.jpg")  
-                div(class="journal-row")
-                    div(class="journal-row-year") 2016
-                    div(class="journal-items")
-                        a(href="#", class="journal-item")
-                            img(src="../dummy/Life_style_5.jpg")  
-                        a(href="#", class="journal-item")
-                            img(src="../dummy/Life_style_2.jpg")  
-                        a(href="#", class="journal-item")
-                            img(src="../dummy/Life_style_3.jpg")  
-                        a(href="#", class="journal-item")
-                            img(src="../dummy/Life_style_1.jpg")  
-            div(class="load-more")
-                a(href="journal-item-load.html", data-container="#journal-container-item", class="link load-more-btn") еще 8
-            
+    div(class="page-content-inner")
+        div(class="page-inner page-inner--w1")
+            div(class="page-title") Журнал
+            div(class="journal")
+                div(class="search")
+                    form(action="/search.html", class="search-form")
+                        input(type="text", class="search-input", placeholder="Поиск магазина")
+                        button(type="submit", title="Найти", class="search-submit")
+                div(class="journal-information") Для удобства на сайте размещен полный архив номеров нашего журнала, свежие экземпляры которого есть в ТРЦ &#171Горизонт&#187
+                div(class="journal-container", id="journal-container-item")
+                    div(class="journal-row")
+                        div(class="journal-row-year") 2017
+                        div(class="journal-items")
+                            a(href="#", class="journal-item")
+                                img(src="../dummy/Life_style_1.jpg")
+                            a(href="#", class="journal-item")
+                                img(src="../dummy/Life_style_2.jpg")                        
+                            a(href="#", class="journal-item")
+                                img(src="../dummy/Life_style_3.jpg")  
+                            a(href="#", class="journal-item")
+                                img(src="../dummy/Life_style_4.jpg")  
+                    div(class="journal-row")
+                        div(class="journal-row-year") 2016
+                        div(class="journal-items")
+                            a(href="#", class="journal-item")
+                                img(src="../dummy/Life_style_5.jpg")  
+                            a(href="#", class="journal-item")
+                                img(src="../dummy/Life_style_2.jpg")  
+                            a(href="#", class="journal-item")
+                                img(src="../dummy/Life_style_3.jpg")  
+                            a(href="#", class="journal-item")
+                                img(src="../dummy/Life_style_1.jpg")  
+                div(class="load-more")
+                    a(href="journal-item-load.html", data-container="#journal-container-item", class="link load-more-btn") еще 8
+                

@@ -1,144 +1,145 @@
 extends ../templates/base
 
 block content
-    div(class="page-inner page-inner--w1 page-inner--relative")
-        div(class="page-title") Сервис
-    div(class="page-inner--w2")
-        div(class="service")
-            div(class="search")
-                form(action="/search.html", class="search-form")
-                    input(type="text", class="search-input", placeholder="Поиск магазина")
-                    button(type="submit", title="Найти", class="search-submit")
-            div(class="acordeon-container-items")
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Organic Cleaners
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") свернуть
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
-                                             
-                div(class="acordeon-container-item", data-color="#251440")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Автомойка
-                            span(class="acordeon-container-item-header-count") 2
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") свернуть
-                                span(class="acordeon-container-item-header-toggler-icon")
-                        div(class="acordeon-container-item-content")
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Московский Кредитный Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Промсвязьбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ЮниКредит Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") БинБанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Райфайзербанк
+    div(class="page-content-inner")
+        div(class="page-inner page-inner--w1 page-inner--relative")
+            div(class="page-title") Сервис
+        div(class="page-inner--w2")
+            div(class="service")
+                div(class="search")
+                    form(action="/search.html", class="search-form")
+                        input(type="text", class="search-input", placeholder="Поиск магазина")
+                        button(type="submit", title="Найти", class="search-submit")
+                div(class="acordeon-container-items")
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#993399")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Organic Cleaners
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") свернуть
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
+                                                 
+                    div(class="acordeon-container-item", data-color="#251440")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Автомойка
+                                span(class="acordeon-container-item-header-count") 2
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") свернуть
+                                    span(class="acordeon-container-item-header-toggler-icon")
+                            div(class="acordeon-container-item-content")
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Московский Кредитный Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Промсвязьбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ЮниКредит Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") БинБанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Райфайзербанк
 
-                div(class="acordeon-container-item", data-color="#251440")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Банкоматы
-                            span(class="acordeon-container-item-header-count") 8
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") свернуть
-                                span(class="acordeon-container-item-header-toggler-icon")
-                        div(class="acordeon-container-item-content")
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Московский Кредитный Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Промсвязьбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ЮниКредит Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") БинБанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Райфайзербанк
+                    div(class="acordeon-container-item", data-color="#251440")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Банкоматы
+                                span(class="acordeon-container-item-header-count") 8
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") свернуть
+                                    span(class="acordeon-container-item-header-toggler-icon")
+                            div(class="acordeon-container-item-content")
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Московский Кредитный Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Промсвязьбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ЮниКредит Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") БинБанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Райфайзербанк
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#d43d74")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Ваш Размер
-                            span(class="acordeon-container-item-header-count") 26
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") свернуть
-                                span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
-                                    include ../../prod/svg/icons/arrow_white_up.svg
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#d43d74")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Ваш Размер
+                                span(class="acordeon-container-item-header-count") 26
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") свернуть
+                                    span(class="acordeon-container-item-header-toggler-icon acordeon-container-item-header-toggler-icon--arrow")
+                                        include ../../prod/svg/icons/arrow_white_up.svg
 
-                div(class="acordeon-container-item", data-color="#251440")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Гардероб
-                            span(class="acordeon-container-item-header-count") 4
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") свернуть
-                                span(class="acordeon-container-item-header-toggler-icon")
-                        div(class="acordeon-container-item-content")
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк
+                    div(class="acordeon-container-item", data-color="#251440")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Гардероб
+                                span(class="acordeon-container-item-header-count") 4
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") свернуть
+                                    span(class="acordeon-container-item-header-toggler-icon")
+                            div(class="acordeon-container-item-content")
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк
 
-                a(href="shops_detail.html", class="acordeon-container-item", data-color="#854935")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Детские коляски
-                            span(class="acordeon-container-item-header-count") 3
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") свернуть
-                                span(class="acordeon-container-item-header-toggler-icon")
+                    a(href="shops_detail.html", class="acordeon-container-item", data-color="#854935")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Детские коляски
+                                span(class="acordeon-container-item-header-count") 3
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") свернуть
+                                    span(class="acordeon-container-item-header-toggler-icon")
 
-                div(class="acordeon-container-item", data-color="#251440")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Информация
-                            span(class="acordeon-container-item-header-count") 7
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") свернуть
-                                span(class="acordeon-container-item-header-toggler-icon")
-                        div(class="acordeon-container-item-content")
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк
+                    div(class="acordeon-container-item", data-color="#251440")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Информация
+                                span(class="acordeon-container-item-header-count") 7
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") свернуть
+                                    span(class="acordeon-container-item-header-toggler-icon")
+                            div(class="acordeon-container-item-content")
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк
 
-                a(href="shops_detail.html",class="acordeon-container-item", data-color="#251240")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Комната матери и ребенка 
-                            span(class="acordeon-container-item-header-count") 
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") свернуть
-                                span(class="acordeon-container-item-header-toggler-icon")
+                    a(href="shops_detail.html",class="acordeon-container-item", data-color="#251240")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Комната матери и ребенка 
+                                span(class="acordeon-container-item-header-count") 
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") свернуть
+                                    span(class="acordeon-container-item-header-toggler-icon")
 
-                div(class="acordeon-container-item", data-color="#234540")
-                    div(class="page-inner page-inner--w1 page-inner--relative")
-                        div(class="acordeon-container-item-header")
-                            span(class="acordeon-container-item-header-name") Мульти-Мастер
-                            span(class="acordeon-container-item-header-count") 2
-                            div(class="acordeon-container-item-header-toggler")
-                                span(class="acordeon-container-item-header-toggler-title") свернуть
-                                span(class="acordeon-container-item-header-toggler-icon")
-                        div(class="acordeon-container-item-content")
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
-                            a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк
+                    div(class="acordeon-container-item", data-color="#234540")
+                        div(class="page-inner page-inner--w1 page-inner--relative")
+                            div(class="acordeon-container-item-header")
+                                span(class="acordeon-container-item-header-name") Мульти-Мастер
+                                span(class="acordeon-container-item-header-count") 2
+                                div(class="acordeon-container-item-header-toggler")
+                                    span(class="acordeon-container-item-header-toggler-title") свернуть
+                                    span(class="acordeon-container-item-header-toggler-icon")
+                            div(class="acordeon-container-item-content")
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Сбербанк России
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ Банк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Газпромбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") ВТБ 24
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Россельхозбанк
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Банк "ФК Открытие"
+                                a(href="#", class="link link--white acordeon-container-item-content-link") Альфа-Банк

@@ -1,54 +1,55 @@
 extends ../templates/base
 
 block content
-    div(class="page-inner page-inner--w1 page-inner--relative")
-        div(class="article")
-            div(class="page-title page-title--big") А вот и скидки вырисовываются
-            div(class="article-info") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
-            div(class="article-shop") New yorker
-            div(class="social-container")
-                span(class="social-container-text") поделиться &#8212
-                a(href="https://www.instagram.com/?hl=ru", target="_blank", title="Instagram", class="social-item social-item--instagram")
-                    include ../../prod/svg/icons/instagram.svg
-                a(href="https://ru-ru.facebook.com", target="_blank", title="Facebook", class="social-item social-item--facebook")
-                    include ../../prod/svg/icons/facebook.svg
-                a(href="https://ok.ru", target="_blank", title="Одноклассники", class="social-item social-item--ok")
-                    include ../../prod/svg/icons/ok.svg
-            img(src="../dummy/two_girls_big.jpg", class="article-img")
-            div(class="page-text")
-                p Популяционный индекс, после осторожного анализа, выслеживает тропический год. Аномальная джетовая активность прекрасно представляет собой популяционный индекс. Скоpость кометы в пеpигелии, несмотря на внешние воздействия, точно вызывает восход . Экскадрилья, несмотря на внешние воздействия, доступна. Прямое восхождение, несмотря на внешние воздействия, иллюстрирует лимб.
-                p Нулевой меридиан иллюстрирует непреложный Млечный Путь. Южный Треугольник, в первом приближении, слабопроницаем. Скоpость кометы в пеpигелии, как бы это ни казалось парадоксальным, выслеживает популяционный индекс. Годовой параллакс меняет большой круг небесной сферы. Очевидно, что астероид последовательно вращает аргумент перигелия. Элонгация на следующий год, когда было лунное затмение и сгорел древний храм Афины в Афинах (при эфоре Питии и афинском архонте Каллии), традиционно меняет метеорный дождь.
-                
-        div(class="similar-shares")
-            div(class="similar-shares-title") Вас также может заитерисовать
-            div(class="similar-shares-items")
-                a(href="article.html", class="similar-shares-item link link--darkgray")
-                    div(class="similar-shares-item-heading")
-                        img(src="../dummy/flor.jpg", class="similar-shares-item-photo")
-                    div(class="similar-shares-item-content")
-                        div(class="similar-shares-item-content-title") 1 и 9
-                        div(class="similar-shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
-                        div(class="similar-shares-item-content-shop") Mustang
-                a(href="article.html", class="similar-shares-item link link--darkgray")
-                    div(class="similar-shares-item-heading")
-                        img(src="../dummy/strawberries.jpg", class="similar-shares-item-photo")
-                    div(class="similar-shares-item-content")
-                        div(class="similar-shares-item-content-title") Лето до 1 августа
-                        div(class="similar-shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
-                        div(class="similar-shares-item-content-shop") ТРК &#171Горизонт&#187
-                a(href="article.html", class="similar-shares-item link link--darkgray")
-                    div(class="similar-shares-item-heading")
-                        img(src="../dummy/strawberries.jpg", class="similar-shares-item-photo")
-                    div(class="similar-shares-item-content")
-                        div(class="similar-shares-item-content-title") 1 и 9
-                        div(class="similar-shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
-                        div(class="similar-shares-item-content-shop") levis
-        
-        div(class="navigation")
-            div(class="navigation-items")
-                a(href="#", class="navigation-item navigation-item--close")
-                    include ../../prod/svg/icons/close.svg
-                a(href="#", class="navigation-item navigation-item--next")
-                    include ../../prod/svg/icons/arrow_black_up.svg
-                a(href="#", class="navigation-item navigation-item--prev")
-                    include ../../prod/svg/icons/arrow_black_up.svg
+    div(class="page-content-inner page-content-inner--article")
+        div(class="page-inner page-inner--w1 page-inner--relative")
+            div(class="article")
+                div(class="page-title page-title--big") А вот и скидки вырисовываются
+                div(class="article-info") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
+                div(class="article-shop") New yorker
+                div(class="social-container")
+                    span(class="social-container-text") поделиться &#8212
+                    a(href="https://www.instagram.com/?hl=ru", target="_blank", title="Instagram", class="social-item social-item--instagram")
+                        include ../../prod/svg/icons/instagram.svg
+                    a(href="https://ru-ru.facebook.com", target="_blank", title="Facebook", class="social-item social-item--facebook")
+                        include ../../prod/svg/icons/facebook.svg
+                    a(href="https://ok.ru", target="_blank", title="Одноклассники", class="social-item social-item--ok")
+                        include ../../prod/svg/icons/ok.svg
+                img(src="../dummy/two_girls_big.jpg", class="article-img")
+                div(class="page-text")
+                    p Популяционный индекс, после осторожного анализа, выслеживает тропический год. Аномальная джетовая активность прекрасно представляет собой популяционный индекс. Скоpость кометы в пеpигелии, несмотря на внешние воздействия, точно вызывает восход . Экскадрилья, несмотря на внешние воздействия, доступна. Прямое восхождение, несмотря на внешние воздействия, иллюстрирует лимб.
+                    p Нулевой меридиан иллюстрирует непреложный Млечный Путь. Южный Треугольник, в первом приближении, слабопроницаем. Скоpость кометы в пеpигелии, как бы это ни казалось парадоксальным, выслеживает популяционный индекс. Годовой параллакс меняет большой круг небесной сферы. Очевидно, что астероид последовательно вращает аргумент перигелия. Элонгация на следующий год, когда было лунное затмение и сгорел древний храм Афины в Афинах (при эфоре Питии и афинском архонте Каллии), традиционно меняет метеорный дождь.
+                    
+            div(class="similar-shares")
+                div(class="similar-shares-title") Вас также может заитерисовать
+                div(class="similar-shares-items")
+                    a(href="article.html", class="similar-shares-item link link--darkgray animation-link")
+                        div(class="similar-shares-item-heading")
+                            img(src="../dummy/flor.jpg", class="similar-shares-item-photo")
+                        div(class="similar-shares-item-content")
+                            div(class="similar-shares-item-content-title") 1 и 9
+                            div(class="similar-shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
+                            div(class="similar-shares-item-content-shop") Mustang
+                    a(href="article.html", class="similar-shares-item link link--darkgray animation-link")
+                        div(class="similar-shares-item-heading")
+                            img(src="../dummy/strawberries.jpg", class="similar-shares-item-photo")
+                        div(class="similar-shares-item-content")
+                            div(class="similar-shares-item-content-title") Лето до 1 августа
+                            div(class="similar-shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
+                            div(class="similar-shares-item-content-shop") ТРК &#171Горизонт&#187
+                    a(href="article.html", class="similar-shares-item link link--darkgray animation-link")
+                        div(class="similar-shares-item-heading")
+                            img(src="../dummy/strawberries.jpg", class="similar-shares-item-photo")
+                        div(class="similar-shares-item-content")
+                            div(class="similar-shares-item-content-title") 1 и 9
+                            div(class="similar-shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
+                            div(class="similar-shares-item-content-shop") levis
+            
+            div(class="navigation")
+                div(class="navigation-items")
+                    a(href="shares.html", class="navigation-item navigation-item--close animation-link")
+                        include ../../prod/svg/icons/close.svg
+                    a(href="article.html", class="navigation-item navigation-item--next animation-link")
+                        include ../../prod/svg/icons/arrow_black_up.svg
+                    a(href="article.html", class="navigation-item navigation-item--prev animation-link")
+                        include ../../prod/svg/icons/arrow_black_up.svg
