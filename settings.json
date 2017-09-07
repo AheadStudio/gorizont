@@ -107,8 +107,8 @@
 			"name": "Концепция",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"scheme": {
@@ -123,32 +123,32 @@
 			"name": "О горизонте",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"journal": {
 			"name": "Журнал",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"search_result": {
 			"name": "Результаты поиска",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		},
 		"page404": {
 			"name": "404",
 			"progress": {
 				"desktop": "100",
-				"tablet": "0",
-				"mobile": "0"
+				"tablet": "100",
+				"mobile": "100"
 			}
 		}
 	}

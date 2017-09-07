@@ -9,6 +9,49 @@
 
 		return {
 
+			scrollAnimation: {
+
+				blocks: [],
+				init: function() {
+					var self = this;
+					$("[data-animationtype]:not(.animated), [data-animation]:not(.animated)").each(function() {
+						var $item = $(this);
+						self.blocks.push({
+							"html": $item,
+							"top": $item.offset().top
+						});
+						$item.addClass("beforeanimate");
+					});
+
+					$sel.window.on("scroll", function() {
+						self.check();
+					});
+					setTimeout(function() {
+						self.check();
+					}, 50);
+
+				},
+				check: function() {
+					var self = this,
+						block = false,
+						blockTop = false,
+						top = $sel.window.scrollTop(),
+						buffer = parseInt($sel.window.height()) / 1.5;
+					for(var i = 0, len = self.blocks.length; i < len; i++) {
+						block = self.blocks[i],
+						blockTop = parseInt(block.top, 10);
+						if(block.html.hasClass("animated")) {
+							continue;
+						}
+						if(top + buffer >= blockTop) {
+							block.html.addClass("animated");
+						}
+
+					}
+				}
+
+			},
+
 			common: {
 				go: function(topPos, speed, callback) {
 					var curTopPos = $sel.window.scrollTop(),
@@ -97,7 +140,7 @@
 										$container.append($data);
 									setTimeout(function() {
 										$container.find(".load-events-item").removeClass("load-events-item");
-									}, 50);
+									}, 100);
 								}
 							})
 						})(href, $container);
@@ -388,7 +431,13 @@
 							}, {
 								value: "Adidas",
 								data: {
-									category: "Магазин",
+									category: "Сортивная одежда",
+									img: "/dummy/actions/2.jpg"
+								}
+							}, {
+								value: "Adidas",
+								data: {
+									category: "Магазин на карте - 1 этаж",
 									img: "/dummy/actions/2.jpg"
 								}
 							}, {
@@ -400,14 +449,16 @@
 							}, {
 								value: "Nike",
 								data: {
-									category: "Магазин",
+									category: "Магазин на карте - 1 этаж",
 									img: "/dummy/actions/2.jpg"
 								}
 							}
 						],
 						formatResult: function(suggestion, currentValue) {
 							var strItem = " ";
-							strItem += '<a href="#" class="search-item">' + '<div class="search-item-name">' + suggestion.value.replace(currentValue, "<b>" + currentValue + "</b>") + " / " + suggestion.data.category +'</div>' + '</a>';
+
+							itemName = suggestion.value.toUpperCase().replace(currentValue.toUpperCase(), "<b>" + currentValue.toUpperCase() + "</b>");
+							strItem += '<a href="#" class="search-item">' + '<div class="search-item-name">' + itemName + " / " + suggestion.data.category +'</div>' + '</a>';
 							return strItem;
 						},
 
@@ -552,7 +603,7 @@
 					$sel.menuBurger.on("click", function() {
 						self.isShow ? self.hide() : self.show();
 					});
-					
+
 					$(".menu-overlay", $sel.body).on("click", function() {
 						self.hide();
 					});
@@ -597,6 +648,7 @@
 
 	})();
 
+	GORIZONT.scrollAnimation.init();
 	GORIZONT.accordion.init();
 	ymaps.ready(function() {
 		GORIZONT.yandexMap.init();
