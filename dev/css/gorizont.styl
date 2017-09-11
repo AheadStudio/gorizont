@@ -1876,6 +1876,8 @@ body
 
 		transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
+		overflow hidden
+
 		&.load-events-item
 			opacity 0
 			transform translateY(-90px)
@@ -1928,6 +1930,24 @@ body
 
 			object-fit cover
 
+		.gallery-container-item-background
+			content ""
+
+			position absolute
+			top 0
+
+			width 100%
+			height 100%
+
+			transform scale(0.5)
+
+			opacity 0
+
+			background rgba(0, 0, 0, 0.5)
+
+			transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+
 		.gallery-container-item-title
 			position absolute
 			top 20px
@@ -1953,6 +1973,10 @@ body
 				background $color-blue
 
 		&:not(.gallery-container-item--video):hover
+			.gallery-container-item-background
+				opacity 1
+				transform scale(1)
+
 			&:after
 				opacity 1
 				transform translateY(0%)
