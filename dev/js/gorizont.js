@@ -492,6 +492,7 @@
 						autoplay: true,
 						autoplayTimeout: 5000,
 						dots: true,
+						smartSpeed: 700,
 						dotClass: "dots-item",
 					    responsive:{
 					        0: {
@@ -769,7 +770,6 @@
 		GORIZONT.form.init();
 
 		GORIZONT.gallery();
-		GORIZONT.initAjaxLoader();
 
 		GORIZONT.menu();
 		GORIZONT.dropdown.init();

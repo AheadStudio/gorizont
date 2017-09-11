@@ -2,83 +2,82 @@ extends ../templates/base
 
 block content
     div(class="page-content-inner")
-        div(class="page-inner--w2")
-            div(class="shops-detail")
-                div(class="shops-detail-col shops-detail-col--left")
-                    div(class="owl-carousel owl-theme shops-detail-photo-holder")
-                        img(src="../dummy/love_republic_prev.jpg", class="shops-detail-photo-holder-img")
-                        img(src="../dummy/love_republic_prev.jpg", class="shops-detail-photo-holder-img")
-                    div(class="shops-detail-description")
-                        div(class="shops-detail-articles")
-                            div(class="shops-detail-articles-description page-text")
-                                p LOVE REPUBLIC – качественная и модная одежда для девушек, которые хотят быть в центре внимания!
-                                p Девушка LOVE REPUBLIC - уверенная в себе, загадочная и невероятно женственная. Яркая, полная жизни и естественной энергии, активная, открытая и увлекающаяся. Имеет собственный выраженный, подчеркнуто женственный стиль,
-                                    span(id="toggle-text", class=" shops-detail-articles-description--hide page-text") который выделяет ее среди остальных. Именно поэтому она выбирает именно этот магазин, а никакой другой!
-                                a(href="#", data-text="#toggle-text", class="link link--darkgray shops-detail-more-link text-toggler rippler rippler-inverse") Подробнее
-                        div(class="shops-detail-shares")
-                            span(class="shops-detail-shares-title") Акции от Love Republic
-                            a(href="#", class="shops-detail-shares-item")
-                                div(class="shops-detail-shares-item-holder")
-                                    img(src="../dummy/stylist.jpg", class="shops-detail-shares-item-holder-img")
-                                div(class="shops-detail-shares-item-discount")
-                                    span(class="link link--darkgray shops-detail-shares-item-discount-type") Стилист в подарок
-                                    span(class="link link--darkgray shops-detail-shares-item-discount-date") 20 апреля 2016
-                                    div(class="shops-detail-shares-item-discount-arrow")
-                                        include ../../prod/svg/icons/arrow_yellow_right.svg
-                            a(href="#", class="shops-detail-shares-item")
-                                div(class="shops-detail-shares-item-holder")
-                                    img(src="../dummy/gagarin.png", class="shops-detail-shares-item-holder-img")
-                                div(class="shops-detail-shares-item-discount")
-                                    span(class="link link--darkgray shops-detail-shares-item-discount-type") -50% на  &#171скафандры&#187
-                                    span(class="link link--darkgray shops-detail-shares-item-discount-date") 14 апреля 2016
-                                    div(class="shops-detail-shares-item-discount-arrow")
-                                        include ../../prod/svg/icons/arrow_yellow_right.svg
+        div(class="shops-detail")
+            div(class="shops-detail-col shops-detail-col--left")
+                div(class="owl-carousel owl-theme shops-detail-photo-holder")
+                    img(src="../dummy/love_republic_prev.jpg", class="shops-detail-photo-holder-img")
+                    img(src="../dummy/love_republic_prev.jpg", class="shops-detail-photo-holder-img")
+                div(class="shops-detail-description")
+                    div(class="shops-detail-articles")
+                        div(class="shops-detail-articles-description page-text")
+                            p LOVE REPUBLIC – качественная и модная одежда для девушек, которые хотят быть в центре внимания!
+                            p Девушка LOVE REPUBLIC - уверенная в себе, загадочная и невероятно женственная. Яркая, полная жизни и естественной энергии, активная, открытая и увлекающаяся. Имеет собственный выраженный, подчеркнуто женственный стиль,
+                                span(id="toggle-text", class=" shops-detail-articles-description--hide page-text") который выделяет ее среди остальных. Именно поэтому она выбирает именно этот магазин, а никакой другой!
+                            a(href="#", data-text="#toggle-text", class="link link--darkgray shops-detail-more-link text-toggler rippler rippler-inverse") Подробнее
+                    div(class="shops-detail-shares")
+                        span(class="shops-detail-shares-title") Акции от Love Republic
+                        a(href="#", class="shops-detail-shares-item")
+                            div(class="shops-detail-shares-item-holder")
+                                img(src="../dummy/stylist.jpg", class="shops-detail-shares-item-holder-img")
+                            div(class="shops-detail-shares-item-discount")
+                                span(class="link link--darkgray shops-detail-shares-item-discount-type") Стилист в подарок
+                                span(class="link link--darkgray shops-detail-shares-item-discount-date") 20 апреля 2016
+                                div(class="shops-detail-shares-item-discount-arrow")
+                                    include ../../prod/svg/icons/arrow_yellow_right.svg
+                        a(href="#", class="shops-detail-shares-item")
+                            div(class="shops-detail-shares-item-holder")
+                                img(src="../dummy/gagarin.png", class="shops-detail-shares-item-holder-img")
+                            div(class="shops-detail-shares-item-discount")
+                                span(class="link link--darkgray shops-detail-shares-item-discount-type") -50% на  &#171скафандры&#187
+                                span(class="link link--darkgray shops-detail-shares-item-discount-date") 14 апреля 2016
+                                div(class="shops-detail-shares-item-discount-arrow")
+                                    include ../../prod/svg/icons/arrow_yellow_right.svg
 
-                        div(class="shops-detail-similar")
-                            div(class="shops-detail-similar-title") Похожие магазины
-                            div(class="shops-detail-similar-items")
-                                a(href="http://www.adidas.ru/", class="shops-detail-similar-item-holder")
-                                    img(src="../dummy/adidas_prev.png", class="shops-detail-similar-item-holder-img")
-                                a(href="http://www.levi.com/RU/ru_RU/", class="shops-detail-similar-item-holder")
-                                    img(src="../dummy/levis_prev.png", class="shops-detail-similar-item-holder-img")
-                                a(href="https://shop.lacoste.ru/", class="shops-detail-similar-item-holder")
-                                    img(src="../dummy/lacoste_prev.png", class="shops-detail-similar-item-holder-img")
-                                a(href="https://www.nike.com/ru/ru_ru/", class="shops-detail-similar-item-holder")
-                                    img(src="../dummy/nike_prev.png", class="shops-detail-similar-item-holder-img")
-                                a(href="http://www2.hm.com/ru_ru/index.html", class="shops-detail-similar-item-holder")
-                                    img(src="../dummy/H_M_prev.png", class="shops-detail-similar-item-holder-img")
-                                a(href="http://ostin.com/", class="shops-detail-similar-item-holder")
-                                    img(src="../dummy/ostin_prev.png", class="shops-detail-similar-item-holder-img")
-                                a(href="http://www.oodji.com/", class="shops-detail-similar-item-holder")
-                                    img(src="../dummy/oggi_prev.png", class="shops-detail-similar-item-holder-img")
-                                a(href="https://marksandspencer.ru/", class="shops-detail-similar-item-holder")
-                                    img(src="../dummy/marks_spencer_prev.png", class="shops-detail-similar-item-holder-img")
-                                
-                div(class="shops-detail-col shops-detail-col--right")
-                    div(class="shops-detail-information")
-                        div(class="shops-detail-information-holder")
-                            img(src="../dummy/love_republic_logo.png", class="shops-detail-information-holder-img")
-                        div(class="shops-detail-information-tags-items")
-                            a(href="#", class="link link--darkgray link--gray-inverse shops-detail-information-tags-item") Одежда,
-                            a(href="#", class="link link--darkgray link--gray-inverse shops-detail-information-tags-item") обувь,
-                            a(href="#", class="link link--darkgray  link--gray-inverse shops-detail-information-tags-item") аксессуары
-                        div(class="shops-detail-information-contacts")
-                            a(href="tel:+74994270543", class="link link--black shops-detail-information-contacts-phone") т. +7(499) 427 0543
-                            span(class="shops-detail-information-contacts-time") 10:00 &#8212 23:00
-                        a(href="https://loverepublic.ru/", class="link link--blue-inverse shops-detail-information-email") www.loverepublic
-                        a(href="scheme.html", class="link link--darkgray shops-detail-scheme-link animation-link rippler rippler-default")
-                            | 1 этаж
-                            br
-                            | посмотреть на схеме
-                        div(class="social-container")
-                            span(class="social-container-text") поделиться &#8212
-                            a(href="https://www.instagram.com/?hl=ru", target="_blank", title="Instagram", class="social-item social-item--instagram")
-                                include ../../prod/svg/icons/instagram.svg
-                            a(href="https://ru-ru.facebook.com", target="_blank", title="Facebook", class="social-item social-item--facebook")
-                                include ../../prod/svg/icons/facebook.svg
-                            a(href="https://ok.ru", target="_blank", title="Одноклассники", class="social-item social-item--ok")
-                                include ../../prod/svg/icons/ok.svg
-                        div(class="navigation")
-                            div(class="navigation-items")
-                                a(href="shops.html", class="navigation-item navigation-item--close animation-link")
-                                    include ../../prod/svg/icons/close.svg
+                    div(class="shops-detail-similar")
+                        div(class="shops-detail-similar-title") Похожие магазины
+                        div(class="shops-detail-similar-items")
+                            a(href="http://www.adidas.ru/", class="shops-detail-similar-item-holder")
+                                img(src="../dummy/adidas_prev.png", class="shops-detail-similar-item-holder-img")
+                            a(href="http://www.levi.com/RU/ru_RU/", class="shops-detail-similar-item-holder")
+                                img(src="../dummy/levis_prev.png", class="shops-detail-similar-item-holder-img")
+                            a(href="https://shop.lacoste.ru/", class="shops-detail-similar-item-holder")
+                                img(src="../dummy/lacoste_prev.png", class="shops-detail-similar-item-holder-img")
+                            a(href="https://www.nike.com/ru/ru_ru/", class="shops-detail-similar-item-holder")
+                                img(src="../dummy/nike_prev.png", class="shops-detail-similar-item-holder-img")
+                            a(href="http://www2.hm.com/ru_ru/index.html", class="shops-detail-similar-item-holder")
+                                img(src="../dummy/H_M_prev.png", class="shops-detail-similar-item-holder-img")
+                            a(href="http://ostin.com/", class="shops-detail-similar-item-holder")
+                                img(src="../dummy/ostin_prev.png", class="shops-detail-similar-item-holder-img")
+                            a(href="http://www.oodji.com/", class="shops-detail-similar-item-holder")
+                                img(src="../dummy/oggi_prev.png", class="shops-detail-similar-item-holder-img")
+                            a(href="https://marksandspencer.ru/", class="shops-detail-similar-item-holder")
+                                img(src="../dummy/marks_spencer_prev.png", class="shops-detail-similar-item-holder-img")
+                            
+            div(class="shops-detail-col shops-detail-col--right")
+                div(class="shops-detail-information")
+                    div(class="shops-detail-information-holder")
+                        img(src="../dummy/love_republic_logo.png", class="shops-detail-information-holder-img")
+                    div(class="shops-detail-information-tags-items")
+                        a(href="#", class="link link--darkgray link--gray-inverse shops-detail-information-tags-item") Одежда,
+                        a(href="#", class="link link--darkgray link--gray-inverse shops-detail-information-tags-item") обувь,
+                        a(href="#", class="link link--darkgray  link--gray-inverse shops-detail-information-tags-item") аксессуары
+                    div(class="shops-detail-information-contacts")
+                        a(href="tel:+74994270543", class="link link--black shops-detail-information-contacts-phone") т. +7(499) 427 0543
+                        span(class="shops-detail-information-contacts-time") 10:00 &#8212 23:00
+                    a(href="https://loverepublic.ru/", class="link link--blue-inverse shops-detail-information-email") www.loverepublic
+                    a(href="scheme.html", class="link link--darkgray shops-detail-scheme-link animation-link rippler rippler-default")
+                        | 1 этаж
+                        br
+                        | посмотреть на схеме
+                    div(class="social-container")
+                        span(class="social-container-text") поделиться &#8212
+                        a(href="https://www.instagram.com/?hl=ru", target="_blank", title="Instagram", class="social-item social-item--instagram")
+                            include ../../prod/svg/icons/instagram.svg
+                        a(href="https://ru-ru.facebook.com", target="_blank", title="Facebook", class="social-item social-item--facebook")
+                            include ../../prod/svg/icons/facebook.svg
+                        a(href="https://ok.ru", target="_blank", title="Одноклассники", class="social-item social-item--ok")
+                            include ../../prod/svg/icons/ok.svg
+                    div(class="navigation")
+                        div(class="navigation-items")
+                            a(href="shops.html", class="navigation-item navigation-item--close animation-link")
+                                include ../../prod/svg/icons/close.svg

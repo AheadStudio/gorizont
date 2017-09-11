@@ -1734,8 +1734,31 @@ body
 
 			.journal-item
 				display block
+				position relative
 
 				margin-bottom 40px
+
+				transition transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+				&:before
+					content ""
+					position absolute
+					top 0
+
+					width 100%
+					height 100%
+
+					opacity 0
+
+					background rgba(0, 0, 0, 0.5)
+
+					transform scale(0.5)
+					transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+				&:hover
+					transform scale(1.1)
+					&:before
+						opacity 1
+						transform scale(1)
 
 				img
 					width 100%
@@ -2347,10 +2370,14 @@ body
 	.shops-detail-information
 		position relative
 
-		padding 90px 105px
+		padding 100px 115px
 		box-sizing border-box
 
 		background #f4f4f4
+
+		.navigation
+			top 50px
+			right 220px
 
 		.shops-detail-information-holder
 			display block
@@ -3062,9 +3089,11 @@ body
 	text-align center
 
 	.home-promo-holder
+		position relative
 		display inline-block
-		width 540px
+		width 685px
 
+		z-index -150
 		.home-promo-holder-video
 			display block
 
