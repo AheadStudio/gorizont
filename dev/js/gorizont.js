@@ -669,6 +669,7 @@
 
 					$(".animation-link").on("click", function(e) {
 						GORIZONT.load.page($(this).attr("href"));
+						history.pushState( { urlPath: $(this).attr("href") } , "", $(this).attr("href") );
 						e.preventDefault();
 					});
 				},

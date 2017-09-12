@@ -1754,11 +1754,38 @@ body
 					transform scale(0.5)
 					transition opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)
 
+				&:after
+					content ""
+					position absolute
+
+					top 50%
+					left 50%
+
+					width 60px
+					height 35px
+
+					margin-left -30px
+					margin-top -10px
+
+					background url("../svg/icons/eye.svg")
+					background-repeat no-repeat
+					background-size contain
+					opacity 0
+
+					transform translateY(50%)
+
+					transition opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+
+
 				&:hover
 					transform scale(1.1)
 					&:before
 						opacity 1
 						transform scale(1)
+
+					&:after
+						opacity 1
+						transform translateY(0)
 
 				img
 					width 100%
@@ -2375,81 +2402,85 @@ body
 
 		background #f4f4f4
 
-		.navigation
-			top 50px
-			right 220px
+		.shops-detail-information-container
+			position relative
 
-		.shops-detail-information-holder
-			display block
-			width 100%
-			margin-bottom 50px
+			.navigation
+				top -15px
+				right 10%
+				height auto
 
-		.shops-detail-information-tags-items
-			display block
-			margin-bottom 10px
+			.shops-detail-information-holder
+				display block
+				width 100%
+				margin-bottom 50px
 
-			.shops-detail-information-tags-item
+			.shops-detail-information-tags-items
+				display block
+				margin-bottom 10px
+
+				.shops-detail-information-tags-item
+					border-bottom-width 1px
+					margin-right 5px
+					font-size 18px
+
+					transition color 0.6s $cubic-transition, 0.5s $cubic-transition
+
+					border-bottom 1px solid $color-gray
+
+					&:hover
+						border-bottom-color transparent
+
+						color $color-gray
+
+
+			.shops-detail-information-contacts
+				display block
+				margin-bottom 15px
+
+				.shops-detail-information-contacts-phone
+					font-size 18px
+					display inline-block
+					margin-right 20px
+
+				.shops-detail-information-contacts-time
+					font-size 18px
+
+			.shops-detail-information-email
+				display inline-block
+
 				border-bottom-width 1px
-				margin-right 5px
 				font-size 18px
+				margin-bottom 90px
 
-				transition color 0.6s $cubic-transition, 0.5s $cubic-transition
 
-				border-bottom 1px solid $color-gray
+			.shops-detail-scheme-link
+				display block
+
+				width 350px
+				height 85px
+
+				padding 20px 40px
+				box-sizing border-box
+
+				font-size 24px
+				margin-bottom 65px
+
+				background #ffd001
+
+				opacity 1
+				transition opacity 0.5s $cubic-transition
 
 				&:hover
-					border-bottom-color transparent
+					opacity 0.6
 
-					color $color-gray
+			.social-container
+			.social-container-text
+				margin-left 10px
 
-
-		.shops-detail-information-contacts
-			display block
-			margin-bottom 15px
-
-			.shops-detail-information-contacts-phone
-				font-size 18px
-				display inline-block
-				margin-right 20px
-
-			.shops-detail-information-contacts-time
-				font-size 18px
-
-		.shops-detail-information-email
-			display inline-block
-
-			border-bottom-width 1px
-			font-size 18px
-			margin-bottom 90px
-
-
-		.shops-detail-scheme-link
-			display block
-
-			width 350px
-			height 85px
-
-			padding 20px 40px
-			box-sizing border-box
-
-			font-size 24px
-			margin-bottom 65px
-
-			background #ffd001
-
-			opacity 1
-			transition opacity 0.5s $cubic-transition
-
-			&:hover
-				opacity 0.6
-
-		.social-container
-		.social-container-text
-			margin-left 10px
-
-		.navigation
-			.navigation-item--close
-				background #fff
+			.navigation
+				.navigation-item--close
+					background #fff
 
 .owl-dots
 	position absolute
@@ -3084,7 +3115,7 @@ body
 	width 100%
 	min-height 400px
 
-	margin-bottom 210px
+	margin-bottom 160px
 
 	text-align center
 
