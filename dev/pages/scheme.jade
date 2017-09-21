@@ -2,6 +2,27 @@ extends ../templates/base
 
 block content
     div(class="page-content-inner")
-        div(class="page-inner page-inner--w1")
-            div(class="page-title") Схема
-            h1(class="test") В РАЗРАБОКЕ
+        div(class="page-inner--w2")
+            div(class="scheme")
+                div(class="search")
+                    form(action="/search.html", class="search-form")
+                        input(type="text", class="search-input", placeholder="Поиск магазина")
+                        button(type="submit", title="Найти", class="search-submit")
+                
+                div(class="scheme-information")
+                    div(class="scheme-information-floor-items")
+                        button(type"button", class="scheme-information-floor-item active") 1 этаж
+                        button(type"button", class="scheme-information-floor-item") 2 этаж
+                        button(type"button", class="scheme-information-floor-item") 3 этаж
+                    
+                    div(class="scheme-information-quantity")
+                        div(class="scheme-information-count-title") Мест торговли и развлечений на 1 этаже
+                        div(class="scheme-information-count-count") 73
+                div(class="scheme-container")
+                    img(src="../dummy/map_test.png", class="scheme-container-img")
+                
+                div(class="scheme-controls")
+                    button(type"button", class="scheme-controls-question")
+                    span(class="scheme-controls-question-title") Условные обозначения
+                    button(type"button", class="scheme-controls-zplus")
+                    button(type"button", class="scheme-controls-zminus")
