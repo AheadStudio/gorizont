@@ -292,6 +292,13 @@
 						closeMarkup: '<button title="%title%" class="mfp-close"><img src="../svg/icons/close_white.svg" width="20" height="20" class="mfp-close-icn mfp-close"/></button>',
 						removalDelay: 300,
 					});
+
+					$(".conventions").magnificPopup({
+						type: "inline",
+						mainClass: "mfp-conventions",
+						closeMarkup: '<button title="%title%" class="mfp-close"><img src="../svg/icons/close_white.svg" width="20" height="20" class="mfp-close-icn mfp-close"/></button>',
+						removalDelay: 300,
+					});
 				},
 
 				sendForm: function() {

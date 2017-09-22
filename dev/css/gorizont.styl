@@ -4257,12 +4257,219 @@ body
 		.scheme-controls-question
 			&:after
 				content "?"
+				font-family GothamProLight
+
 		.scheme-controls-zplus
 			&:after
-				content "+"
+				content ""
+				display block
+
+				width 14px
+				height 1px
+
+				background #fff
+
+			&:before
+				content ""
+				position absolute
+				top 50%
+				left 50%
+
+				display block
+
+				width 1px
+				height 14px
+
+				background #fff
+
+				transform translate(-50%,-50%)
+
 		.scheme-controls-zminus
 			&:after
-				content "-"
+				content ""
+				content ""
+				display block
+
+				width 14px
+				height 1px
+
+				background #fff
+
+
+/*** popup conventions ***/
+
+.popup-conventions
+	position relative
+
+	display block
+	width 1040px
+	height 340px
+
+	margin 0 auto
+
+.mfp-conventions.mfp-bg
+	background-color rgba(255, 255, 255, 1)
+
+.mfp-conventions.mfp-bg
+	opacity 0
+
+	transition opacity 0.3s $cubic-transition
+
+	&.mfp-ready
+		opacity 0.9
+
+	&.mfp-removing
+		opacity 0
+
+.mfp-conventions.mfp-wrap
+	.mfp-content
+		opacity 0
+
+		transform translateY(-50px)
+
+		transition opacity 0.3s $cubic-transition, transform 0.3s $cubic-transition
+
+	&.mfp-ready
+		.mfp-content
+			opacity 1
+
+			transform translateY(0)
+
+	&.mfp-removing
+		.mfp-content
+			opacity 0
+
+			transform translateY(-50px)
+
+.mfp-conventions
+	.popup-conventions
+		.mfp-close:not(.mfp-close-icn)
+			right -30px
+			top -180px
+
+			display block
+
+			width 50px
+			height 50px
+
+			border-radius 50%
+
+			background #555555
+
+			opacity 1
+
+			transition opacity 0.3s $cubic-transition, transform 0.3s $cubic-transition
+
+			&:hover
+				opacity 0.8
+				transform rotate(360deg)
+
+			.mfp-close-icn
+				position absolute
+				top 50%
+				left 50%
+
+				width 10px
+				height 10px
+
+				margin 0
+				padding 0
+
+				transform translate(-50%,-50%)
+
+				opacity 1
+
+
+/*** //popup conventions ***/
+
+.popup-conventions
+	.popup-conventions-title
+		display block
+		width 100%
+		margin-bottom 30px
+
+		font-size 30px
+		font-family GothamProRegular
+
+	&--left
+		display inline-block
+		width 42%
+		margin-right 8%
+
+		.popup-conventions-color-items
+			display block
+			column-count 2
+			column-gap 85px
+
+			.popup-conventions-color-item
+				display block
+				width 240px
+
+				margin-bottom 15px
+				margin-right 15px
+
+				.popup-conventions-color-item-mark
+					display inline-block
+					width 20px
+					height 20px
+
+					vertical-align top
+
+					border-radius 50%
+
+					margin-right 10px
+
+				.popup-conventions-color-item-text
+					display inline-block
+					width 200px
+
+					vertical-align middle
+
+					font-size 14px
+					font-family GothamProMedium
+
+	&--right
+		display inline-block
+		width 44%
+		vertical-align top
+
+		.popup-conventions-icon-items
+			display grid
+
+			grid-template-columns 1fr 1fr 1fr
+			grid-template-rows 1fr 1fr 1fr 1fr 1fr
+
+			grid-gap 10px 40px
+
+			.popup-conventions-icon-item
+				display block
+				width 140px
+
+				margin-bottom 15px
+
+				.popup-conventions-icon-item-holder
+					display inline-block
+					width 40px
+
+					vertical-align middle
+
+					margin-right 10px
+
+					.popup-conventions-icon-item-holder-img
+						display block
+						width 100%
+
+				.popup-conventions-icon-item-text
+					display inline-block
+					width 90px
+
+					vertical-align middle
+
+					font-size 14px
+					font-family GothamProMedium
+
+
+
 /*** //scheme ***/
 
 
