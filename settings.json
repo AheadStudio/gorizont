@@ -114,9 +114,9 @@
 		"scheme": {
 			"name": "Схема комплекса",
 			"progress": {
-				"desktop": "10",
-				"tablet": "0",
-				"mobile": "0"
+				"desktop": "35",
+				"tablet": "10",
+				"mobile": "100"
 			}
 		},
 		"about": {

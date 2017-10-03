@@ -20,15 +20,15 @@ block content
                         div(class="scheme-information-count-count") 73
                 div(class="scheme-container")
                     div(class="scheme-inner")
-                        div(class="scheme-inner2")
-                            div(class="scheme-inner3")
-                                include ../../prod/svg/schema.svg
+                        div(class="scheme-inner-container")
+                            div(class="scheme-inner-container-svg")
+                                include ../../prod/svg/schema.svg 
                 
                 div(class="scheme-controls")
                     a(href="#conventions", class="scheme-controls-question conventions")
                     span(class="scheme-controls-question-title") Условные обозначения
-                    button(type"button", class="scheme-controls-zplus")
-                    button(type"button", class="scheme-controls-zminus")
+                    button(type"button", class="scheme-controls-zplus", zoom-quantity="1")
+                    button(type"button", class="scheme-controls-zminus", zoom-quantity="1")
                     
     div(id="conventions", class="popup-conventions white-popup mfp-hide")
         div(class="popup-conventions--left")
@@ -136,3 +136,6 @@ block content
                     div(class="popup-conventions-icon-item-holder")
                         img(src="../i/icons/family_funny.png", class="popup-conventions-icon-item-holder-img")
                     span(class="popup-conventions-icon-item-text") Семейный развлекательный комплекс
+
+    div(class="tooltip-container", data-tooltip="nike")
+        p Hello

@@ -4115,6 +4115,30 @@ body
 
 
 /*** scheme ***/
+.tooltip-container
+	position absolute
+
+	display none
+	width 200px
+	height 180px
+
+	padding 40px 30px
+
+	box-sizing border-box
+
+	opacity 0
+	background rgb(42, 135, 152);
+
+	transition opacity 0.3s $cubic-transition
+
+	z-index 1000000
+	p
+		font-size 14px
+		color #fff
+
+	&.active
+		opacity 1
+
 
 .scheme
 	position relative
@@ -4198,30 +4222,31 @@ body
 	.scheme-container
 		display block
 		width 100%
-		
-		perspective 900px
-		
-		.scheme-inner
-			transform rotateX(50deg)
-			
-			.scheme-inner2
-				transform translateY(-200px) rotate(30deg)
+
+		.scheme-inner-container
+			width 1500px
+			height 1250px
+
+			transform rotate3d(-370, -100, -180, 60deg) translate3d(-135px, 5px, -80px)
+
+			overflow hidden
 
 			svg
 				position relative
-				top -180px
-				left -100px
-
 				display block
-				width 99%
+				width 95%
 				max-height 100%
 				height auto
-				
+
+				will-change transform
+
+				transition transform 0.3s $cubic-transition
+
 				path
 					cursor pointer
-					
+
 					transition fill .3s $cubic-transition
-					
+
 					&:hover
 					&.active
 						fill rgb(238, 71, 132)
@@ -4260,6 +4285,7 @@ body
 				left 50%
 
 				font-size 20px
+				line-height 1
 
 				color #fff
 
@@ -4310,7 +4336,6 @@ body
 
 		.scheme-controls-zminus
 			&:after
-				content ""
 				content ""
 				display block
 

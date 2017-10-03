@@ -401,11 +401,12 @@
 				}
 			},
 
-			search: {
+			searchSite: {
 				init: function() {
 					$(".search-input", $sel.body).autocomplete({
 						minChars: 3,
 						groupBy: "category",
+						source: false,
 						lookup: [
 							{
 								value: "Пиджак",
@@ -489,7 +490,7 @@
 						},
 						onSelect: function(suggestion) {
 							if(suggestion.data.id) {
-								GORIZONT.schema.search(suggestion.data.id);
+								GORIZONT.schema.searchElementSchema(suggestion.data.id);
 							}
 						}
 
@@ -728,46 +729,179 @@
 					addElement  : "div",
 					duration    :  800,
 				});
+
 			},
 
 
 			schema: {
 				$svg: false,
+				$svgContainer: true,
+
 				init: function() {
 					var self = this;
 
-					self.$svg = $(".scheme-inner2 svg");
+					self.$svg = $(".scheme-inner-container svg");
+					self.$svgContainer = $(".scheme-inner-container-svg");
 
+					posQuatity = self.Zoom();
+					self.dragSchema(self.$svgContainer, self.$svg, posQuatity);
 
-					self.panZoom({
-					});
+					self.toolip();
 				},
-				panZoom: function() {
+
+				Zoom: function() {
 					var self = this,
-						pz = false,
 						$zoomIn = $(".scheme-controls-zplus"),
 						$zoomOut = $(".scheme-controls-zminus");
-					pz = self.$svg.svgPanZoom({
-						events: {
-							mouseWheel: false
+
+
+					$zoomIn.on("click", function() {
+						var $buttonZoom = $(this)
+							zoomQuantity = $zoomIn.attr("zoom-quantity");
+
+						if (zoomQuantity < 2) {
+
+							resultQuatity = +zoomQuantity + 0.5;
+
+							self.$svg.css({
+								'-webkit-transform' : "scale(" + resultQuatity + ")",
+								'-moz-transform'    : "scale(" + resultQuatity + ")",
+								'-ms-transform'     : "scale(" + resultQuatity + ")",
+								'-o-transform'      : "scale(" + resultQuatity + ")",
+								'transform'         : "scale(" + resultQuatity + ")"
+							});
+
+							$zoomIn.attr("zoom-quantity", resultQuatity);
+
+							self.dragSchema(self.$svgContainer, self.$svg, +zoomQuantity-0.5);
+
 						}
 					});
 
-					$zoomIn.on("click", function() {
-						pz.zoomIn();
-					});
 					$zoomOut.on("click", function() {
-						pz.zoomOut();
+						var $buttonZoom = $(this)
+							zoomQuantity = $zoomIn.attr("zoom-quantity");
+
+						if (zoomQuantity <= 2 && zoomQuantity > 1) {
+
+							resultQuatity = +zoomQuantity - 0.5;
+
+							self.$svg.css({
+								"-webkit-transform" : "scale(" + resultQuatity + ")",
+								"-moz-transform"    : "scale(" + resultQuatity + ")",
+								"-ms-transform"     : "scale(" + resultQuatity + ")",
+								"-o-transform"      : "scale(" + resultQuatity + ")",
+								"transform"         : "scale(" + resultQuatity + ")"
+							});
+
+							$zoomIn.attr("zoom-quantity", resultQuatity);
+
+							self.dragSchema(self.$svgContainer, self.$svg, +zoomQuantity-0.5);
+
+						}
+						if (zoomQuantity == 1) {
+							self.$svgContainer.css({
+								"left" : "0px",
+								"top"  : "0px",
+							});
+						}
+
 					});
+					return 2
+
 
 				},
-				search: function(shopId) {
+
+				searchElementSchema: function(shopId) {
 					var self = this;
 
 					self.$svg.find("path").removeAttr("class");
-					console.log(self.$svg.find("path[id=" + shopId + "]"));	
+
 					self.$svg.find("path[id=" + shopId + "]").attr("class", "active");
-				}
+				},
+
+				dragSchema: function (schemaBlock, schemaSvg, valueQuantity) {
+					var schemaSvgMaxWidth = schemaBlock.width()/valueQuantity;
+						schemaSvgMaxHeight = schemaBlock.height()/valueQuantity;
+
+
+					schemaBlock.draggable({
+				        containment: $(this).parent(),
+						cursor: "move",
+						drag: function(event, ui) {
+							var leftPosition = ui.position.left,
+								topPosition = ui.position.top;
+
+							if (leftPosition > schemaSvgMaxWidth) {
+								ui.position.left = schemaSvgMaxWidth;
+							}
+							if (leftPosition < -schemaSvgMaxWidth) {
+								ui.position.left = -schemaSvgMaxWidth;
+							}
+							if (topPosition > schemaSvgMaxHeight) {
+								ui.position.top = schemaSvgMaxHeight;
+							}
+							if (topPosition < -schemaSvgMaxHeight) {
+								ui.position.top = -schemaSvgMaxHeight;
+							}
+
+
+						}
+				    });
+				},
+
+				toolip: function() {
+
+					var self = this;
+						$tooltipItem = $("[data-tooltip-element]");
+
+					$tooltipItem.on("mouseenter", function(e) {
+						var tooltipItem = $(this),
+							tooltipItemId = tooltipItem.attr("id"),
+							tooltipContainer =  $sel.body.find("[data-tooltip='" + tooltipItemId + "']"),
+							posTooltipX = e.pageX,
+							posTooltipY = e.pageY;
+
+						if (!tooltipItem.attr("class")) {
+
+							tooltipContainer.offset({top: posTooltipY, left: posTooltipX});
+
+							tooltipContainer.css("display", "block");
+
+							setTimeout(function() {
+								tooltipContainer.addClass("active");
+							}, 150);
+
+							tooltipItem.attr("class", "active");
+						}
+
+					});
+
+
+					$tooltipItem.on("mouseleave", function(e) {
+						var tooltipItem = $(this),
+							tooltipItemId = tooltipItem.attr("id"),
+							tooltipContainer =  $sel.body.find("[data-tooltip='" + tooltipItemId + "']"),
+							posTooltipX = e.pageX,
+							posTooltipY = e.pageY;
+
+							if (tooltipItem.attr("class")) {
+								tooltipContainer.offset({top: 0, left: 0});
+								console.log("asd");
+
+								setTimeout(function() {
+									tooltipContainer.removeClass("active");
+								}, 150);
+
+								tooltipContainer.css("display", "none");
+
+								tooltipItem.removeAttr("class");
+							}
+
+					});
+
+
+				},
 			}
 
 		};
@@ -791,7 +925,7 @@
 	GORIZONT.slider.init();
 
 	GORIZONT.hoverElement.init();
-	GORIZONT.search.init();
+	GORIZONT.searchSite.init();
 
 	GORIZONT.goTop();
 	GORIZONT.form.init();
@@ -823,7 +957,7 @@
 		GORIZONT.slider.init();
 
 		GORIZONT.hoverElement.init();
-		GORIZONT.search.init();
+		GORIZONT.searchSite.init();
 
 		GORIZONT.goTop();
 		GORIZONT.form.init();
