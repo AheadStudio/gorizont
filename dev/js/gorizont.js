@@ -446,30 +446,35 @@
 							}, {
 								value: "Adidas",
 								data: {
+									id: "adidas",
 									category: "Обувь",
 									img: "/dummy/actions/1.jpg"
 								}
 							}, {
 								value: "Adidas",
 								data: {
+									id: "adidas",
 									category: "Сортивная одежда",
 									img: "/dummy/actions/2.jpg"
 								}
 							}, {
 								value: "Adidas",
 								data: {
+									id: "adidas",
 									category: "Магазин на карте - 1 этаж",
 									img: "/dummy/actions/2.jpg"
 								}
 							}, {
 								value: "Nike",
 								data: {
+									id: "nike",
 									category: "Обувь",
 									img: "/dummy/actions/2.jpg"
 								}
 							}, {
 								value: "Nike",
 								data: {
+									id: "nike",
 									category: "Магазин на карте - 1 этаж",
 									img: "/dummy/actions/2.jpg"
 								}
@@ -482,7 +487,11 @@
 							strItem += '<a href="#" class="search-item">' + '<div class="search-item-name">' + itemName + " / " + suggestion.data.category +'</div>' + '</a>';
 							return strItem;
 						},
-
+						onSelect: function(suggestion) {
+							if(suggestion.data.id) {
+								GORIZONT.schema.search(suggestion.data.id);
+							}
+						}
 
 					});
 
@@ -721,6 +730,46 @@
 				});
 			},
 
+
+			schema: {
+				$svg: false,
+				init: function() {
+					var self = this;
+
+					self.$svg = $(".scheme-inner2 svg");
+
+
+					self.panZoom({
+					});
+				},
+				panZoom: function() {
+					var self = this,
+						pz = false,
+						$zoomIn = $(".scheme-controls-zplus"),
+						$zoomOut = $(".scheme-controls-zminus");
+					pz = self.$svg.svgPanZoom({
+						events: {
+							mouseWheel: false
+						}
+					});
+
+					$zoomIn.on("click", function() {
+						pz.zoomIn();
+					});
+					$zoomOut.on("click", function() {
+						pz.zoomOut();
+					});
+
+				},
+				search: function(shopId) {
+					var self = this;
+
+					self.$svg.find("path").removeAttr("class");
+					console.log(self.$svg.find("path[id=" + shopId + "]"));	
+					self.$svg.find("path[id=" + shopId + "]").attr("class", "active");
+				}
+			}
+
 		};
 
 	})();
@@ -754,6 +803,8 @@
 	GORIZONT.dropdown.init();
 
 	GORIZONT.animateButton();
+
+	GORIZONT.schema.init();
 
 	GORIZONT.reload = function() {
 		GORIZONT.load.init();

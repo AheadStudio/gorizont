@@ -901,7 +901,9 @@ body
 	white-space nowrap
 
 	overflow hidden
-	transition background 0.6s $cubic-transition
+	border-bottom 1px solid transparent
+
+	transition background 0.6s $cubic-transition, border-bottom-color .3s $cubic-transition
 
 	&:last-child
 		margin-bottom 0
@@ -922,7 +924,7 @@ body
 
 .autocomplete-selected
 	.search-item-name
-		border-bottom 1px solid #cccccc
+		border-bottom-color #cccccc
 
 
 .autocomplete-group
@@ -4196,11 +4198,33 @@ body
 	.scheme-container
 		display block
 		width 100%
+		
+		perspective 900px
+		
+		.scheme-inner
+			transform rotateX(50deg)
+			
+			.scheme-inner2
+				transform translateY(-200px) rotate(30deg)
 
-		.scheme-container-img
-			display block
-			width 100%
-			min-height 100%
+			svg
+				position relative
+				top -180px
+				left -100px
+
+				display block
+				width 99%
+				max-height 100%
+				height auto
+				
+				path
+					cursor pointer
+					
+					transition fill .3s $cubic-transition
+					
+					&:hover
+					&.active
+						fill rgb(238, 71, 132)
 
 	.scheme-controls
 		position absolute
