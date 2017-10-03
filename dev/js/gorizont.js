@@ -746,7 +746,8 @@
 					posQuatity = self.Zoom();
 					self.dragSchema(self.$svgContainer, self.$svg, posQuatity);
 
-					self.toolip();
+					//self.myTootip();
+					self.tooltip();
 				},
 
 				Zoom: function() {
@@ -850,7 +851,47 @@
 				    });
 				},
 
-				toolip: function() {
+				tooltip: function() {
+					$("[data-tooltip-element]").tooltipster({
+						contentCloning: true,
+
+						contentAsHTML: true,
+						interactive: true,
+
+						animation: "fade",
+						animationDuration: 600,
+						delay: 100,
+
+						distance: -35,
+
+						updateAnimation: "fade",
+
+						theme: ["tooltipster-white"],
+
+						functionBefore: function(instance, helper) {
+
+							var $origin = $(helper.origin),
+								idOrigin = helper.origin.dataset.tooltipContent;
+
+					        if ($origin.data('loaded') !== true) {
+
+					            $.get("../../pages/tooltip-element.php", function(data) {
+									jsonToolTip = $.parseJSON(data);
+
+									if (idOrigin.replace("#", "") == jsonToolTip[0].id) {
+										instance.content(
+											'<div id="nike" class="tooltip-container"><p>'+ jsonToolTip[0].id.toUpperCase() +'</p><p>т.'+ jsonToolTip[0].mobile +'</p><p>'+ jsonToolTip[0].shopProducts +'</p></div>');
+									}
+					                $origin.data('loaded', true);
+					            });
+							}
+
+					    },
+					});
+				},
+
+				// works but there are bugs
+				myTootip: function() {
 
 					var self = this;
 						$tooltipItem = $("[data-tooltip-element]");

@@ -4115,29 +4115,66 @@ body
 
 
 /*** scheme ***/
-.tooltip-container
-	position absolute
 
+
+/** toltip **/
+
+
+.tooltip_templates
 	display none
-	width 200px
-	height 180px
 
-	padding 40px 30px
 
-	box-sizing border-box
+.tooltipster-sidetip
+	&.tooltipster-white
+		.tooltipster-box
+			background #cccccc
+			border none
+			border-radius 0
 
-	opacity 0
-	background rgb(42, 135, 152);
+.tooltipster-sidetip
+	&.tooltipster-white
+		.tooltipster-content
+			.tooltip-container
+				width 200px
+				height 180px
 
-	transition opacity 0.3s $cubic-transition
+				padding 30px 20px
 
-	z-index 1000000
-	p
-		font-size 14px
-		color #fff
+				box-sizing border-box
 
-	&.active
-		opacity 1
+				p
+					display block
+					width 100%
+
+					margin-bottom 5px
+
+					font-family GothamProLight
+					font-size 16px
+					color #000
+
+		.tooltipster-arrow
+			.tooltipster-arrow-uncropped
+				width 25px
+				height 25px
+				&:before
+					content ""
+
+					position: absolute
+					width 0
+					height 0
+
+					border-left 10px solid transparent
+					border-right 10px solid transparent
+					border-top 20px solid #cccccc
+
+				.tooltipster-arrow-border
+					display none
+
+				.tooltipster-arrow-background
+					display none
+
+
+/** //toltip **/
 
 
 .scheme
