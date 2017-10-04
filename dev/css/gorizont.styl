@@ -4179,8 +4179,22 @@ body
 
 .scheme
 	position relative
+
+	display none
 	width 100%
 	margin-top 30px
+
+	transform translateY(50px)
+	opacity 0
+
+	transition opacity 0.3s $cubic-transition, transform 0.5s $cubic-transition
+
+	&.active-block
+		display block
+		
+	&.active
+		opacity 1
+		transform translateY(0)
 
 	.search
 		top -160px
@@ -4555,6 +4569,95 @@ body
 					font-family GothamProMedium
 
 
+/** preloader **/
+
+
+.page-preloader
+	display none
+	min-height 1000px
+
+	.page-preloader-item
+		position absolute
+		left 50%
+
+		display block
+
+		&--floorbasement
+			transform translate(-50%,-50px)
+			opacity 0
+
+			transition opacity 0.3s $cubic-transition, transform 0.5s $cubic-transition
+
+
+		&--floor1
+			transform translate(-50%,-70px)
+			opacity 0
+
+			transition opacity 0.3s $cubic-transition, transform 0.6s $cubic-transition
+
+		&--floor2
+			transform translate(-50%,-80px)
+			opacity 0
+
+			transition opacity 0.3s $cubic-transition, transform 0.7s $cubic-transition
+
+		&--floor3
+			transform translate(-50%,-110px)
+			opacity 0
+
+			transition opacity 0.3s $cubic-transition, transform 0.8s $cubic-transition
+
+		&--floor4
+			transform translate(-50%,-120px)
+			opacity 0
+
+			transition opacity 0.3s $cubic-transition, transform 0.9s $cubic-transition
+
+		&--floor5
+			transform translate(-50%,-130px)
+			opacity 0
+
+			transition opacity 0.3s $cubic-transition, transform 1s $cubic-transition
+
+		&--floor6
+			transform translate(-50%,-140px)
+			opacity 0
+
+			transition opacity 0.3s $cubic-transition, transform 1.1s $cubic-transition
+
+
+		.page-preloader-item-holder
+			display block
+
+			.page-preloader-item-holder-img
+				display block
+
+	&.active-block
+		display block
+	&.active
+		.page-preloader-item
+			&--floorbasement
+			&--floor1
+			&--floor2
+			&--floor3
+			&--floor4
+			&--floor5
+			&--floor6
+				opacity 1
+				transform translate(-50%, 0px)
+
+
+			.page-preloader-item-holder
+				display block
+
+				.page-preloader-item-holder-img
+					display block
+
+
+
+
+
+/** //preloader **/
 
 /*** //scheme ***/
 

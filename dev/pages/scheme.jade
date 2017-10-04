@@ -2,7 +2,7 @@ extends ../templates/base
 
 block content
     div(class="page-content-inner")
-        div(class="page-inner--w2")
+        div(class="page-inner--w2 page-inner--relative")
             div(class="scheme")
                 div(class="search")
                     form(action="/search.html", class="search-form")
@@ -29,7 +29,36 @@ block content
                     span(class="scheme-controls-question-title") Условные обозначения
                     button(type"button", class="scheme-controls-zplus", zoom-quantity="1")
                     button(type"button", class="scheme-controls-zminus", zoom-quantity="1")
-                    
+            
+            div(class="page-preloader")
+                div(class="page-preloader-item page-preloader-item--floorbasement")
+                    div(class="page-preloader-item-holder")
+                        img(src="../dummy/floor-1.png", class="page-preloader-item-holder-img")
+
+                div(class="page-preloader-item page-preloader-item--floor1")
+                    div(class="page-preloader-item-holder")
+                        img(src="../dummy/floor1.png", class="page-preloader-item-holder-img")
+
+                div(class="page-preloader-item page-preloader-item--floor2")
+                    div(class="page-preloader-item-holder")
+                        img(src="../dummy/floor2.png", class="page-preloader-item-holder-img")
+
+                div(class="page-preloader-item page-preloader-item--floor3")
+                    div(class="page-preloader-item-holder")
+                        img(src="../dummy/floor3.png", class="page-preloader-item-holder-img")
+
+                div(class="page-preloader-item page-preloader-item--floor4")
+                    div(class="page-preloader-item-holder")
+                        img(src="../dummy/floor4.png", class="page-preloader-item-holder-img")
+
+                div(class="page-preloader-item page-preloader-item--floor5")
+                    div(class="page-preloader-item-holder")
+                        img(src="../dummy/floor5.png", class="page-preloader-item-holder-img")
+
+                div(class="page-preloader-item page-preloader-item--floor6")
+                    div(class="page-preloader-item-holder")
+                        img(src="../dummy/floor6.png", class="page-preloader-item-holder-img")
+        
     div(id="conventions", class="popup-conventions white-popup mfp-hide")
         div(class="popup-conventions--left")
             div(class="popup-conventions-title") Цветовые обозначения
@@ -139,4 +168,4 @@ block content
 
     div(class="tooltip_templates")
         div(class="tooltip-container", id="nike")
-            p Hello
+            p Такого магазина нет

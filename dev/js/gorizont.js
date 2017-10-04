@@ -736,6 +736,7 @@
 			schema: {
 				$svg: false,
 				$svgContainer: true,
+				loaded: false,
 
 				init: function() {
 					var self = this;
@@ -748,6 +749,8 @@
 
 					//self.myTootip();
 					self.tooltip();
+
+					self.preload();
 				},
 
 				Zoom: function() {
@@ -943,6 +946,36 @@
 
 
 				},
+
+
+				preload: function() {
+					var self = this;
+
+					$(".page-preloader").addClass("active-block");
+
+					setTimeout(function() {
+						$(".page-preloader").addClass("active");
+					}, 300);
+
+					$sel.window.on("load", function() {
+						$("html, body").animate({ scrollTop: 0 }, 100);
+
+						setTimeout(function() {
+							$(".page-preloader").removeClass("active");
+
+							setTimeout(function() {
+								$(".scheme").addClass("active-block");
+							}, 500);
+
+							setTimeout(function() {
+								$(".scheme").addClass("active");
+							}, 700);
+
+						}, 2000);
+					});
+				},
+
+
 			}
 
 		};
