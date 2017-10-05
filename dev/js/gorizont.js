@@ -741,16 +741,11 @@
 				init: function() {
 					var self = this;
 
-					self.$svg = $(".scheme-inner-container svg");
-					self.$svgContainer = $(".scheme-inner-container-svg");
-
-					posQuatity = self.Zoom();
-					self.dragSchema(self.$svgContainer, self.$svg, posQuatity);
-
-					//self.myTootip();
-					self.tooltip();
-
 					self.preload();
+
+
+					self.toggleFloor.init();
+
 				},
 
 				Zoom: function() {
@@ -828,7 +823,6 @@
 					var schemaSvgMaxWidth = schemaBlock.width()/valueQuantity;
 						schemaSvgMaxHeight = schemaBlock.height()/valueQuantity;
 
-
 					schemaBlock.draggable({
 				        containment: $(this).parent(),
 						cursor: "move",
@@ -849,22 +843,21 @@
 								ui.position.top = -schemaSvgMaxHeight;
 							}
 
-
 						}
 				    });
 				},
 
-				tooltip: function() {
-					$("[data-tooltip-element]").tooltipster({
+				tooltip: function($tooltipElement) {
+
+					$tooltipElement.tooltipster({
+						content: 'Loading...',
 						contentCloning: true,
 
 						contentAsHTML: true,
 						interactive: true,
 
 						animation: "fade",
-						animationDuration: 600,
-						delay: 100,
-
+						animationDuration: 300,
 						distance: -35,
 
 						updateAnimation: "fade",
@@ -873,24 +866,26 @@
 
 						functionBefore: function(instance, helper) {
 
-							var $origin = $(helper.origin),
-								idOrigin = helper.origin.dataset.tooltipContent;
+							var idOrigin = helper.origin.dataset.tooltipElement;
 
-					        if ($origin.data('loaded') !== true) {
+				            $.get("../../pages/tooltip-element.php", function(data) {
+								jsonToolTip = $.parseJSON(data);
+								console.log(data);
+								if (idOrigin == jsonToolTip[0].id) {
+									instance.content('<div id="'+idOrigin+'" class="tooltip-container"><p>'+ jsonToolTip[0].id.toUpperCase() +'</p><p>т.'+ jsonToolTip[0].mobile +'</p><p>'+ jsonToolTip[0].shopProducts +'</p><a href="shops_detail.html" class="link link--darkgray tooltip-container-link animation-link rippler rippler-default">Узнать больше</a></div><div class="tooltip-close"><span>x</span></div>');
 
-					            $.get("../../pages/tooltip-element.php", function(data) {
-									jsonToolTip = $.parseJSON(data);
+									$(".tooltip-close").on("click", function(){
+										instance._$origin.tooltipster("hide");
+							        });
 
-									if (idOrigin.replace("#", "") == jsonToolTip[0].id) {
-										instance.content(
-											'<div id="nike" class="tooltip-container"><p>'+ jsonToolTip[0].id.toUpperCase() +'</p><p>т.'+ jsonToolTip[0].mobile +'</p><p>'+ jsonToolTip[0].shopProducts +'</p></div>');
-									}
-					                $origin.data('loaded', true);
-					            });
-							}
+								}
+				            });
 
 					    },
+
 					});
+
+
 				},
 
 				// works but there are bugs
@@ -955,7 +950,7 @@
 
 					setTimeout(function() {
 						$(".page-preloader").addClass("active");
-					}, 300);
+					}, 600);
 
 					$sel.window.on("load", function() {
 						$("html, body").animate({ scrollTop: 0 }, 100);
@@ -964,17 +959,85 @@
 							$(".page-preloader").removeClass("active");
 
 							setTimeout(function() {
+
 								$(".scheme").addClass("active-block");
-							}, 500);
+
+								self.$svg = $(".scheme-inner-container svg");
+								self.$svgContainer = $(".scheme-inner-container-svg");
+
+								posQuatity = self.Zoom();
+								self.dragSchema(self.$svgContainer, self.$svg, posQuatity);
+
+								self.tooltip($("[data-tooltip-element]"));
+
+
+							}, 1800);
 
 							setTimeout(function() {
-								$(".scheme").addClass("active");
-							}, 700);
 
-						}, 2000);
+								$(".scheme").addClass("active");
+
+							}, 2000);
+
+						}, 2200);
+
+
 					});
+					setTimeout(function() {
+						$(".page-preloader").removeClass("active-block");
+					}, 5000);
+
 				},
 
+				toggleFloor: {
+
+					init: function() {
+
+						var self = this;
+						$(".scheme-information-floor-item").on("click", function(e) {
+							var $item = $(this),
+								$tabsScheme = $sel.body,
+								itemDataFloor = $item.data("floor");
+
+							if(!$tabsScheme.hasClass("inactive")) {
+								if(!$item.hasClass("active")) {
+									self.hideAll($tabsScheme, function() {
+										self.show(itemDataFloor, $tabsScheme);
+									});
+
+
+								}
+								e.preventDefault();
+							}
+						});
+
+					},
+
+					show: function(itemDataFloor, $tabsScheme) {
+						$(".scheme-information-floor-item[data-floor*=" + itemDataFloor + "]", $tabsScheme).addClass("active");
+						$(".scheme-inner-container-svg[id*=" + itemDataFloor + "]", $tabsScheme).addClass("active");
+
+						setTimeout(function() {
+							$(".scheme-inner-container-svg[id*=" + itemDataFloor + "]", $tabsScheme).addClass("active-scheme-svg");
+						}, 100);
+
+					},
+
+					hideAll: function($tabsScheme, callback) {
+						$(".scheme-information-floor-item", $tabsScheme).removeClass("active");
+
+						$(".scheme-inner-container-svg", $tabsScheme).removeClass("active-scheme-svg");
+
+						setTimeout(function() {
+							$(".scheme-inner-container-svg", $tabsScheme).removeClass("active");
+							if(callback) {
+								callback();
+							}
+						}, 100);
+
+					}
+
+				},
 
 			}
 

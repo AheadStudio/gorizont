@@ -11,19 +11,25 @@ block content
                 
                 div(class="scheme-information")
                     div(class="scheme-information-floor-items")
-                        button(type"button", class="scheme-information-floor-item active") 1 этаж
-                        button(type"button", class="scheme-information-floor-item") 2 этаж
-                        button(type"button", class="scheme-information-floor-item") 3 этаж
+                        button(type"button", class="scheme-information-floor-item active", data-floor="floor-1") 1 этаж
+                        button(type"button", class="scheme-information-floor-item", data-floor="floor-2") 2 этаж
+                        button(type"button", class="scheme-information-floor-item", data-floor="floor-3") 3 этаж
                     
                     div(class="scheme-information-quantity")
                         div(class="scheme-information-count-title") Мест торговли и развлечений на 1 этаже
                         div(class="scheme-information-count-count") 73
+                        
                 div(class="scheme-container")
                     div(class="scheme-inner")
                         div(class="scheme-inner-container")
-                            div(class="scheme-inner-container-svg")
+                            div(class="scheme-inner-container-svg active active-scheme-svg ", id="floor-1")
                                 include ../../prod/svg/schema.svg 
-                
+                            div(class="scheme-inner-container-svg", id="floor-2")
+                                include ../../prod/svg/schema_floor1.svg
+                            div(class="scheme-inner-container-svg", id="floor-3")
+                                include ../../prod/svg/schema_floor2.svg
+
+
                 div(class="scheme-controls")
                     a(href="#conventions", class="scheme-controls-question conventions")
                     span(class="scheme-controls-question-title") Условные обозначения
@@ -167,5 +173,4 @@ block content
                     span(class="popup-conventions-icon-item-text") Семейный развлекательный комплекс
 
     div(class="tooltip_templates")
-        div(class="tooltip-container", id="nike")
-            p Такого магазина нет
+        div(class="tooltip-container", id="tooltip-element")
