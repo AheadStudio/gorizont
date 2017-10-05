@@ -12,7 +12,7 @@ em
 	font-style normal
 	font-weight normal
 
-
+ 
 /*-- variables --*/
 
 $cubic-transition = cubic-bezier(0.25, 0.46, 0.45, 0.94)
@@ -4134,7 +4134,15 @@ body
 .tooltipster-sidetip
 	&.tooltipster-white
 		.tooltipster-content
+
 			overflow hidden
+
+			.no-info
+				padding 20px
+				box-sizing border-box
+				font-size 16px
+				color #000
+
 			.tooltip-close
 				position absolute
 				right 25px
@@ -4194,6 +4202,8 @@ body
 
 
 	&.tooltipster-top
+	&.tooltipster-right
+	&.tooltipster-left
 	&.tooltipster-bottom
 		.tooltipster-arrow
 			width 25px
@@ -4225,14 +4235,23 @@ body
 
 	&.tooltipster-bottom
 		.tooltipster-arrow
-			bottom auto
-
 			.tooltipster-arrow-uncropped
 				&:before
 					transform rotate(-180deg)
 
+	&.tooltipster-right
+		.tooltipster-arrow
+			.tooltipster-arrow-uncropped
+				&:before
+					left 2px
+					transform rotate(90deg)
 
-
+	&.tooltipster-left
+		.tooltipster-arrow
+			.tooltipster-arrow-uncropped
+				&:before
+					right -8px
+					transform rotate(-90deg)
 /** //toltip **/
 
 
@@ -4376,7 +4395,7 @@ body
 
 					&:hover
 					&.active
-						fill rgb(238, 71, 132)
+						fill rgb(163, 47, 90)
 
 	.scheme-controls
 		position absolute

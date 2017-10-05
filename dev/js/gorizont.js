@@ -429,18 +429,21 @@
 							}, {
 								value: "Пальто",
 								data: {
+									id: "H&M",
 									category: "Магазин Ostin на карте - 1 этаж",
 									img: "/dummy/catalog/2.jpg"
 								}
 							}, {
 								value: "Галстук",
 								data: {
+									id: "H&M",
 									category: "Одежда",
 									img: "/dummy/catalog/3.jpg"
 								}
 							}, {
 								value: "Классическая рубашка",
 								data: {
+									id: "H&M",
 									category: "Одежда",
 									img: "/dummy/catalog/4.jpg"
 								}
@@ -743,8 +746,53 @@
 
 					self.preload();
 
-
 					self.toggleFloor.init();
+
+				},
+				
+				preload: function() {
+					var self = this;
+
+					$(".page-preloader").addClass("active-block");
+
+					setTimeout(function() {
+						$(".page-preloader").addClass("active");
+					}, 600);
+
+					$sel.window.on("load", function() {
+						$("html, body").animate({ scrollTop: 0 }, 100);
+
+						setTimeout(function() {
+							$(".page-preloader").removeClass("active");
+
+							setTimeout(function() {
+
+								$(".scheme").addClass("active-block");
+
+								self.$svg = $(".scheme-inner-container svg");
+								self.$svgContainer = $(".scheme-inner-container-svg");
+
+								posQuatity = self.Zoom();
+								self.dragSchema(self.$svgContainer, self.$svg, posQuatity);
+
+								self.tooltip($("[data-tooltip-element]"));
+
+
+							}, 1800);
+
+							setTimeout(function() {
+
+								$(".scheme").addClass("active");
+
+							}, 2000);
+
+						}, 2200);
+
+
+					});
+					setTimeout(function() {
+						$(".page-preloader").removeClass("active-block");
+					}, 5000);
 
 				},
 
@@ -816,7 +864,7 @@
 
 					self.$svg.find("path").removeAttr("class");
 
-					self.$svg.find("path[id=" + shopId + "]").attr("class", "active");
+					self.$svg.find("path[data-tooltip-element=" + shopId + "]").attr("class", "active");
 				},
 
 				dragSchema: function (schemaBlock, schemaSvg, valueQuantity) {
@@ -850,7 +898,7 @@
 				tooltip: function($tooltipElement) {
 
 					$tooltipElement.tooltipster({
-						content: 'Loading...',
+						content: "loading....",
 						contentCloning: true,
 
 						contentAsHTML: true,
@@ -868,17 +916,26 @@
 
 							var idOrigin = helper.origin.dataset.tooltipElement;
 
-				            $.get("../../pages/tooltip-element.php", function(data) {
+				            $.get("tooltip-element.php", function(data) {
 								jsonToolTip = $.parseJSON(data);
-								console.log(data);
-								if (idOrigin == jsonToolTip[0].id) {
-									instance.content('<div id="'+idOrigin+'" class="tooltip-container"><p>'+ jsonToolTip[0].id.toUpperCase() +'</p><p>т.'+ jsonToolTip[0].mobile +'</p><p>'+ jsonToolTip[0].shopProducts +'</p><a href="shops_detail.html" class="link link--darkgray tooltip-container-link animation-link rippler rippler-default">Узнать больше</a></div><div class="tooltip-close"><span>x</span></div>');
 
-									$(".tooltip-close").on("click", function(){
-										instance._$origin.tooltipster("hide");
-							        });
+								for (var itemIdShop = 0; itemIdShop < jsonToolTip.length; itemIdShop++) {
+
+									if (idOrigin == jsonToolTip[itemIdShop].id) {
+
+
+										instance.content('<div id="'+idOrigin+'" class="tooltip-container"><p>'+ jsonToolTip[itemIdShop].id.toUpperCase() +'</p><p>т.'+ jsonToolTip[itemIdShop].mobile +'</p><p>'+ jsonToolTip[itemIdShop].shopProducts +'</p><p>'+ jsonToolTip[itemIdShop].timeWork +'</p><a href="shops_detail.html" class="link link--darkgray tooltip-container-link animation-link rippler rippler-default">Узнать больше</a></div><div class="tooltip-close"><span>x</span></div>');
+
+										$(".tooltip-close").on("click", function(){
+											instance._$origin.tooltipster("hide");
+										});
+										return;
+									} else {
+										instance.content("<span class='no-info'>Информация по данному магазину отсутствует</span>");
+									}
 
 								}
+
 				            });
 
 					    },
@@ -939,53 +996,6 @@
 
 					});
 
-
-				},
-
-
-				preload: function() {
-					var self = this;
-
-					$(".page-preloader").addClass("active-block");
-
-					setTimeout(function() {
-						$(".page-preloader").addClass("active");
-					}, 600);
-
-					$sel.window.on("load", function() {
-						$("html, body").animate({ scrollTop: 0 }, 100);
-
-						setTimeout(function() {
-							$(".page-preloader").removeClass("active");
-
-							setTimeout(function() {
-
-								$(".scheme").addClass("active-block");
-
-								self.$svg = $(".scheme-inner-container svg");
-								self.$svgContainer = $(".scheme-inner-container-svg");
-
-								posQuatity = self.Zoom();
-								self.dragSchema(self.$svgContainer, self.$svg, posQuatity);
-
-								self.tooltip($("[data-tooltip-element]"));
-
-
-							}, 1800);
-
-							setTimeout(function() {
-
-								$(".scheme").addClass("active");
-
-							}, 2000);
-
-						}, 2200);
-
-
-					});
-					setTimeout(function() {
-						$(".page-preloader").removeClass("active-block");
-					}, 5000);
 
 				},
 
