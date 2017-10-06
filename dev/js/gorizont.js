@@ -749,7 +749,7 @@
 					self.toggleFloor.init();
 
 				},
-				
+
 				preload: function() {
 					var self = this;
 
@@ -913,10 +913,15 @@
 						theme: ["tooltipster-white"],
 
 						functionBefore: function(instance, helper) {
+							instance.content("");
 
 							var idOrigin = helper.origin.dataset.tooltipElement;
 
-				            $.get("tooltip-element.php", function(data) {
+							elementBlock = $sel.body.find("[data-shop="+idOrigin+"]");
+
+							instance.content(elementBlock);
+
+				            /*$.get("tooltip-element.php", function(data) {
 								jsonToolTip = $.parseJSON(data);
 
 								for (var itemIdShop = 0; itemIdShop < jsonToolTip.length; itemIdShop++) {
@@ -936,10 +941,16 @@
 
 								}
 
-				            });
+				            });*/
 
 					    },
 
+
+						functionReady: function(instance, helper) {
+							$sel.body.find(".tooltip-close").on("click", function(){
+								instance._$origin.tooltipster("hide");
+							});
+						},
 					});
 
 
