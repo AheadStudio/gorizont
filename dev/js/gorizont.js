@@ -434,16 +434,16 @@
 									img: "/dummy/catalog/2.jpg"
 								}
 							}, {
-								value: "Галстук",
+								value: "Ostin",
 								data: {
-									id: "H&M",
+									id: "ostin",
 									category: "Одежда",
 									img: "/dummy/catalog/3.jpg"
 								}
 							}, {
-								value: "Классическая рубашка",
+								value: "Zolla",
 								data: {
-									id: "H&M",
+									id: "zolla",
 									category: "Одежда",
 									img: "/dummy/catalog/4.jpg"
 								}
@@ -833,12 +833,17 @@
 
 							resultQuatity = +zoomQuantity - 0.5;
 
+							$containerSvg = self.$svg.parent();
+
+							$containerSvgWidth = self.$svg.parent().width() / resultQuatity;
+							$containerSvgHeight = self.$svg.parent().height() / resultQuatity;
+
 							self.$svg.css({
 								"-webkit-transform" : "scale(" + resultQuatity + ")",
 								"-moz-transform"    : "scale(" + resultQuatity + ")",
 								"-ms-transform"     : "scale(" + resultQuatity + ")",
 								"-o-transform"      : "scale(" + resultQuatity + ")",
-								"transform"         : "scale(" + resultQuatity + ")"
+								"transform"         : "scale(" + resultQuatity + ")",
 							});
 
 							$zoomIn.attr("zoom-quantity", resultQuatity);
@@ -864,7 +869,11 @@
 
 					self.$svg.find("path").removeAttr("class");
 
-					self.$svg.find("path[data-tooltip-element=" + shopId + "]").attr("class", "active");
+					$itemSvg = self.$svg.find("path[data-tooltip-element=" + shopId + "]").attr("class", "active");
+
+					numFloor = $itemSvg.parents(".scheme-inner-container-svg").attr("id");
+					self.toggleFloor.init(numFloor);
+
 				},
 
 				dragSchema: function (schemaBlock, schemaSvg, valueQuantity) {
@@ -873,24 +882,24 @@
 
 					schemaBlock.draggable({
 				        containment: $(this).parent(),
-						cursor: "move",
+						cursor: "-webkit-grabbing",
 						drag: function(event, ui) {
 							var leftPosition = ui.position.left,
 								topPosition = ui.position.top;
 
-							if (leftPosition > schemaSvgMaxWidth) {
-								ui.position.left = schemaSvgMaxWidth;
-							}
-							if (leftPosition < -schemaSvgMaxWidth) {
-								ui.position.left = -schemaSvgMaxWidth;
-							}
-							if (topPosition > schemaSvgMaxHeight) {
-								ui.position.top = schemaSvgMaxHeight;
-							}
-							if (topPosition < -schemaSvgMaxHeight) {
-								ui.position.top = -schemaSvgMaxHeight;
-							}
 
+							if (leftPosition > "1200") {
+								ui.position.left = "1200";
+							}
+							if (leftPosition < "-1200") {
+								ui.position.left = "-1200";
+							}
+							if (topPosition > "650") {
+								ui.position.top = "650";
+							}
+							if (topPosition < "-650") {
+								ui.position.top = "-650";
+							}
 						}
 				    });
 				},
@@ -920,6 +929,8 @@
 							elementBlock = $sel.body.find("[data-shop="+idOrigin+"]");
 
 							instance.content(elementBlock);
+
+							// for getting information about the store from a file
 
 				            /*$.get("tooltip-element.php", function(data) {
 								jsonToolTip = $.parseJSON(data);
@@ -1012,12 +1023,19 @@
 
 				toggleFloor: {
 
-					init: function() {
+					init: function(numFloor=false) {
 
-						var self = this;
+						var self = this,
+							$tabsScheme = $sel.body;
+
+						if (numFloor) {
+							self.hideAll($tabsScheme, function() {
+								self.show(numFloor, $tabsScheme);
+							});
+						}
+
 						$(".scheme-information-floor-item").on("click", function(e) {
 							var $item = $(this),
-								$tabsScheme = $sel.body,
 								itemDataFloor = $item.data("floor");
 
 							if(!$tabsScheme.hasClass("inactive")) {
@@ -1056,7 +1074,7 @@
 							}
 						}, 100);
 
-					}
+					},
 
 				},
 
@@ -1099,11 +1117,13 @@
 	GORIZONT.schema.init();
 
 	GORIZONT.reload = function() {
+
 		GORIZONT.load.init();
 
 		GORIZONT.scrollAnimation.init();
 
 		GORIZONT.accordion.init();
+
 		ymaps.ready(function() {
 			GORIZONT.yandexMap.init();
 		});
@@ -1121,12 +1141,14 @@
 		GORIZONT.form.init();
 
 		GORIZONT.gallery();
+		GORIZONT.initAjaxLoader();
 
 		GORIZONT.menu();
 		GORIZONT.dropdown.init();
 
 		GORIZONT.animateButton();
 
+		GORIZONT.schema.init();
 	}
 
 })(jQuery);
