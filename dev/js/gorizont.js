@@ -56,6 +56,7 @@
 				go: function(topPos, speed, callback) {
 					var curTopPos = $sel.window.scrollTop(),
 						diffTopPos = Math.abs(topPos - curTopPos);
+
 					$sel.body.add($sel.html).animate({
 						"scrollTop": topPos
 					}, speed, function() {
@@ -427,10 +428,10 @@
 									img: "/dummy/catalog/2.jpg"
 								}
 							}, {
-								value: "Пальто",
+								value: "Спортмастер",
 								data: {
-									id: "H&M",
-									category: "Магазин Ostin на карте - 1 этаж",
+									id: "sportmaster",
+									category: "Магазин Спортмастер 1-этаж",
 									img: "/dummy/catalog/2.jpg"
 								}
 							}, {
@@ -603,12 +604,24 @@
 
 							$item.height(curHeight);
 
-							self.animateToggle($item.css("background", itemColor), autoHeight, 50, true);
+							self.animateToggle($item.css("background", itemColor), autoHeight, 100, true);
+
+							self.animateToggle($item.siblings().css("background", "transparent"), curHeight, 100, false);
+
 							setTimeout(function() {
-								GORIZONT.common.go($item.offset().top, 500);
+								if ($(window).width() <= 768) {
+									setTimeout(function() {
+										GORIZONT.common.go($item.offset().top-90, 500);
+									}, 350);
+
+								} else {
+									setTimeout(function() {
+										GORIZONT.common.go($item.offset().top, 500);
+									}, 350);
+								}
 							}, 350);
 
-							self.animateToggle($item.siblings().css("background", "transparent"), curHeight, 10, false);
+
 
 						} else if ($item.hasClass("acordeon-container-item--active")) {
 							self.animateToggle($item, "150px", 50, false);
@@ -872,7 +885,14 @@
 					$itemSvg = self.$svg.find("path[data-tooltip-element=" + shopId + "]").attr("class", "active");
 
 					numFloor = $itemSvg.parents(".scheme-inner-container-svg").attr("id");
-					self.toggleFloor.init(numFloor);
+
+					if (!$itemSvg.parents(".scheme-inner-container-svg").hasClass("active")) {
+						self.toggleFloor.init(numFloor);
+					}
+
+					setTimeout(function() {
+						$itemSvg.removeAttr("class");
+					}, 3500);
 
 				},
 
@@ -1117,20 +1137,16 @@
 	GORIZONT.schema.init();
 
 	GORIZONT.reload = function() {
-
 		GORIZONT.load.init();
 
 		GORIZONT.scrollAnimation.init();
 
 		GORIZONT.accordion.init();
-
 		ymaps.ready(function() {
 			GORIZONT.yandexMap.init();
 		});
 		GORIZONT.toggler.init();
 		GORIZONT.stickBlock.init();
-		GORIZONT.initSSM();
-
 
 		GORIZONT.slider.init();
 
@@ -1141,14 +1157,12 @@
 		GORIZONT.form.init();
 
 		GORIZONT.gallery();
-		GORIZONT.initAjaxLoader();
 
 		GORIZONT.menu();
 		GORIZONT.dropdown.init();
 
 		GORIZONT.animateButton();
 
-		GORIZONT.schema.init();
 	}
 
 })(jQuery);

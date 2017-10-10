@@ -114,8 +114,8 @@
 		"scheme": {
 			"name": "Схема комплекса",
 			"progress": {
-				"desktop": "80",
-				"tablet": "10",
+				"desktop": "100",
+				"tablet": "90",
 				"mobile": "100"
 			}
 		},
