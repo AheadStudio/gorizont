@@ -230,6 +230,18 @@
 						placeholderText: "",
 					});
 
+					jcf.setOptions("Select", {
+						wrapNative: false,
+						wrapNativeOnMobile: false
+					});
+					var $selects = $("select", $container);
+					$selects.each(function(i) {
+						var $select = $(this),
+							selectPlaceholder = $select.attr("placeholder");
+
+						jcf.replace($select);
+					});
+
 					jcf.replace($(".form-item--file", $container));
 
 					$.validator.setDefaults({
@@ -759,6 +771,8 @@
 
 					self.preload();
 
+					self.LightenDarkenColor.init();
+
 					self.toggleFloor.init();
 
 				},
@@ -819,7 +833,7 @@
 						var $buttonZoom = $(this)
 							zoomQuantity = $zoomIn.attr("zoom-quantity");
 
-						if (zoomQuantity < 2) {
+						if (zoomQuantity < 10) {
 
 							resultQuatity = +zoomQuantity + 0.5;
 
@@ -842,7 +856,7 @@
 						var $buttonZoom = $(this)
 							zoomQuantity = $zoomIn.attr("zoom-quantity");
 
-						if (zoomQuantity <= 2 && zoomQuantity > 1) {
+						if (zoomQuantity <= 10 && zoomQuantity > 1) {
 
 							resultQuatity = +zoomQuantity - 0.5;
 
@@ -908,7 +922,7 @@
 								topPosition = ui.position.top;
 
 
-							if (leftPosition > "1200") {
+							/*if (leftPosition > "1200") {
 								ui.position.left = "1200";
 							}
 							if (leftPosition < "-1200") {
@@ -919,7 +933,7 @@
 							}
 							if (topPosition < "-650") {
 								ui.position.top = "-650";
-							}
+							}*/
 						}
 				    });
 				},
@@ -1070,6 +1084,24 @@
 							}
 						});
 
+						$(".scheme-information-floor-item-select").on("change", function(e) {
+							var $item = $(this),
+								itemDataFloor = $item.val();
+
+
+							if(!$tabsScheme.hasClass("inactive")) {
+								if(!$item.hasClass("active")) {
+									self.hideAll($tabsScheme, function() {
+										self.show(itemDataFloor, $tabsScheme);
+									});
+
+
+								}
+								e.preventDefault();
+							}
+						});
+
+
 					},
 
 					show: function(itemDataFloor, $tabsScheme) {
@@ -1098,6 +1130,65 @@
 
 				},
 
+
+				LightenDarkenColor: {
+
+					init: function() {
+						var self = this,
+							$allSvg = $(".scheme-inner-container-svg").children("svg"),
+							idElementSvg = $("path", $allSvg);
+
+						idElementSvg.each(function() {
+							var item = $(this),
+								idItem = item.attr("d"),
+								colorItem = item.attr("fill");
+								cloneSvg = $(".scheme-inner-container-svg-clone>svg", $sel.body);
+
+							var lightColor = self.changeColor(colorItem, 10),
+								cloneSvgElement = $("path", cloneSvg);
+
+							cloneSvgElement.each(function() {
+								var itemClone = $(this),
+									idCloneItem = itemClone.attr("d");
+
+								if (idCloneItem == idItem) {
+									itemClone.attr("fill", lightColor);
+								}
+							});
+
+						});
+					},
+
+					changeColor: function(col, amt) {
+
+						var usePound = false;
+
+						if (col[0] == "#") {
+							col = col.slice(1);
+							usePound = true;
+						}
+
+						var num = parseInt(col,16);
+
+						var r = (num >> 16) + amt;
+
+						if (r > 255) r = 255;
+						else if  (r < 0) r = 0;
+
+						var b = ((num >> 8) & 0x00FF) + amt;
+
+						if (b > 255) b = 255;
+						else if  (b < 0) b = 0;
+
+						var g = (num & 0x0000FF) + amt;
+
+						if (g > 255) g = 255;
+						else if (g < 0) g = 0;
+
+						return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
+
+					}
+				}
 			}
 
 		};

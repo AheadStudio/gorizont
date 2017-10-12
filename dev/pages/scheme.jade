@@ -11,6 +11,11 @@ block content
                 
                 div(class="scheme-information") 
                     div(class="scheme-information-floor-items")
+                        select(class="scheme-information-floor-item-select", placeholder="1 этаж")
+                            option(class="scheme-information-floor-item active", value="floor-1") 1 этаж
+                            option(class="scheme-information-floor-item", value="floor-2") 2 этаж
+                            option(class="scheme-information-floor-item", value="loor-3") 3 этаж
+
                         button(type"button", class="scheme-information-floor-item active", data-floor="floor-1") 1 этаж
                         button(type"button", class="scheme-information-floor-item", data-floor="floor-2") 2 этаж
                         button(type"button", class="scheme-information-floor-item", data-floor="floor-3") 3 этаж
@@ -23,7 +28,7 @@ block content
                     div(class="scheme-inner")
                         div(class="scheme-inner-container")
                             div(class="scheme-inner-container-svg active active-scheme-svg", id="floor-1")
-                                include ../../prod/svg/schema.svg  
+                                include ../../prod/svg/schema.svg 
                                 div(class="scheme-inner-container-svg-clone clone-1")
                                     include ../../prod/svg/schema.svg
                                 div(class="scheme-inner-container-svg-clone clone-2")
