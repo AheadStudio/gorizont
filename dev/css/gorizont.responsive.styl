@@ -290,6 +290,29 @@
 			.home-comfort-gallery
 				width 30%
 
+	.mfp-conventions
+		.popup-conventions
+
+			.popup-conventions--left
+				display block
+				width 90%
+				margin 0 auto
+				margin-bottom 30px
+
+				.popup-conventions-color-items
+					column-count 3
+
+			.popup-conventions--right
+				display block
+				width 90%
+				margin 0 auto
+				margin-bottom 30px
+
+			.mfp-close:not(.mfp-close-icn)
+				top -70px
+				right 20px
+
+
 
 @media screen and (max-width: 990px)
 	.page-header
@@ -476,6 +499,9 @@
 
 				text-align right
 
+	.mfp-conventions
+		.popup-conventions
+			width 100%
 
 
 
@@ -561,6 +587,7 @@
 
 .page-preloader
 	margin-top 120px
+
 @media screen and (max-width: 768px)
 
 	.application-form
@@ -781,6 +808,14 @@
 			.home-welcome-location
 				font-size 18px
 
+
+	.mfp-conventions
+		.popup-conventions
+
+			.popup-conventions--left
+
+				.popup-conventions-color-items
+					column-count 2
 
 @media screen and (max-width: 640px)
 	.application-form
@@ -1292,6 +1327,26 @@
 					display inline-block
 
 
+	.mfp-conventions
+		.popup-conventions
+
+			.popup-conventions--left
+
+				.popup-conventions-color-items
+					column-count 1
+
+					.popup-conventions-color-item
+						display block
+						width 100%
+
+						.popup-conventions-color-item-text
+							width 90%
+
+			.popup-conventions--right
+				display block
+				.popup-conventions-icon-items
+					grid-template-columns 1fr 1fr
+
 
 @media screen and (max-width: 430px)
 
@@ -1576,3 +1631,22 @@
 
 		.scheme-controls
 			right 20px
+
+	.scheme
+		.scheme-container
+			.scheme-inner-container
+				width 500px
+
+
+	.mfp-conventions
+		.popup-conventions
+			.popup-conventions--left
+				.popup-conventions-color-items
+					.popup-conventions-color-item
+						.popup-conventions-color-item-text
+							width 85%
+
+			.popup-conventions--right
+				display block
+				.popup-conventions-icon-items
+					grid-template-columns 1fr

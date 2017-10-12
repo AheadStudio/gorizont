@@ -770,9 +770,9 @@
 					var self = this;
 
 					self.preload();
-
-					self.LightenDarkenColor.init();
-
+					setTimeout(function() {
+						self.LightenDarkenColor.init();
+					}, 3000);
 					self.toggleFloor.init();
 
 				},
@@ -1136,25 +1136,18 @@
 					init: function() {
 						var self = this,
 							$allSvg = $(".scheme-inner-container-svg").children("svg"),
-							idElementSvg = $("path", $allSvg);
+							elementSvg = $("path", $allSvg),
 
-						idElementSvg.each(function() {
+							cloneSvg= $(".scheme-inner-container-svg-clone>svg", $sel.body);
+							console.log(cloneSvg);
+
+						elementSvg.each(function() {
 							var item = $(this),
 								idItem = item.attr("d"),
-								colorItem = item.attr("fill");
-								cloneSvg = $(".scheme-inner-container-svg-clone>svg", $sel.body);
+								colorItem = item.attr("fill"),
+							    lightColor = self.changeColor(colorItem, 10);
 
-							var lightColor = self.changeColor(colorItem, 10),
-								cloneSvgElement = $("path", cloneSvg);
-
-							cloneSvgElement.each(function() {
-								var itemClone = $(this),
-									idCloneItem = itemClone.attr("d");
-
-								if (idCloneItem == idItem) {
-									itemClone.attr("fill", lightColor);
-								}
-							});
+							$cloneLement = cloneSvg.find('path[d="' + idItem + '"]').attr("fill", lightColor);
 
 						});
 					},
