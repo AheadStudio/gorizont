@@ -860,8 +860,6 @@
 
 							resultQuatity = +zoomQuantity - 0.5;
 
-							$containerSvg = self.$svg.parent();
-
 							$containerSvgWidth = self.$svg.parent().width() / resultQuatity;
 							$containerSvgHeight = self.$svg.parent().height() / resultQuatity;
 
@@ -879,10 +877,22 @@
 
 						}
 						if (zoomQuantity == 1) {
-							self.$svgContainer.css({
-								"left" : "0px",
-								"top"  : "0px",
-							});
+							setTimeout(function() {
+								self.$svgContainer.animate({
+									"left" : "0",
+									"top"  : "0",
+								}, 500);
+							}, 500);
+						} else {
+							initialPosX = self.$svg.parent().position().left;
+							initialPosY = self.$svg.parent().position().top;
+							setTimeout(function() {
+								self.$svgContainer.animate({
+									"left" : initialPosX - (initialPosX / zoomQuantity),
+									"top"  : initialPosY - (initialPosY / zoomQuantity),
+								}, 500);
+							}, 500);
+
 						}
 
 					});
@@ -1139,13 +1149,13 @@
 							elementSvg = $("path", $allSvg),
 
 							cloneSvg= $(".scheme-inner-container-svg-clone>svg", $sel.body);
-							console.log(cloneSvg);
+
 
 						elementSvg.each(function() {
 							var item = $(this),
 								idItem = item.attr("d"),
 								colorItem = item.attr("fill"),
-							    lightColor = self.changeColor(colorItem, 10);
+							    lightColor = self.changeColor(colorItem, -20);
 
 							$cloneLement = cloneSvg.find('path[d="' + idItem + '"]').attr("fill", lightColor);
 
