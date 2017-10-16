@@ -881,8 +881,8 @@
 								self.$svgContainer.animate({
 									"left" : "0",
 									"top"  : "0",
-								}, 500);
-							}, 500);
+								}, 100);
+							}, 200);
 						} else {
 							initialPosX = self.$svg.parent().position().left;
 							initialPosY = self.$svg.parent().position().top;
@@ -891,7 +891,7 @@
 									"left" : initialPosX - (initialPosX / zoomQuantity),
 									"top"  : initialPosY - (initialPosY / zoomQuantity),
 								}, 500);
-							}, 500);
+							}, 200);
 
 						}
 
