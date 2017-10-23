@@ -5,7 +5,7 @@ block content
         div(class="page-inner page-inner--w1 page-inner--relative")
             div(class="home-promo")
                 div(class="home-promo-holder")
-                    video(muted="muted", loop="loop", autoplay="autoplay", width="150%", playsinline, poster="../i/home_bg.jpg", class="home-promo-holder-video")
+                    video(muted="muted", autoplay="autoplay", loop="loop", width="100%", playsinline, class="home-promo-holder-video")
                          source(src="../dummy/main.mp4", type="video/mp4")
                 div(class="home-promo-count")
                     div(class="home-promo-count-img")
@@ -111,8 +111,8 @@ block content
             div(class="home-news")
                 div(class="page-title") Горизонт Life & Style
                 div(class="shares")
-                    div(class="shares-container-items")
-                        a(href="article.html", class="link link--darkgray shares-item shares-item--title-bold animation-block", data-animation="true")
+                    div(class="shares-container-items animation-block", data-animation="true")
+                        a(href="article.html", class="link link--darkgray shares-item shares-item--title-bold")
                             div(class="shares-item-heading")
                                 div(class="shares-item-photo-holder")
                                     img(src="../dummy/two_girls.jpg", class="shares-item-photo")
@@ -123,21 +123,21 @@ block content
                                 div(class="shares-item-content-shop") Mustang
                                 div(class="shares-item-content-tag") Новое открытие
                                 
-                        a(href="article.html", class="link link--darkgray shares-item animation-block", data-animation="true")
+                        a(href="article.html", class="link link--darkgray shares-item")
                             div(class="shares-item-content")
                                 div(class="shares-item-content-title")
                                     span(class="link shares-item-content-title-text") Желанный подарок вернулся
                                 div(class="shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
                                 div(class="shares-item-content-tag") новость
 
-                        a(href="article.html", class="link link--darkgray shares-item animation-block", data-animation="true")
+                        a(href="article.html", class="link link--darkgray shares-item", data-animation="true")
                             div(class="shares-item-content")
                                 div(class="shares-item-content-title")
                                     span(class="link shares-item-content-title-text") Концерт духового аркестра
                                 div(class="shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
                                 div(class="shares-item-content-tag") новость
                                 
-                        a(href="article.html", class="link link--darkgray shares-item animation-block", data-animation="true")
+                        a(href="article.html", class="link link--darkgray shares-item")
                             div(class="shares-item-heading")
                                 div(class="shares-item-photo-holder")
                                     img(src="../dummy/model.jpg", class="shares-item-photo")
@@ -148,7 +148,7 @@ block content
                                 div(class="shares-item-content-shop") L'Oral
                                 div(class="shares-item-content-tag") спец. предложение
 
-                        a(href="article.html", class="link link--darkgray shares-item animation-block", data-animation="true")
+                        a(href="article.html", class="link link--darkgray shares-item")
                             div(class="shares-item-heading")
                                 div(class="shares-item-photo-holder")
                                     img(src="../dummy/children_day.jpg", class="shares-item-photo")
@@ -158,7 +158,7 @@ block content
                                 div(class="shares-item-content-text") Каждый вторник в Горизонте вас ждут скидки и приятные сюрпризы
                                 div(class="shares-item-content-tag") Мероприятие
                                 
-                    a(href="shares.html", class="btn btn--red home-shares-more animation-link rippler rippler-default") Узнать больше
+                    a(href="shares.html", class="btn btn--red home-shares-more animation-link rippler rippler-inverse") Узнать больше
                 
                 div(class="jornal-news")
                     div(class="jornal-news-title")
@@ -197,5 +197,5 @@ block content
                     | г. Ростов-на-Дону, 
                     a(href="contacts.html#map", class="link link--darkgray link--gray-inverse") пр. им. М. Нагибина, 32/2
                 div(class="home-welcome-btn") 
-                    a(href="contacts.html#map", class="link btn btn--blue home-welcome-btn-map animation-link rippler rippler-default") как добраться
-                    a(href="contacts.html", class="link btn btn--red home-welcome-btn-contacts animation-link rippler rippler-default") контакты
+                    a(href="contacts.html#map", class="link btn btn--blue home-welcome-btn-map animation-link rippler rippler-inverse") как добраться
+                    a(href="contacts.html", class="link btn btn--red home-welcome-btn-contacts animation-link rippler rippler-inverse") контакты

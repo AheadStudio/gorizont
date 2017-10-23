@@ -246,7 +246,14 @@
 
 
 		.home-promo
+			display flex
+			flex-direction column
+
 			margin-bottom 190px
+
+			.home-promo-holder
+				order 2
+				width 100%
 
 			.home-promo-count
 				display block
@@ -257,6 +264,8 @@
 				margin 0 auto
 
 				width 435px
+
+				order 1
 
 				.home-promo-count-img
 					top -40px
@@ -270,6 +279,8 @@
 				width 435px
 
 				margin 0 auto
+
+				order 3
 
 				.home-promo-search-img
 					top -60px
@@ -363,6 +374,7 @@
 			text-align center
 
 		.page404
+		.about
 		.journal
 		.concept
 		.shops
@@ -503,7 +515,9 @@
 		.popup-conventions
 			width 100%
 
-
+	.home-news
+		.page-title
+			text-align left
 
 @media screen and (max-width: 840px)
 	.page-header
@@ -585,8 +599,8 @@
 			height 100vh
 			margin-top 50px
 
-.page-preloader
-	margin-top 120px
+	.page-preloader
+		margin-top 120px
 
 @media screen and (max-width: 768px)
 
@@ -1348,6 +1362,7 @@
 					grid-template-columns 1fr 1fr
 
 
+
 @media screen and (max-width: 430px)
 
 	.mfp-form
@@ -1402,8 +1417,6 @@
 
 				.form-container-item-list
 					padding 0
-
-
 
 	.page-content
 		.contacts
@@ -1503,83 +1516,46 @@
 				font-size 18px
 
 		.home-promo
+			margin-bottom 17px
+
 			.home-promo-count
 				left 0
 				width 100%
 
 				.home-promo-count-title
-					font-size 66px
+					font-size 48px
 
 				.home-promo-count-img
-					left 65%
-					top 20px
-					width 100px
+					left 73%
+					top -15px
+					width 75px
+
+				.home-promo-count-text
+					font-size 20px
+					margin-top -12px
+					width 180px
+
+			.home-promo-holder
+				margin-top -12px
 
 			.home-promo-search
-				top 80px
+				top 10px
 
 				.home-promo-search-title
 					font-size 16px
 
 				.home-promo-search-link
-					font-size 26px
+					font-size 20px
+					margin-top -18px
+
+					&:last-child
+						margin-top -12px
 
 				.home-promo-search-img
-					left 65%
-					top 20px
-					width 100px
+					left 69%
+					top -6px
+					width 85px
 
-
-		.home-comfort
-
-			.home-comfort-items
-				width 120%
-				margin-left -8%
-
-			.home-comfort-logo
-				height 250px
-
-				.home-comfort-logo-holder
-					top -5px
-
-			.home-comfort-video
-				.home-comfort-video-holder
-					width 250px
-
-					&:after
-						width 250px
-						height 250px
-
-			.home-comfort-gallery
-				.home-comfort-gallery-holder
-					width 250px
-					height 250px
-
-					&:after
-						width 250px
-						height 250px
-
-
-			.home-comfort-video
-			.home-comfort-gallery
-			.home-comfort-logo
-			.home-comfort-about
-				.home-comfort-item-link
-					left 20%
-					right auto
-					transform translateX(20%)
-
-			.home-comfort-about
-				.home-comfort-item-title
-					font-size 30px
-					width 80%
-
-				.home-comfort-item-prev
-					top 150px
-					line-height 30px
-
-				.home-comfort-item-link
-					bottom 15px
 		.home-welcome
 			margin-top 650px
 
@@ -1615,8 +1591,6 @@
 					display block
 					margin-bottom 15px
 
-
-
 	.scheme
 		.scheme-information
 			.scheme-information-floor-items
@@ -1637,7 +1611,6 @@
 			.scheme-inner-container
 				width 500px
 
-
 	.mfp-conventions
 		.popup-conventions
 			.popup-conventions--left
@@ -1650,3 +1623,187 @@
 				display block
 				.popup-conventions-icon-items
 					grid-template-columns 1fr
+
+	.page-content
+		.offers
+			&:after
+				top 85px
+				height 99%
+
+			.offers-items
+				&:before
+					top 94.6%
+
+				.offers-item
+					height 325px
+					margin-bottom 23px
+
+					.offers-item-heading
+						padding 30px
+
+						.offers-item-heading-tag
+							margin-bottom 13px
+			&--concept
+				.offers-items
+					&:before
+						top 86.6%
+
+		.home-news
+			margin-top 117px
+
+			.page-title
+				line-height 1.22
+
+			.shares
+				margin-top 48px
+
+				.home-shares-more
+					margin-top -30px
+
+			.jornal-news
+				margin-top 73px
+
+				.jornal-news-title
+					margin-bottom 25px
+
+					.jornal-news-title-number
+						width 100%
+						margin-bottom 5px
+
+		.home-comfort
+			margin-top 175px
+
+			&:before
+				height  130%
+
+			.home-comfort-items
+				position relative
+				display flex
+				flex-direction column
+
+				width 120%
+				margin-left -8%
+
+
+			.home-comfort-video
+				height 333px
+
+				order 1
+
+				.home-comfort-item-link
+					left 17%
+					width 195px
+					top 13%
+					right 0
+
+					transform translateX(0)
+
+
+				.home-comfort-video-holder
+					left 6%
+					top 29%
+
+					width 276px
+
+					&:after
+						width 260px
+						height 275px
+
+			.home-comfort-logo
+				order 3
+
+				.home-comfort-logo-holder
+					width 135px
+					top 18%
+
+				.home-comfort-item-link
+					width 117px
+					left 6%
+					top 85%
+					transform: translateX(0%)
+					z-index 1000
+
+			.home-comfort-gallery
+				order 2
+				margin-top 0
+				z-index -100
+				height 330px
+				top -55px
+				
+				z-index 100
+
+				.home-comfort-gallery-holder
+					top 39%
+					left 7%
+					width 268px
+					height 250px
+
+
+					&:after
+						top 15px
+						left 15px
+
+						width 255px
+						height 255px
+
+				.home-comfort-item-link
+					width 145px
+					top 52%
+					left 8%
+					right 0
+					transform: translateX(0%)
+					z-index 1000
+
+			.home-comfort-about
+				order 4
+				position absolute
+				top 101%
+
+				.home-comfort-item-title
+					top -20%
+					width 200px
+
+					left 5%
+
+				.home-comfort-item-prev
+					top 32%
+					left 6%
+
+				.home-comfort-item-link
+					top 82%
+					left 6%
+
+					width 135px
+
+		.home-welcome
+			margin-top 505px
+
+			.home-welcome-title
+				font-size 55px
+
+				margin-bottom 85px
+
+				&:after
+					right -8px
+					top -85px
+					width 140px
+
+			.home-welcome-location
+				margin-bottom 61px
+
+			.home-welcome-btn-map
+				margin-bottom 34px
+
+	.shares
+		.shares-item--title-bold
+			.shares-item-content
+				.shares-item-content-title
+					span
+						font-size 24px
+						line-height 1.1
+	.shares
+		.shares-item
+			.shares-item-content
+				.shares-item-content-title
+					span
+						line-height 1.1

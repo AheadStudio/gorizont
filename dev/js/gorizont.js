@@ -36,7 +36,7 @@
 						block = false,
 						blockTop = false,
 						top = $sel.window.scrollTop(),
-						buffer = parseInt($sel.window.height()) / 1.5;
+						buffer = parseInt($sel.window.height()) / 1.15;
 					for(var i = 0, len = self.blocks.length; i < len; i++) {
 						block = self.blocks[i],
 						blockTop = parseInt(block.top, 10);
@@ -501,7 +501,7 @@
 							var strItem = " ";
 
 							itemName = suggestion.value.toUpperCase().replace(currentValue.toUpperCase(), "<b>" + currentValue.toUpperCase() + "</b>");
-							strItem += '<a href="#" class="search-item">' + '<div class="search-item-name">' + itemName + " / " + suggestion.data.category +'</div>' + '</a>';
+							strItem += '<a href="#" class="search-item" data-tooltip-element="'+ suggestion.data.id + '">' + '<div class="search-item-name">' + itemName + " / " + suggestion.data.category +'</div>' + '</a>';
 							return strItem;
 						},
 						onSelect: function(suggestion) {
@@ -582,7 +582,6 @@
 					$($toggler.data("text")).removeClass("show").css("display", "none");
 				}
 			},
-
 
 			accordion: {
 
@@ -797,7 +796,7 @@
 								$(".scheme").addClass("active-block");
 
 								self.$svg = $(".scheme-inner-container svg");
-								self.$svgContainer = $(".scheme-inner-container-svg");
+								self.$svgContainer = $(".scheme-inner-container-svg").parents(".scheme-inner");
 
 								posQuatity = self.Zoom();
 								self.dragSchema(self.$svgContainer, self.$svg, posQuatity);
@@ -927,12 +926,12 @@
 					schemaBlock.draggable({
 				        containment: $(this).parent(),
 						cursor: "-webkit-grabbing",
-						drag: function(event, ui) {
-							var leftPosition = ui.position.left,
+						drag: function() {
+							/*var leftPosition = ui.position.left,
 								topPosition = ui.position.top;
 
 
-							/*if (leftPosition > "1200") {
+							if (leftPosition > "1200") {
 								ui.position.left = "1200";
 							}
 							if (leftPosition < "-1200") {
@@ -949,7 +948,11 @@
 				},
 
 				tooltip: function($tooltipElement) {
-
+					if ($(window).width() <= 768) {
+						$trigger = "click";
+					} else {
+						$trigger = "hover";
+					}
 					$tooltipElement.tooltipster({
 						content: "loading....",
 						contentCloning: true,
@@ -964,6 +967,8 @@
 						updateAnimation: "fade",
 
 						theme: ["tooltipster-white"],
+
+						trigger: $trigger,
 
 						functionBefore: function(instance, helper) {
 							instance.content("");
@@ -1006,60 +1011,6 @@
 								instance._$origin.tooltipster("hide");
 							});
 						},
-					});
-
-
-				},
-
-				// works but there are bugs
-				myTootip: function() {
-
-					var self = this;
-						$tooltipItem = $("[data-tooltip-element]");
-
-					$tooltipItem.on("mouseenter", function(e) {
-						var tooltipItem = $(this),
-							tooltipItemId = tooltipItem.attr("id"),
-							tooltipContainer =  $sel.body.find("[data-tooltip='" + tooltipItemId + "']"),
-							posTooltipX = e.pageX,
-							posTooltipY = e.pageY;
-
-						if (!tooltipItem.attr("class")) {
-
-							tooltipContainer.offset({top: posTooltipY, left: posTooltipX});
-
-							tooltipContainer.css("display", "block");
-
-							setTimeout(function() {
-								tooltipContainer.addClass("active");
-							}, 150);
-
-							tooltipItem.attr("class", "active");
-						}
-
-					});
-
-
-					$tooltipItem.on("mouseleave", function(e) {
-						var tooltipItem = $(this),
-							tooltipItemId = tooltipItem.attr("id"),
-							tooltipContainer =  $sel.body.find("[data-tooltip='" + tooltipItemId + "']"),
-							posTooltipX = e.pageX,
-							posTooltipY = e.pageY;
-
-							if (tooltipItem.attr("class")) {
-								tooltipContainer.offset({top: 0, left: 0});
-								console.log("asd");
-
-								setTimeout(function() {
-									tooltipContainer.removeClass("active");
-								}, 150);
-
-								tooltipContainer.css("display", "none");
-
-								tooltipItem.removeAttr("class");
-							}
-
 					});
 
 
@@ -1140,7 +1091,6 @@
 
 				},
 
-
 				LightenDarkenColor: {
 
 					init: function() {
@@ -1193,7 +1143,6 @@
 					}
 				}
 			}
-
 		};
 
 	})();

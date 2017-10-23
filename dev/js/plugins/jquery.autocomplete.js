@@ -131,7 +131,7 @@
         if (!currentValue) {
             return suggestion.value;
         }
-        
+
         var pattern = '(' + utils.escapeRegExChars(currentValue) + ')';
 
         return suggestion.value
@@ -225,7 +225,7 @@
         onBlur: function () {
             this.enableKillerFn();
         },
-        
+
         abortAjax: function () {
             var that = this;
             if (that.currentRequest) {
@@ -354,8 +354,8 @@
             that.stopKillSuggestions();
             that.intervalId = window.setInterval(function () {
                 if (that.visible) {
-                    // No need to restore value when 
-                    // preserveInput === true, 
+                    // No need to restore value when
+                    // preserveInput === true,
                     // because we did not change it
                     if (!that.options.preserveInput) {
                         that.el.val(that.currentValue);
@@ -363,7 +363,7 @@
 
                     that.hide();
                 }
-                
+
                 that.stopKillSuggestions();
             }, 50);
         },
