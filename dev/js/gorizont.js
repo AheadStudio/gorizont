@@ -342,8 +342,6 @@
 
 			},
 
-
-
 			yandexMap: {
 				$map: false,
 				map: false,
@@ -378,7 +376,6 @@
 					self.map.geoObjects.add(placemark1);
 				}
 			},
-
 
 			hoverElement: {
 
@@ -422,78 +419,45 @@
 						source: false,
 						lookup: [
 							{
-								value: "Пиджак",
-								data: {
-									category: "Одежда",
-									img: "/dummy/catalog/1.jpg"
-								}
-							}, {
 								value: "Пальто",
 								data: {
 									category: "Одежда",
-									img: "/dummy/catalog/2.jpg"
-								}
-							}, {
-								value: "Пальто",
-								data: {
-									category: "Магазин H&M на карте - 1 этаж",
-									img: "/dummy/catalog/2.jpg"
 								}
 							}, {
 								value: "Спортмастер",
 								data: {
 									id: "sportmaster",
 									category: "Магазин Спортмастер 1-этаж",
-									img: "/dummy/catalog/2.jpg"
 								}
 							}, {
 								value: "Ostin",
 								data: {
 									id: "ostin",
-									category: "Одежда",
-									img: "/dummy/catalog/3.jpg"
+									category: "Магазин Ostin 3-этаж"
 								}
 							}, {
 								value: "Zolla",
 								data: {
 									id: "zolla",
-									category: "Одежда",
-									img: "/dummy/catalog/4.jpg"
+									category: "Магазин Zolla 1-этаж"
 								}
 							}, {
 								value: "Adidas",
 								data: {
 									id: "adidas",
-									category: "Обувь",
-									img: "/dummy/actions/1.jpg"
-								}
-							}, {
-								value: "Adidas",
-								data: {
-									id: "adidas",
-									category: "Сортивная одежда",
-									img: "/dummy/actions/2.jpg"
-								}
-							}, {
-								value: "Adidas",
-								data: {
-									id: "adidas",
-									category: "Магазин на карте - 1 этаж",
-									img: "/dummy/actions/2.jpg"
+									category: "Магазин Adidas 1-этаж"
 								}
 							}, {
 								value: "Nike",
 								data: {
 									id: "nike",
-									category: "Обувь",
-									img: "/dummy/actions/2.jpg"
+									category: "Магазин Nike 3-этаж"
 								}
 							}, {
-								value: "Nike",
+								value: "H&M",
 								data: {
-									id: "nike",
-									category: "Магазин на карте - 1 этаж",
-									img: "/dummy/actions/2.jpg"
+									id: "HM",
+									category: "Магазин H&M 2-этаж"
 								}
 							}
 						],
@@ -504,7 +468,7 @@
 							strItem += '<a href="#" class="search-item" data-tooltip-element="'+ suggestion.data.id + '">' + '<div class="search-item-name">' + itemName + " / " + suggestion.data.category +'</div>' + '</a>';
 							return strItem;
 						},
-						onSelect: function(suggestion) {
+						onSelect: function(suggestion, element) {
 							if(suggestion.data.id) {
 								GORIZONT.schema.searchElementSchema(suggestion.data.id);
 							}
@@ -759,19 +723,21 @@
 
 			},
 
-
 			schema: {
 				$svg: false,
 				$svgContainer: true,
 				loaded: false,
+				$oneScheme: false,
 
 				init: function() {
 					var self = this;
 
 					self.preload();
+
 					setTimeout(function() {
 						self.LightenDarkenColor.init();
 					}, 3000);
+
 					self.toggleFloor.init();
 
 				},
@@ -796,6 +762,9 @@
 								$(".scheme").addClass("active-block");
 
 								self.$svg = $(".scheme-inner-container svg");
+
+								self.$oneScheme = $(".scheme-inner-container").find("svg:not(.scheme-inner-container-svg-clone svg)");
+
 								self.$svgContainer = $(".scheme-inner-container-svg").parents(".scheme-inner");
 
 								posQuatity = self.Zoom();
@@ -803,22 +772,21 @@
 
 								self.tooltip($("[data-tooltip-element]"));
 
-
 							}, 1800);
 
 							setTimeout(function() {
-
 								$(".scheme").addClass("active");
-
 							}, 2000);
 
 						}, 2200);
 
-
 					});
 					setTimeout(function() {
 						$(".page-preloader").removeClass("active-block");
-					}, 5000);
+
+						self.hoverElementSchema.init(false, $(".scheme-inner-container").find("svg:not(.scheme-inner-container-svg-clone svg)"));
+
+					}, 6000);
 
 				},
 
@@ -826,7 +794,6 @@
 					var self = this,
 						$zoomIn = $(".scheme-controls-zplus"),
 						$zoomOut = $(".scheme-controls-zminus");
-
 
 					$zoomIn.on("click", function() {
 						var $buttonZoom = $(this)
@@ -875,7 +842,7 @@
 							self.dragSchema(self.$svgContainer, self.$svg, +zoomQuantity-0.5);
 
 						}
-						if (zoomQuantity == 1) {
+						if (zoomQuantity == 1.5) {
 							setTimeout(function() {
 								self.$svgContainer.animate({
 									"left" : "0",
@@ -895,8 +862,8 @@
 						}
 
 					});
-					return 2
 
+					return 2
 
 				},
 
@@ -905,7 +872,9 @@
 
 					self.$svg.find("path").removeAttr("class");
 
-					$itemSvg = self.$svg.find("path[data-tooltip-element=" + shopId + "]").attr("class", "active");
+					$itemSvg = self.$oneScheme.find("path[data-tooltip-element=" + shopId + "]");
+
+					self.hoverElementSchema.init($itemSvg, false);
 
 					numFloor = $itemSvg.parents(".scheme-inner-container-svg").attr("id");
 
@@ -913,9 +882,74 @@
 						self.toggleFloor.init(numFloor);
 					}
 
+					self.$svg.find("path[data-tooltip-element]").tooltipster('close');
+
 					setTimeout(function() {
-						$itemSvg.removeAttr("class");
-					}, 3500);
+						self.$oneScheme.find("path[data-tooltip-element=" + shopId +"]").tooltipster('open');
+					}, 500);
+
+				},
+
+				hoverElementSchema: {
+
+					init: function(element=false, svg) {
+						var self = this;
+
+						if (element) {
+							if (!element.attr("class")) {
+								element.removeAttr("class");
+								element.attr("class", "active");
+
+								initColor = element.attr("fill");
+								element.attr("data-color", initColor);
+
+								changeColor = GORIZONT.schema.LightenDarkenColor.changeColor(initColor, -50);
+								element.attr("fill", changeColor);
+
+								setTimeout(function() {
+									element.removeAttr("class");
+									dataInitColor = element.attr("data-color");
+									element.attr("fill", dataInitColor);
+								}, 3500);
+
+							}
+							return;
+						}
+
+						svg.find("path").each(function() {
+							var $elementSvg = $(this);
+
+							$($elementSvg).on("mouseenter", function() {
+								var $hoverElementSvg = $(this);
+
+								if (!$hoverElementSvg.attr("class")) {
+									$hoverElementSvg.attr("class", "active");
+
+									initColor = $hoverElementSvg.attr("fill");
+									$hoverElementSvg.attr("data-color", initColor);
+
+									changeColor = GORIZONT.schema.LightenDarkenColor.changeColor(initColor, -50);
+									$hoverElementSvg.attr("fill", changeColor);
+								}
+
+							});
+
+							$($elementSvg).on("mouseleave", function() {
+								var $hoverElementSvg = $(this);
+
+								if ($hoverElementSvg.attr("class")) {
+
+									$hoverElementSvg.removeAttr("class");
+
+									dataInitColor = $hoverElementSvg.attr("data-color");
+									$hoverElementSvg.attr("fill", dataInitColor);
+								}
+
+							});
+
+						});
+
+					},
 
 				},
 
@@ -948,11 +982,13 @@
 				},
 
 				tooltip: function($tooltipElement) {
+
 					if ($(window).width() <= 768) {
 						$trigger = "click";
 					} else {
 						$trigger = "hover";
 					}
+
 					$tooltipElement.tooltipster({
 						content: "loading....",
 						contentCloning: true,
@@ -1005,14 +1041,12 @@
 
 					    },
 
-
 						functionReady: function(instance, helper) {
 							$sel.body.find(".tooltip-close").on("click", function(){
 								instance._$origin.tooltipster("hide");
 							});
 						},
 					});
-
 
 				},
 
@@ -1033,13 +1067,13 @@
 							var $item = $(this),
 								itemDataFloor = $item.data("floor");
 
+							$(".scheme-inner-container svg").find("path[data-tooltip-element]").tooltipster('close');
+
 							if(!$tabsScheme.hasClass("inactive")) {
 								if(!$item.hasClass("active")) {
 									self.hideAll($tabsScheme, function() {
 										self.show(itemDataFloor, $tabsScheme);
 									});
-
-
 								}
 								e.preventDefault();
 							}
@@ -1049,19 +1083,17 @@
 							var $item = $(this),
 								itemDataFloor = $item.val();
 
+							$(".scheme-inner-container svg").find("path[data-tooltip-element]").tooltipster('close');
 
 							if(!$tabsScheme.hasClass("inactive")) {
 								if(!$item.hasClass("active")) {
 									self.hideAll($tabsScheme, function() {
 										self.show(itemDataFloor, $tabsScheme);
 									});
-
-
 								}
 								e.preventDefault();
 							}
 						});
-
 
 					},
 
@@ -1099,7 +1131,6 @@
 							elementSvg = $("path", $allSvg),
 
 							cloneSvg= $(".scheme-inner-container-svg-clone>svg", $sel.body);
-
 
 						elementSvg.each(function() {
 							var item = $(this),

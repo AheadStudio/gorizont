@@ -923,7 +923,6 @@
             if (that.currentValue !== that.el.val() && !that.options.preserveInput) {
                 that.el.val(that.currentValue);
             }
-
             that.signalHint(null);
             that.suggestions = [];
             that.selection = suggestion;
