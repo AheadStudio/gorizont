@@ -571,38 +571,47 @@
 
 					$accordionItem.on("click", function(e) {
 						var $item = $(this),
-							itemColor = $item.data("color");
+								itemColor = $item.data("color");
 
 						if (!$item.hasClass("acordeon-container-item--active")) {
-							var curHeight = $item.height(),
-								autoHeight = $item.css("height", "auto").height();
-
-							$item.height(curHeight);
-
-							self.animateToggle($item.css("background", itemColor), autoHeight, 100, true);
-
-							self.animateToggle($item.siblings().css("background", "transparent"), curHeight, 100, false);
-
-							setTimeout(function() {
-								if ($(window).width() <= 768) {
-									setTimeout(function() {
-										GORIZONT.common.go($item.offset().top-90, 500);
-									}, 350);
-
-								} else {
-									setTimeout(function() {
-										GORIZONT.common.go($item.offset().top, 500);
-									}, 350);
-								}
-							}, 350);
-
-
-
+							self.showAccordion($item, itemColor);
 						} else if ($item.hasClass("acordeon-container-item--active")) {
-							self.animateToggle($item, "150px", 50, false);
+							self.hideAccordion($item, itemColor);
 						}
 					});
 
+				},
+
+				showAccordion: function($item, itemColor) {
+					var self = this,
+						curHeight = $item.height(),
+						autoHeight = $item.css("height", "auto").height();
+
+
+					$item.height(curHeight);
+
+					self.animateToggle($item.css("background", itemColor), autoHeight, 100, true);
+
+					self.animateToggle($item.siblings().css("background", "transparent"), curHeight, 100, false);
+
+					setTimeout(function() {
+						if ($(window).width() <= 768) {
+							setTimeout(function() {
+								GORIZONT.common.go($item.offset().top-90, 500);
+							}, 350);
+
+						} else {
+							setTimeout(function() {
+								GORIZONT.common.go($item.offset().top, 500);
+							}, 350);
+						}
+					}, 350);
+				},
+
+				hideAccordion: function($item, itemColor) {
+					var self = this;
+
+					self.animateToggle($item, "150px", 50, false);
 				},
 
 				animateToggle: function(block, heightElement, time, classElement) {
@@ -680,6 +689,11 @@
 						history.pushState( { urlPath: $(this).attr("href") } , "", $(this).attr("href") );
 						e.preventDefault();
 					});
+
+					urlPath = $sel.window[0].location.href;
+					page = $sel.window[0].location.pathname;
+
+					self.checkActiveShop(urlPath, page);
 				},
 
 				page: function(url) {
@@ -709,7 +723,94 @@
 						}, 200);
 
 					}, 320);
+				},
+
+				checkActiveShop: function(url, page) {
+					// объект для хранения параметров
+					var self = this,
+						obj = {};
+
+					// если есть строка запроса
+					if (url) {
+						try {
+							// получаем страничку
+							pageSplit = page.split("/");
+							namePage = pageSplit[pageSplit.length-1];
+
+							// разделяем параметры
+							url = url.replace("?", "&");
+
+							var arr = url.split("&");
+
+							obj["url"] = arr[0];
+
+							for (var i = 1; i < arr.length; i++) {
+								var a = arr[i].split('=');
+								// обработка данных вида: list[]=thing1&list[]=thing2
+								var paramNum = undefined;
+								var paramName = a[0].replace(/\[\d*\]/, function(v) {
+									paramNum = v.slice(1,-1);
+									return '';
+								});
+
+								// передача значения параметра ('true' если значение не задано)
+								var paramValue = typeof(a[1])==='undefined' ? true : a[1];
+
+								// преобразование регистра
+								paramName = paramName.toLowerCase();
+								paramValue = paramValue.toLowerCase();
+
+								// если ключ параметра уже задан
+								if (obj[paramName]) {
+
+									// преобразуем текущее значение в массив
+									if (typeof obj[paramName] === 'string') {
+										obj[paramName] = [obj[paramName]];
+									}
+									// если не задан индекс...
+									if (typeof paramNum === 'undefined') {
+										// помещаем значение в конец массива
+										obj[paramName].push(paramValue);
+									}
+									// если индекс задан...
+									else {
+										// размещаем элемент по заданному индексу
+										obj[paramName][paramNum] = paramValue;
+									}
+								}
+								// если параметр не задан, делаем это вручную
+								else {
+									obj[paramName] = paramValue;
+								}
+							}
+						} catch(error) {
+
+						}
+					};
+
+					console.log(obj);
+					console.log(namePage);
+
+					self.followElement(obj["itemshop"], namePage)
+
+				},
+
+				followElement: function(nameShop, namePage) {
+					if (namePage == "shops.html") {
+						var $elementShop = $sel.body.find("[data-shop-id=" + nameShop + "]");
+							elementShopColor = $elementShop.data("color");
+
+						GORIZONT.accordion.showAccordion($elementShop, elementShopColor);
+					}
+
+					if (namePage == "scheme.html") {
+						setTimeout(function() {
+							self.$svg = $(".scheme-inner-container svg");
+							GORIZONT.schema.searchElementSchema(nameShop);
+						}, 5800);
+					}
 				}
+
 			},
 
 			animateButton: function() {
