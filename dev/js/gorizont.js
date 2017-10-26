@@ -470,6 +470,8 @@
 						},
 						onSelect: function(suggestion, element) {
 							if(suggestion.data.id) {
+								self.$svg.find("path[data-tooltip-element]").tooltipster('close');
+
 								GORIZONT.schema.searchElementSchema(suggestion.data.id);
 							}
 						}
@@ -690,10 +692,11 @@
 						e.preventDefault();
 					});
 
-					urlPath = $sel.window[0].location.href;
+					hashPath = $sel.window[0].location.hash;
 					page = $sel.window[0].location.pathname;
 
-					self.checkActiveShop(urlPath, page);
+					self.checkActiveShop(hashPath, page);
+
 				},
 
 				page: function(url) {
@@ -725,22 +728,24 @@
 					}, 320);
 				},
 
-				checkActiveShop: function(url, page) {
+				checkActiveShop: function(hashPath, page) {
 					// объект для хранения параметров
 					var self = this,
 						obj = {};
 
 					// если есть строка запроса
-					if (url) {
+					if (hashPath) {
 						try {
 							// получаем страничку
 							pageSplit = page.split("/");
 							namePage = pageSplit[pageSplit.length-1];
 
-							// разделяем параметры
-							url = url.replace("?", "&");
+							// заменяем параметры
+							hashPath = hashPath.replace("?", "&");
+							hashPath = hashPath.replace("#", "&");
 
-							var arr = url.split("&");
+							// разделяем параметры
+							var arr = hashPath.split("&");
 
 							obj["url"] = arr[0];
 
@@ -786,30 +791,46 @@
 						} catch(error) {
 
 						}
+						self.followElement(obj["itemshop"], namePage);
+
 					};
-
-					console.log(obj);
-					console.log(namePage);
-
-					self.followElement(obj["itemshop"], namePage)
 
 				},
 
 				followElement: function(nameShop, namePage) {
-					if (namePage == "shops.html") {
+					if (namePage == "shops.html" || namePage == "entertainment.html" || namePage == "service.html") {
 						var $elementShop = $sel.body.find("[data-shop-id=" + nameShop + "]");
 							elementShopColor = $elementShop.data("color");
 
-						GORIZONT.accordion.showAccordion($elementShop, elementShopColor);
+						setTimeout(function() {
+							GORIZONT.accordion.showAccordion($elementShop, elementShopColor);
+						}, 500);
 					}
 
 					if (namePage == "scheme.html") {
 						setTimeout(function() {
 							self.$svg = $(".scheme-inner-container svg");
 							GORIZONT.schema.searchElementSchema(nameShop);
-						}, 5800);
+						}, 6000);
 					}
 				}
+
+			},
+
+			backLoad: function() {
+
+				$sel.window.on('popstate', function(e) {
+
+					page = $sel.window[0].location.pathname;
+
+					pageSplit = page.split("/");
+
+					namePage = pageSplit[pageSplit.length-1];
+
+					GORIZONT.load.page(namePage);
+
+					return;
+				});
 
 			},
 
@@ -971,6 +992,9 @@
 				searchElementSchema: function(shopId) {
 					var self = this;
 
+					self.$svg = $(".scheme-inner-container svg");
+					self.$oneScheme = $(".scheme-inner-container").find("svg:not(.scheme-inner-container-svg-clone svg)");
+
 					self.$svg.find("path").removeAttr("class");
 
 					$itemSvg = self.$oneScheme.find("path[data-tooltip-element=" + shopId + "]");
@@ -982,8 +1006,6 @@
 					if (!$itemSvg.parents(".scheme-inner-container-svg").hasClass("active")) {
 						self.toggleFloor.init(numFloor);
 					}
-
-					self.$svg.find("path[data-tooltip-element]").tooltipster('close');
 
 					setTimeout(function() {
 						self.$oneScheme.find("path[data-tooltip-element=" + shopId +"]").tooltipster('open');
@@ -1278,6 +1300,7 @@
 		};
 
 	})();
+	GORIZONT.backLoad();
 
 	GORIZONT.load.init();
 
@@ -1312,7 +1335,6 @@
 	GORIZONT.schema.init();
 
 	GORIZONT.reload = function() {
-		GORIZONT.load.init();
 
 		GORIZONT.scrollAnimation.init();
 
