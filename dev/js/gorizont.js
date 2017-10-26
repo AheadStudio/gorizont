@@ -142,7 +142,7 @@
 									setTimeout(function() {
 										$container.find(".load-events-item").removeClass("load-events-item");
 									}, 100);
-									GORIZONT.reload()
+									GORIZONT.reload();
 								}
 							})
 						})(href, $container);
@@ -332,7 +332,7 @@
 				                    }
 				                });
 
-								GORIZONT.reload()
+								GORIZONT.reload();
 				            },
 				        });
 
@@ -427,37 +427,61 @@
 								value: "Спортмастер",
 								data: {
 									id: "sportmaster",
-									category: "Магазин Спортмастер 1-этаж",
+									category: "1-этаж",
 								}
 							}, {
-								value: "Ostin",
+								value: "Медиа Маркт",
 								data: {
-									id: "ostin",
-									category: "Магазин Ostin 3-этаж"
+									id: "mediamarkt",
+									category: "3-этаж"
 								}
 							}, {
-								value: "Zolla",
+								value: "Zara",
 								data: {
-									id: "zolla",
-									category: "Магазин Zolla 1-этаж"
+									id: "zara",
+									category: "1-этаж"
 								}
 							}, {
 								value: "Adidas",
 								data: {
 									id: "adidas",
-									category: "Магазин Adidas 1-этаж"
+									category: "0-этаж"
 								}
 							}, {
-								value: "Nike",
+								value: "Детский мир 2",
 								data: {
-									id: "nike",
-									category: "Магазин Nike 3-этаж"
+									id: "childworld1",
+									category: "2-этаж"
+								}
+							}, {
+								value: "Детский мир 4",
+								data: {
+									id: "childworld2",
+									category: "4-этаж"
+								}
+							}, {
+								value: "Kari & Kari",
+								data: {
+									id: "karikari",
+									category: "4-этаж"
+								}
+							}, {
+								value: "Кидбург",
+								data: {
+									id: "kidburg",
+									category: "5-этаж"
+								}
+							}, {
+								value: "Планета боулинга",
+								data: {
+									id: "planetsbowling",
+									category: "6-этаж"
 								}
 							}, {
 								value: "H&M",
 								data: {
 									id: "HM",
-									category: "Магазин H&M 2-этаж"
+									category: "1-этаж"
 								}
 							}
 						],
@@ -470,8 +494,9 @@
 						},
 						onSelect: function(suggestion, element) {
 							if(suggestion.data.id) {
-								self.$svg.find("path[data-tooltip-element]").tooltipster('close');
+								self.$svg = $(".scheme-inner-container svg");
 
+								self.$svg.find("#scheme [data-tooltip-element]").tooltipster('close');
 								GORIZONT.schema.searchElementSchema(suggestion.data.id);
 							}
 						}
@@ -680,6 +705,7 @@
 
 			load: {
 				isLoad: false,
+
 				$content: null,
 
 				init: function() {
@@ -716,12 +742,14 @@
 								url: url,
 								success: function(html) {
 									self.isLoad = false;
+									self.isReload = true;
+
 									var $html = $('<div />').append(html);
 									self.$content.empty().append($html.find(".page-content-inner").html());
 									self.$content.removeClass("loading");
-
 									GORIZONT.reload();
-								}
+
+								},
 							});
 						}, 200);
 
@@ -804,14 +832,14 @@
 
 						setTimeout(function() {
 							GORIZONT.accordion.showAccordion($elementShop, elementShopColor);
-						}, 500);
+						}, 600);
 					}
 
 					if (namePage == "scheme.html") {
 						setTimeout(function() {
 							self.$svg = $(".scheme-inner-container svg");
 							GORIZONT.schema.searchElementSchema(nameShop);
-						}, 6000);
+						}, 6300);
 					}
 				}
 
@@ -827,7 +855,11 @@
 
 					namePage = pageSplit[pageSplit.length-1];
 
-					GORIZONT.load.page(namePage);
+					if (namePage != "scheme.html") {
+						GORIZONT.load.page(namePage);
+					} else {
+						$sel.window[0].location.reload();
+					}
 
 					return;
 				});
@@ -892,7 +924,7 @@
 								posQuatity = self.Zoom();
 								self.dragSchema(self.$svgContainer, self.$svg, posQuatity);
 
-								self.tooltip($("[data-tooltip-element]"));
+								self.tooltip($("#scheme [data-tooltip-element]", self.$svg));
 
 							}, 1800);
 
@@ -995,9 +1027,9 @@
 					self.$svg = $(".scheme-inner-container svg");
 					self.$oneScheme = $(".scheme-inner-container").find("svg:not(.scheme-inner-container-svg-clone svg)");
 
-					self.$svg.find("path").removeAttr("class");
+					self.$svg.find("#scheme [fill]").removeAttr("class");
 
-					$itemSvg = self.$oneScheme.find("path[data-tooltip-element=" + shopId + "]");
+					$itemSvg = self.$oneScheme.find("#scheme [data-tooltip-element=" + shopId + "]");
 
 					self.hoverElementSchema.init($itemSvg, false);
 
@@ -1008,7 +1040,7 @@
 					}
 
 					setTimeout(function() {
-						self.$oneScheme.find("path[data-tooltip-element=" + shopId +"]").tooltipster('open');
+						self.$oneScheme.find("[data-tooltip-element=" + shopId +"]").tooltipster('open');
 					}, 500);
 
 				},
@@ -1039,7 +1071,7 @@
 							return;
 						}
 
-						svg.find("path").each(function() {
+						svg.find("#scheme [fill]").each(function() {
 							var $elementSvg = $(this);
 
 							$($elementSvg).on("mouseenter", function() {
@@ -1051,8 +1083,11 @@
 									initColor = $hoverElementSvg.attr("fill");
 									$hoverElementSvg.attr("data-color", initColor);
 
-									changeColor = GORIZONT.schema.LightenDarkenColor.changeColor(initColor, -50);
-									$hoverElementSvg.attr("fill", changeColor);
+									if (initColor != "#ffffff") {
+										changeColor = GORIZONT.schema.LightenDarkenColor.changeColor(initColor, -50);
+										$hoverElementSvg.attr("fill", changeColor);
+									}
+
 								}
 
 							});
@@ -1190,7 +1225,7 @@
 							var $item = $(this),
 								itemDataFloor = $item.data("floor");
 
-							$(".scheme-inner-container svg").find("path[data-tooltip-element]").tooltipster('close');
+							$(".scheme-inner-container svg").find("[data-tooltip-element]").tooltipster('close');
 
 							if(!$tabsScheme.hasClass("inactive")) {
 								if(!$item.hasClass("active")) {
@@ -1206,7 +1241,7 @@
 							var $item = $(this),
 								itemDataFloor = $item.val();
 
-							$(".scheme-inner-container svg").find("path[data-tooltip-element]").tooltipster('close');
+							$(".scheme-inner-container svg").find("[data-tooltip-element]").tooltipster('close');
 
 							if(!$tabsScheme.hasClass("inactive")) {
 								if(!$item.hasClass("active")) {
@@ -1250,18 +1285,14 @@
 
 					init: function() {
 						var self = this,
-							$allSvg = $(".scheme-inner-container-svg").children("svg"),
-							elementSvg = $("path", $allSvg),
+							cloneSvg = $(".scheme-inner-container-svg-clone>svg #scheme [fill]", $sel.body);
 
-							cloneSvg= $(".scheme-inner-container-svg-clone>svg", $sel.body);
-
-						elementSvg.each(function() {
+						cloneSvg.each(function() {
 							var item = $(this),
-								idItem = item.attr("d"),
 								colorItem = item.attr("fill"),
 							    lightColor = self.changeColor(colorItem, -20);
 
-							$cloneLement = cloneSvg.find('path[d="' + idItem + '"]').attr("fill", lightColor);
+								$cloneLement = item.attr("fill", lightColor);
 
 						});
 					},
@@ -1335,6 +1366,7 @@
 	GORIZONT.schema.init();
 
 	GORIZONT.reload = function() {
+		GORIZONT.load.init();
 
 		GORIZONT.scrollAnimation.init();
 

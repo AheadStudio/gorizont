@@ -4219,7 +4219,7 @@ body
 				box-sizing border-box
 
 				cursor text
- 
+
 				p
 					display block
 					width 100%
@@ -4340,10 +4340,10 @@ body
 		left 125px
 		top -50px
 
-		display block
-
-		width 270px
-
+		display flex
+		flex-direction row-reverse
+		justify-content space-between
+		width 400px
 		z-index 10000
 
 		.scheme-information-floor-items
@@ -4358,7 +4358,7 @@ body
 				vertical-align top
 
 				margin-right 10px
-				margin-bottom 45px
+				margin-bottom 10px
 
 				padding 20px
 
@@ -4377,7 +4377,7 @@ body
 					opacity 0.8
 
 				&:last-child
-					margin-right 0
+					margin-bottom 45px
 
 				&.active
 					background $color-blue
@@ -4552,11 +4552,13 @@ body
 
 			transition transform 0.3s $cubic-transition
 
+			#scheme
+				path
+				rect
+				polygon
+					cursor pointer
 
-			path
-				cursor pointer
-
-				transition fill .3s $cubic-transition
+					transition fill .3s $cubic-transition
 
 
 
