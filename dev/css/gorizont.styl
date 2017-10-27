@@ -152,7 +152,13 @@ body
 		.header-logo
 			text-align center
 
+			.header-logo-link
+				display block
+				width 295px
+				margin 0 auto
 			.header-logo-img
+				display block
+				width 100%
 				position relative
 				margin 0 auto
 
@@ -4561,6 +4567,12 @@ body
 					transition fill .3s $cubic-transition
 
 
+		text
+			pointer-events none
+		svg
+			path[fill="#FFF"]
+			path[fill="#FFFFFF"]
+				pointer-events none
 
 	.scheme-controls
 		position absolute
